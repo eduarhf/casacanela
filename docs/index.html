@@ -1,130 +1,107 @@
 <!DOCTYPE html>
-<html lang="es-CL">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Casa Canela - Canela en Rama</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{
-          --bg:#F7F1E8; --card:#FFFDF8; --canela:#A67C52; --canela-dark:#8A6540;
-          --beige:#EDE3D3; --text:#2B2118; --muted:#7A6A58; --line:#E8DDCF;
-        }
-        body{background:var(--bg);font-family:Georgia,serif;color:var(--text);padding-bottom:90px}
-        .wrap{max-width:480px;margin:0 auto;background:var(--card);min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.08)}
-
-        /* HEADER MOVIL */
-        header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:#F8F0E5;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
-        .logo{font-size:26px;line-height:.9;font-weight:700}
-        .logo i{font-style:normal;font-size:15px}
-        .logo span{display:block}
-        .icons{display:flex;gap:16px;font-size:20px;align-items:center}
-        .cart{position:relative}
-        .cart b{position:absolute;top:-8px;right:-10px;background:var(--canela);color:#fff;font-size:11px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-family:Arial}
-
-        /* FOTO - PANTALLA COMPLETA ARRIBA */
-        .photo{margin:14px 14px 0;background:var(--beige);border-radius:18px;padding:12px;position:relative}
-        .photo img{width:100%;height:340px;object-fit:cover;border-radius:12px;display:block}
-        .badge{position:absolute;top:24px;left:24px;background:#C2A06B;color:#fff;font-family:Arial;font-size:11px;letter-spacing:1px;padding:8px 14px;border-radius:999px}
-
-        /* INFO */
-        .info{padding:18px 16px 8px}
-        .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-family:Arial;font-size:11px;letter-spacing:1.5px;margin-bottom:12px;background:#FFFBF5}
-        h1{font-size:28px;line-height:1.05;margin-bottom:8px}
-        .desc{font-family:Arial;color:#555;line-height:1.6;font-size:14px;margin-bottom:12px}
-        .stars{color:#C2A06B;letter-spacing:2px}
-        .stars small{color:var(--text);font-family:Arial;font-size:13px}
-        hr{border:none;border-top:1px solid var(--line);margin:16px 0}
-
-        /* GRAMAJE */
-        .label{font-family:Arial;font-size:12px;letter-spacing:1.5px;margin-bottom:10px}
-        .sizes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-        .sizes button{padding:14px 6px;border:1px solid #D9CBB6;background:#fff;border-radius:10px;font-size:16px;cursor:pointer;font-family:Georgia}
-        .sizes button.active{background:var(--canela);color:#fff;border-color:var(--canela)}
-        .price{text-align:center;font-size:32px;margin-top:16px}
-        .price small{display:block;font-family:Arial;font-size:12px;color:var(--muted);margin-top:4px;font-weight:400}
-        .secure{text-align:center;font-family:Arial;font-size:11px;color:#888;margin:12px 0;text-decoration:underline}
-        .features{display:flex;justify-content:space-between;font-family:Arial;font-size:12px;gap:6px;text-align:center}
-        .accord{margin:16px 16px 0;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
-        .accord details{padding:14px 16px;font-family:Arial;font-size:14px;border-bottom:1px solid var(--line)}
-        .accord details:last-child{border-bottom:none}
-        .accord summary{cursor:pointer;display:flex;justify-content:space-between;list-style:none}
-        .accord summary::-webkit-details-marker{display:none}
-        .accord p{font-size:13px;color:#666;margin-top:8px;line-height:1.5}
-
-        /* BOTON STICKY ABAJO - CLAVE MOVIL */
-        .sticky{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:auto;background:rgba(255,253,248,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center;z-index:20}
-        .sticky .mini-price{font-size:20px;white-space:nowrap}
-        .sticky .mini-price small{display:block;font-family:Arial;font-size:11px;color:var(--muted)}
-        .sticky button{flex:1;padding:15px;background:var(--canela);color:#fff;border:none;border-radius:12px;font-size:16px;cursor:pointer}
-
-        /* EN NOTEBOOK SE CENTRA Y SE VE COMO TARJETA */
-        @media(min-width:821px){
-          body{padding:20px;padding-bottom:100px}
-          .wrap{border-radius:22px;overflow:hidden}
-          .photo img{height:420px}
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Canela — Canela en Rama Premium</title>
+    <meta name="description" content="Canela en rama Ceylon, 100% orgánica. Envío a todo Chile.">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="wrap">
-    <header>
-        <div class="logo"><i>🌿🥢</i> Casa <span>Canela</span></div>
-        <div class="icons"><span>🔍</span><span>👤</span><span class="cart">🛒<b>3</b></span></div>
-    </header>
-
-    <div class="photo">
-        <span class="badge">BESTSELLER</span>
-        <img src="img/canela.jpg" alt="Canela en Rama Casa Canela">
-    </div>
-
-    <div class="info">
-        <span class="tag">CINNAMON • ARTISANAL</span>
-        <h1>Canela en Rama — Cinnamon Sticks</h1>
-        <p class="desc">Handpicked Ceylon cinnamon sticks, slow-dried to preserve warm, sweet-spiced aroma. Perfect for teas, baking, and cozy seasonal recipes.</p>
-        <div class="stars">★★★★★ <small>4.8 (124 reviews)</small></div>
-        <hr>
-        <div class="label">SIZE / GRAM</div>
-        <div class="sizes" id="sizes">
-            <button data-price="8.50">50g</button>
-            <button class="active" data-price="14.50">100g</button>
-            <button data-price="28.00">250g</button>
-        </div>
-        <div class="price">$<span id="price">14.50</span><small>Free shipping on orders over $40</small></div>
-        <div class="secure">Delicious. Fresh. Everyday Traditions.</div>
-        <hr>
-        <div class="features"><span>🌿 100% Organic</span><span>✋ Small Batch</span><span>🍃 No Additives</span></div>
-    </div>
-
-    <div class="accord">
-        <details><summary>Details <span>+</span></summary><p>Canela de Ceylán, secada lento, ideal para infusiones y repostería.</p></details>
-        <details><summary>Ingredients & Origins <span>+</span></summary><p>100% canela Ceylán. Origen: Sri Lanka. Sin aditivos.</p></details>
-    </div>
+<!-- OFERTA -->
+<div class="offer-bar">
+    ✨ OFERTA HOY — Envío a todo Chile 🇨🇱 &nbsp;|&nbsp; Despacho gratis sobre $40.000
 </div>
 
-<!-- BOTON FIJO ABAJO -->
-<div class="sticky">
-    <div class="mini-price">$<span id="price2">14.50</span><small>100g • Casa Canela</small></div>
-    <button id="addBtn">🛒 Add to Cart — $14.50</button>
-</div>
+<!-- HEADER -->
+<header class="topbar">
+    <a href="#" class="logo">
+        <span class="logo-icon">🌿🪵</span>
+        <span>Casa<br>Canela</span>
+    </a>
+    <nav class="nav">
+        <a href="#">SHOP</a><span>·</span>
+        <a href="#">NUTS</a><span>·</span>
+        <a href="#" class="active">CINNAMON</a><span>·</span>
+        <a href="#">ABOUT</a><span>·</span>
+        <a href="#">JOURNAL</a>
+    </nav>
+    <div class="header-icons">🔍 &nbsp; 👤 &nbsp; 🛒<span class="cart-badge">3</span></div>
+</header>
+
+<!-- PRODUCTO -->
+<main class="container">
+    <section class="product">
+
+        <!-- FOTO -->
+        <figure class="product-media">
+            <span class="bestseller">BESTSELLER</span>
+            <img src="https://images.unsplash.com/photo-1587132137059-28e5e6a3e1e2?q=80&w=1200&auto=format&fit=crop" alt="Frasco de vidrio con canela en rama Casa Canela">
+            <figcaption>100% Ceylon • Rama entera • Small Batch</figcaption>
+        </figure>
+
+        <!-- INFO -->
+        <article class="product-info">
+            <span class="pill">CINNAMON • ARTISANAL</span>
+            <h1>Canela en Rama —<br>Cinnamon Sticks</h1>
+            <p class="desc">Handpicked Ceylon cinnamon sticks, slow-dried to preserve warm, sweet-spiced aroma. Perfect for teas, baking, and cozy seasonal recipes.</p>
+
+            <div class="rating" aria-label="4.8 de 5">★★★★★ <span>4.8 (124 reviews)</span></div>
+
+            <p class="label">SIZE / GRAM</p>
+            <div class="sizes" role="group" aria-label="Elegir gramaje">
+                <button class="size-btn" onclick="cambiar(50,3990,this)">50g</button>
+                <button class="size-btn active" onclick="cambiar(100,6990,this)">100g</button>
+                <button class="size-btn" onclick="cambiar(250,13990,this)">250g</button>
+            </div>
+
+            <div class="price-row">
+                <span class="price" id="precio">$6.990</span>
+                <span class="price-clp">CLP</span>
+                <span class="stock">● En stock</span>
+            </div>
+            <p class="shipping">Despacho en 24-48 hrs • Santiago y Regiones</p>
+
+            <a id="btnMP" class="btn btn-mp" href="https://mpago.la/TU-LINK-100G" target="_blank" rel="noopener">
+                🛒 Pagar con Mercado Pago — $6.990
+            </a>
+            <a id="btnWA" class="btn btn-wa" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela!%20Quiero%20100g%20por%20$6.990" target="_blank" rel="noopener">
+                💬 Pedir por WhatsApp
+            </a>
+
+            <ul class="trust">
+                <li>🌿 100% Organic</li>
+                <li>✋ Small Batch</li>
+                <li>🍃 No Additives</li>
+            </ul>
+
+            <details class="accordion"><summary>Details <span>+</span></summary><p>Canela Ceylon en rama entera, sin moler, sin aditivos. Aroma cálido y dulce.</p></details>
+            <details class="accordion"><summary>Ingredients & Origins <span>+</span></summary><p>100% Cinnamomum verum, origen Sri Lanka, seleccionada a mano.</p></details>
+        </article>
+
+    </section>
+</main>
+
+<footer class="footer">Casa Canela © 2026 • Hecho con amor en Chile 🇨🇱</footer>
 
 <script>
-    const btns = document.querySelectorAll('#sizes button');
-    const priceEl = document.getElementById('price');
-    const price2 = document.getElementById('price2');
-    const addBtn = document.getElementById('addBtn');
-    btns.forEach(b => b.addEventListener('click', () => {
-      btns.forEach(x => x.classList.remove('active'));
-      b.classList.add('active');
-      priceEl.textContent = b.dataset.price;
-      price2.textContent = b.dataset.price;
-      addBtn.textContent = `🛒 Add to Cart — $${b.dataset.price}`;
-    }));
-    addBtn.addEventListener('click', () => {
-      addBtn.textContent = '✅ Agregado!';
-      setTimeout(()=> addBtn.textContent = `🛒 Add to Cart — $${priceEl.textContent}`, 1200);
-    });
+    function cambiar(gramos, precio, btn){
+      document.getElementById('precio').innerText = '$' + precio.toLocaleString('es-CL');
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const linksMP = {
+        50: 'https://mpago.la/TU-LINK-50G',
+        100: 'https://mpago.la/TU-LINK-100G',
+        250: 'https://mpago.la/TU-LINK-250G'
+      };
+      const btnMP = document.getElementById('btnMP');
+      btnMP.href = linksMP[gramos];
+      btnMP.innerText = '🛒 Pagar con Mercado Pago — $' + precio.toLocaleString('es-CL');
+      const numero = '569XXXXXXXX';
+      const msg = `Hola Casa Canela! Quiero ${gramos}g de Canela en Rama por $${precio.toLocaleString('es-CL')}`;
+      document.getElementById('btnWA').href = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+    }
 </script>
 </body>
 </html>
