@@ -1,42 +1,130 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Canela | Emporio Artesanal</title>
-    <link rel="stylesheet" href="css/casacanela.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Casa Canela - Canela en Rama</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+          --bg:#F7F1E8; --card:#FFFDF8; --canela:#A67C52; --canela-dark:#8A6540;
+          --beige:#EDE3D3; --text:#2B2118; --muted:#7A6A58; --line:#E8DDCF;
+        }
+        body{background:var(--bg);font-family:Georgia,serif;color:var(--text);padding-bottom:90px}
+        .wrap{max-width:480px;margin:0 auto;background:var(--card);min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.08)}
+
+        /* HEADER MOVIL */
+        header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:#F8F0E5;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+        .logo{font-size:26px;line-height:.9;font-weight:700}
+        .logo i{font-style:normal;font-size:15px}
+        .logo span{display:block}
+        .icons{display:flex;gap:16px;font-size:20px;align-items:center}
+        .cart{position:relative}
+        .cart b{position:absolute;top:-8px;right:-10px;background:var(--canela);color:#fff;font-size:11px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-family:Arial}
+
+        /* FOTO - PANTALLA COMPLETA ARRIBA */
+        .photo{margin:14px 14px 0;background:var(--beige);border-radius:18px;padding:12px;position:relative}
+        .photo img{width:100%;height:340px;object-fit:cover;border-radius:12px;display:block}
+        .badge{position:absolute;top:24px;left:24px;background:#C2A06B;color:#fff;font-family:Arial;font-size:11px;letter-spacing:1px;padding:8px 14px;border-radius:999px}
+
+        /* INFO */
+        .info{padding:18px 16px 8px}
+        .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-family:Arial;font-size:11px;letter-spacing:1.5px;margin-bottom:12px;background:#FFFBF5}
+        h1{font-size:28px;line-height:1.05;margin-bottom:8px}
+        .desc{font-family:Arial;color:#555;line-height:1.6;font-size:14px;margin-bottom:12px}
+        .stars{color:#C2A06B;letter-spacing:2px}
+        .stars small{color:var(--text);font-family:Arial;font-size:13px}
+        hr{border:none;border-top:1px solid var(--line);margin:16px 0}
+
+        /* GRAMAJE */
+        .label{font-family:Arial;font-size:12px;letter-spacing:1.5px;margin-bottom:10px}
+        .sizes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+        .sizes button{padding:14px 6px;border:1px solid #D9CBB6;background:#fff;border-radius:10px;font-size:16px;cursor:pointer;font-family:Georgia}
+        .sizes button.active{background:var(--canela);color:#fff;border-color:var(--canela)}
+        .price{text-align:center;font-size:32px;margin-top:16px}
+        .price small{display:block;font-family:Arial;font-size:12px;color:var(--muted);margin-top:4px;font-weight:400}
+        .secure{text-align:center;font-family:Arial;font-size:11px;color:#888;margin:12px 0;text-decoration:underline}
+        .features{display:flex;justify-content:space-between;font-family:Arial;font-size:12px;gap:6px;text-align:center}
+        .accord{margin:16px 16px 0;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
+        .accord details{padding:14px 16px;font-family:Arial;font-size:14px;border-bottom:1px solid var(--line)}
+        .accord details:last-child{border-bottom:none}
+        .accord summary{cursor:pointer;display:flex;justify-content:space-between;list-style:none}
+        .accord summary::-webkit-details-marker{display:none}
+        .accord p{font-size:13px;color:#666;margin-top:8px;line-height:1.5}
+
+        /* BOTON STICKY ABAJO - CLAVE MOVIL */
+        .sticky{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:auto;background:rgba(255,253,248,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));display:flex;gap:12px;align-items:center;z-index:20}
+        .sticky .mini-price{font-size:20px;white-space:nowrap}
+        .sticky .mini-price small{display:block;font-family:Arial;font-size:11px;color:var(--muted)}
+        .sticky button{flex:1;padding:15px;background:var(--canela);color:#fff;border:none;border-radius:12px;font-size:16px;cursor:pointer}
+
+        /* EN NOTEBOOK SE CENTRA Y SE VE COMO TARJETA */
+        @media(min-width:821px){
+          body{padding:20px;padding-bottom:100px}
+          .wrap{border-radius:22px;overflow:hidden}
+          .photo img{height:420px}
+        }
+    </style>
 </head>
 <body>
-<header class="hero">
-    <div class="badge">SGC • FÁBRICA LOCAL</div>
-    <h1>CASA<span>CANELA</span></h1>
-    <p>Emporio • Granel • Arte Puro</p>
-</header>
 
-<main class="grid">
-    <article class="card">
-        <div class="gram">G 50</div>
-        <h2>Canela de Ceylán</h2>
-        <p>Rama y polvo. Aroma dulce, origen real.</p>
-        <span class="price">$3.900</span>
-    </article>
-    <article class="card featured">
-        <div class="gram">G 100 • BEST</div>
-        <h2>Mix Emporio</h2>
-        <p>Canela + Anís + Clavo. Receta de la casa.</p>
-        <span class="price">$7.500</span>
-    </article>
-    <article class="card">
-        <div class="gram">G 250</div>
-        <h2>Granel Familiar</h2>
-        <p>Para tu cocina que huele a hogar.</p>
-        <span class="price">$12.900</span>
-    </article>
-</main>
+<div class="wrap">
+    <header>
+        <div class="logo"><i>🌿🥢</i> Casa <span>Canela</span></div>
+        <div class="icons"><span>🔍</span><span>👤</span><span class="cart">🛒<b>3</b></span></div>
+    </header>
 
-<footer>
-    <p>casacanela.netlify.app — vitrina estática • HTML5 + CSS3 • deploy vía GitHub</p>
-    <a href="#">WhatsApp Pedidos</a>
-</footer>
+    <div class="photo">
+        <span class="badge">BESTSELLER</span>
+        <img src="img/canela.jpg" alt="Canela en Rama Casa Canela">
+    </div>
+
+    <div class="info">
+        <span class="tag">CINNAMON • ARTISANAL</span>
+        <h1>Canela en Rama — Cinnamon Sticks</h1>
+        <p class="desc">Handpicked Ceylon cinnamon sticks, slow-dried to preserve warm, sweet-spiced aroma. Perfect for teas, baking, and cozy seasonal recipes.</p>
+        <div class="stars">★★★★★ <small>4.8 (124 reviews)</small></div>
+        <hr>
+        <div class="label">SIZE / GRAM</div>
+        <div class="sizes" id="sizes">
+            <button data-price="8.50">50g</button>
+            <button class="active" data-price="14.50">100g</button>
+            <button data-price="28.00">250g</button>
+        </div>
+        <div class="price">$<span id="price">14.50</span><small>Free shipping on orders over $40</small></div>
+        <div class="secure">Delicious. Fresh. Everyday Traditions.</div>
+        <hr>
+        <div class="features"><span>🌿 100% Organic</span><span>✋ Small Batch</span><span>🍃 No Additives</span></div>
+    </div>
+
+    <div class="accord">
+        <details><summary>Details <span>+</span></summary><p>Canela de Ceylán, secada lento, ideal para infusiones y repostería.</p></details>
+        <details><summary>Ingredients & Origins <span>+</span></summary><p>100% canela Ceylán. Origen: Sri Lanka. Sin aditivos.</p></details>
+    </div>
+</div>
+
+<!-- BOTON FIJO ABAJO -->
+<div class="sticky">
+    <div class="mini-price">$<span id="price2">14.50</span><small>100g • Casa Canela</small></div>
+    <button id="addBtn">🛒 Add to Cart — $14.50</button>
+</div>
+
+<script>
+    const btns = document.querySelectorAll('#sizes button');
+    const priceEl = document.getElementById('price');
+    const price2 = document.getElementById('price2');
+    const addBtn = document.getElementById('addBtn');
+    btns.forEach(b => b.addEventListener('click', () => {
+      btns.forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      priceEl.textContent = b.dataset.price;
+      price2.textContent = b.dataset.price;
+      addBtn.textContent = `🛒 Add to Cart — $${b.dataset.price}`;
+    }));
+    addBtn.addEventListener('click', () => {
+      addBtn.textContent = '✅ Agregado!';
+      setTimeout(()=> addBtn.textContent = `🛒 Add to Cart — $${priceEl.textContent}`, 1200);
+    });
+</script>
 </body>
 </html>
