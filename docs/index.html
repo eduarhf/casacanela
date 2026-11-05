@@ -3,104 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Canela — Canela en Rama Premium</title>
-    <meta name="description" content="Canela en rama Ceylon, 100% orgánica. Envío a todo Chile.">
+    <title>Casa Canela - Canela en Rama 100g</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+
+    <meta property="og:title" content="Canela en Rama 100g - Casa Canela">
+    <meta property="og:description" content="Canela Ceylon en rama entera, 100% orgánica. Envío a todo Chile.">
+    <meta property="og:image" content="https://eduarhf.github.io/casacanela/foto-canela.jpg">
+    <meta property="og:url" content="https://eduarhf.github.io/casacanela/">
+    <meta property="og:type" content="website">
 </head>
 <body>
 
-<!-- OFERTA -->
-<div class="offer-bar">
-    ✨ OFERTA HOY — Envío a todo Chile 🇨🇱 &nbsp;|&nbsp; Despacho gratis sobre $40.000
+<!-- STICKY TOP - JS SOLO PARA EFECTO -->
+<div class="sticky-top" id="stickyTop">
+    <header class="header">
+        <div class="logo">
+            <img src="logo-horizontal.png" alt="Casa Canela" class="logo-img">
+        </div>
+        <div class="search-row">
+            <button class="menu" onclick="toggleMenu()">☰</button>
+            <div class="search-box">
+                <!-- BUSCADOR CON HTMX -->
+                <input type="text" name="q" placeholder="Busque productos aquí..."
+                       hx-get="buscar.html"
+                       hx-trigger="keyup changed delay:300ms"
+                       hx-target="#resultados"
+                       hx-swap="innerHTML">
+                <span>🔍</span>
+            </div>
+            <span class="icon">👤</span>
+            <span class="icon cart" id="cartIcon">🛒<i id="cartCount">0</i></span>
+        </div>
+        <div id="resultados"></div>
+        <!-- Menú simple -->
+        <nav id="menuLinks" class="menu-links hidden">
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+    <div class="ship-bar">🚚 Despacho Sameday | Envíos a todo Chile 🇨🇱</div>
 </div>
 
-<!-- HEADER -->
-<header class="topbar">
-    <a href="#" class="logo">
-        <span class="logo-icon">🌿🪵</span>
-        <span>Casa<br>Canela</span>
-    </a>
-    <nav class="nav">
-        <a href="#">SHOP</a><span>·</span>
-        <a href="#">NUTS</a><span>·</span>
-        <a href="#" class="active">CINNAMON</a><span>·</span>
-        <a href="#">ABOUT</a><span>·</span>
-        <a href="#">JOURNAL</a>
-    </nav>
-    <div class="header-icons">🔍 &nbsp; 👤 &nbsp; 🛒<span class="cart-badge">3</span></div>
-</header>
+<nav class="crumb">Inicio › CANELA › CANELA EN RAMA › <b>Canela en Rama 100g</b></nav>
 
-<!-- PRODUCTO -->
 <main class="container">
-    <section class="product">
+    <p class="sku">SKU: CC-CAN-100G | CASA CANELA</p>
+    <h1 class="title">Canela en Rama<br>100g</h1>
 
-        <!-- FOTO -->
-        <figure class="product-media">
-            <span class="bestseller">BESTSELLER</span>
-            <img src="https://images.unsplash.com/photo-1587132137059-28e5e6a3e1e2?q=80&w=1200&auto=format&fit=crop" alt="Frasco de vidrio con canela en rama Casa Canela">
-            <figcaption>100% Ceylon • Rama entera • Small Batch</figcaption>
-        </figure>
+    <div class="gallery">
+        <span class="tag">BESTSELLER</span>
+        <img src="https://images.unsplash.com/photo-1587132137059-28e5e6a3e1e2?q=80&w=1000&auto=format&fit=crop" alt="Canela en Rama Casa Canela">
+    </div>
 
-        <!-- INFO -->
-        <article class="product-info">
-            <span class="pill">CINNAMON • ARTISANAL</span>
-            <h1>Canela en Rama —<br>Cinnamon Sticks</h1>
-            <p class="desc">Handpicked Ceylon cinnamon sticks, slow-dried to preserve warm, sweet-spiced aroma. Perfect for teas, baking, and cozy seasonal recipes.</p>
+    <p class="label">Elige tu formato:</p>
+    <!-- CAMBIO DE FORMATO CON HTMX -->
+    <div class="sizes">
+        <button hx-get="producto-50g.html" hx-target="#producto" hx-swap="innerHTML">50g</button>
+        <button hx-get="producto-100g.html" hx-target="#producto" hx-swap="innerHTML" class="active">100g</button>
+        <button hx-get="producto-250g.html" hx-target="#producto" hx-swap="innerHTML">250g</button>
+    </div>
 
-            <div class="rating" aria-label="4.8 de 5">★★★★★ <span>4.8 (124 reviews)</span></div>
+    <!-- ACÁ HTMX CARGA EL PRECIO + BOTONES -->
+    <div id="producto">
+        <div class="price">$6.990</div>
+        <p class="small">CLP • En stock • Despacho 24-48 hrs</p>
+        <a class="btn btn-mp" href="https://mpago.la/TU-LINK-100G" target="_blank">Pagar con Mercado Pago — $6.990</a>
+        <a class="btn btn-wa" href="https://wa.me/56935820289?text=Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20este%20producto.%3A%20Canela%20en%20Rama%20100g%20-%20https%3A%2F%2Feduarhf.github.io%2Fcasacanela%2F" target="_blank">Pedir por WhatsApp</a>
+        <button class="btn btn-cart" onclick="agregarCarrito()">Agregar al carrito 🛒</button>
+    </div>
 
-            <p class="label">SIZE / GRAM</p>
-            <div class="sizes" role="group" aria-label="Elegir gramaje">
-                <button class="size-btn" onclick="cambiar(50,3990,this)">50g</button>
-                <button class="size-btn active" onclick="cambiar(100,6990,this)">100g</button>
-                <button class="size-btn" onclick="cambiar(250,13990,this)">250g</button>
-            </div>
-
-            <div class="price-row">
-                <span class="price" id="precio">$6.990</span>
-                <span class="price-clp">CLP</span>
-                <span class="stock">● En stock</span>
-            </div>
-            <p class="shipping">Despacho en 24-48 hrs • Santiago y Regiones</p>
-
-            <a id="btnMP" class="btn btn-mp" href="https://mpago.la/TU-LINK-100G" target="_blank" rel="noopener">
-                🛒 Pagar con Mercado Pago — $6.990
-            </a>
-            <a id="btnWA" class="btn btn-wa" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela!%20Quiero%20100g%20por%20$6.990" target="_blank" rel="noopener">
-                💬 Pedir por WhatsApp
-            </a>
-
-            <ul class="trust">
-                <li>🌿 100% Organic</li>
-                <li>✋ Small Batch</li>
-                <li>🍃 No Additives</li>
-            </ul>
-
-            <details class="accordion"><summary>Details <span>+</span></summary><p>Canela Ceylon en rama entera, sin moler, sin aditivos. Aroma cálido y dulce.</p></details>
-            <details class="accordion"><summary>Ingredients & Origins <span>+</span></summary><p>100% Cinnamomum verum, origen Sri Lanka, seleccionada a mano.</p></details>
-        </article>
-
-    </section>
+    <p class="desc">Canela Ceylon en rama entera, aromática y fresca. Ideal para té, café, repostería y cocina. Seleccionada a mano, sin aditivos.</p>
 </main>
 
-<footer class="footer">Casa Canela © 2026 • Hecho con amor en Chile 🇨🇱</footer>
+<!-- WHATSAPP FLOTANTE -->
+<a id="waFloat" class="wa-float" href="https://wa.me/56935820289?text=Hola%20Casa%20Canela!%20Quiero%20saber%20m%C3%A1s" target="_blank">
+    <span class="wa-bubble">Envíanos un mensaje de WhatsApp ✕</span>
+    <span class="wa-icon">💬</span>
+</a>
 
 <script>
-    function cambiar(gramos, precio, btn){
-      document.getElementById('precio').innerText = '$' + precio.toLocaleString('es-CL');
-      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const linksMP = {
-        50: 'https://mpago.la/TU-LINK-50G',
-        100: 'https://mpago.la/TU-LINK-100G',
-        250: 'https://mpago.la/TU-LINK-250G'
-      };
-      const btnMP = document.getElementById('btnMP');
-      btnMP.href = linksMP[gramos];
-      btnMP.innerText = '🛒 Pagar con Mercado Pago — $' + precio.toLocaleString('es-CL');
-      const numero = '569XXXXXXXX';
-      const msg = `Hola Casa Canela! Quiero ${gramos}g de Canela en Rama por $${precio.toLocaleString('es-CL')}`;
-      document.getElementById('btnWA').href = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+    /* ========== JS SUELTO SOLO PARA EFECTOS - NO PARA DATOS ========== */
+
+    // 1. Sticky con sombra al bajar
+    window.addEventListener('scroll', () => {
+      document.getElementById('stickyTop').classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // 2. Menú hamburguesa
+    function toggleMenu(){
+      document.getElementById('menuLinks').classList.toggle('hidden');
+    }
+
+    // 3. Efecto al cambiar de formato con HTMX
+    document.body.addEventListener('htmx:afterSwap', function(e){
+      if(e.detail.target.id === 'producto'){
+        const box = document.getElementById('producto');
+        box.style.opacity = 0;
+        box.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          box.style.transition = 'all .25s ease';
+          box.style.opacity = 1;
+          box.style.transform = 'translateY(0)';
+        }, 10);
+        // Actualizar botón activo
+        document.querySelectorAll('.sizes button').forEach(b => b.classList.remove('active'));
+        // HTMX no sabe cuál apretaste, lo marcamos por el request
+        const url = e.detail.xhr.responseURL;
+        if(url.includes('50g')) document.querySelectorAll('.sizes button')[0].classList.add('active');
+        if(url.includes('100g')) document.querySelectorAll('.sizes button')[1].classList.add('active');
+        if(url.includes('250g')) document.querySelectorAll('.sizes button')[2].classList.add('active');
+      }
+    });
+
+    // 4. Carrito - solo efecto visual
+    let count = 0;
+    function agregarCarrito(){
+      count++;
+      document.getElementById('cartCount').innerText = count;
+      const cart = document.getElementById('cartIcon');
+      cart.style.transform = 'scale(1.3)';
+      setTimeout(()=> cart.style.transform = 'scale(1)', 200);
     }
 </script>
 </body>

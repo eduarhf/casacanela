@@ -60,3 +60,14 @@ a{color:inherit;text-decoration:none}
   .product-info h1{font-size:28px}
   .trust{flex-direction:column;gap:8px;text-align:center}
 }
+//test
+.sticky-top{position:sticky;top:0;z-index:100;background:#FFFCF6;transition:box-shadow .2s}
+.sticky-top.scrolled{box-shadow:0 4px 16px rgba(46,33,24,.12)}
+.logo-img{height:52px;object-fit:contain}
+.menu-links{display:flex;gap:16px;justify-content:center;padding:8px 0}
+.menu-links.hidden{display:none}
+.menu-links a{text-decoration:none;color:#2E2118;font-weight:700;font-size:14px}
+#resultados .result{display:block;background:#fff;padding:10px 12px;border:1px solid #E8DDC9;border-radius:8px;margin-top:6px;text-decoration:none;color:#2E2118;font-size:14px}
+.btn-cart{background:#fff;color:#2E2118;border:2px solid #2E2118}
+#producto{transition:all .25s ease}
+@media(max-width:760px){ .logo-img{height:40px} }
