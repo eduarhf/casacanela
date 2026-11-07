@@ -74,3 +74,20 @@ document.querySelectorAll(".tallas").forEach(grupo => {
 });
 
 console.log("Casa Canela lista 🍑 - JS puro cargado");
+
+// MENU HAMBURGUESA
+const btnMenu = document.getElementById('btn-menu');
+const menu = document.getElementById('menu');
+
+btnMenu.addEventListener('click', () => {
+  const abierto = menu.classList.toggle('abierto');
+  btnMenu.textContent = abierto ? '✕' : '☰';
+});
+
+// Cerrar al hacer click en un link
+menu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    menu.classList.remove('abierto');
+    btnMenu.textContent = '☰';
+  });
+});

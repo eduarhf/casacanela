@@ -1,33 +1,75 @@
-/* HEADER.CSS */
+/* HEADER.CSS - V2 con palitos de canela + hamburguesa */
 header{
   background: var(--beige-paper);
   border-bottom: 2px solid var(--borde);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  gap: 10px;
+  padding: 12px 16px;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 50;
 }
 
+/* LOGO - sin damasco, con palitos */
 .logo{
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 26px;
   font-weight: 700;
   color: var(--marron);
-}
-
-header nav{
-  display: flex;
-  gap: 16px;
-}
-
-header nav a{
-  color: var(--marron);
   text-decoration: none;
-  font-weight: 700;
-  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* PALITOS DE CANELA - CSS3 puro */
+.palitos{
+  position: relative;
+  width: 32px;
+  height: 28px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.palito{
+  position: absolute;
+  width: 7px;
+  height: 26px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #8B5A2B, #C08A4A 45%, #7A4A1F);
+  box-shadow: inset -1px 0 2px rgba(0,0,0,.25), 0 2px 4px rgba(0,0,0,.15);
+}
+
+.palito::after{
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: rgba(0,0,0,.18);
+  border-radius: 2px;
+}
+
+.palito.p1{ left: 2px; transform: rotate(-12deg); }
+.palito.p2{ left: 12px; transform: rotate(2deg); height: 28px; }
+.palito.p3{ left: 22px; transform: rotate(14deg); }
+
+/* BOTON HAMBURGUESA */
+.btn-menu{
+  display: none;
+  background: #fff;
+  border: 1.5px solid var(--borde);
+  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--marron);
 }
 
 .btn-carrito{
@@ -39,4 +81,26 @@ header nav a{
   font-size: 16px;
   font-weight: 800;
   cursor: pointer;
+  white-space: nowrap;
+}
+
+/* NAV DESKTOP */
+.menu-nav{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.menu-nav a{
+  color: var(--marron);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.btn-whatsapp-menu{
+  background: var(--verde-wa) !important;
+  color: #fff !important;
+  padding: 10px 14px !important;
+  border-radius: 999px !important;
 }
