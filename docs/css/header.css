@@ -1,6 +1,6 @@
 /* HEADER.CSS - V4 con logo real + hamburguesa izquierda */
 header{
-  background: #2E1F10;
+  background: var(--header); /* antes #2E1F10 suelto */
   border-bottom: 2px solid #1E130A;
   display: flex;
   align-items: center;
@@ -24,7 +24,8 @@ header{
 }
 .btn-menu span{
   display: block; width: 20px; height: 2px;
-  background: #FFF8E7; border-radius: 2px;
+  background: var(--crema); /* antes #FFF8E7 suelto */
+  border-radius: 2px;
   transition: all .25s ease;
 }
 .btn-menu span:nth-child(2){ width: 14px; margin-left: -6px; }
@@ -36,26 +37,26 @@ header{
   display: flex; align-items: center; gap: 8px;
   text-decoration: none; order: 2; flex: 1; justify-content: center;
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 22px; font-weight: 700; color: #FFF8E7;
+  font-size: 22px; font-weight: 700; color: var(--crema);
   white-space: nowrap;
 }
 .logo img{
   width: 44px; height: 44px;
-  object-fit: cover;
+  object-fit: contain; /* ANTES cover, te cortaba el logo */
   border-radius: 50%;
   background: #FFF8E7;
   padding: 2px;
   border: 1px solid rgba(255,255,255,.3);
 }
 .btn-carrito{
-  background: #FFF8E7; color: #2E1F10;
+  background: var(--crema); color: var(--header);
   border: none; border-radius: 999px;
   padding: 10px 14px; font-size: 15px; font-weight: 800;
   cursor: pointer; display: flex; align-items: center; gap: 6px;
   box-shadow: 0 4px 12px rgba(0,0,0,.2); order: 3;
 }
 .btn-carrito #contador{
-  background: #2E1F10; color: #FFF8E7;
+  background: var(--header); color: var(--crema);
   width: 22px; height: 22px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center; font-size: 13px;
 }
@@ -75,7 +76,7 @@ header{
 .menu-nav.abierto{ transform: translateX(0); }
 .menu-head{ text-align: center; margin-bottom: 18px; }
 .menu-head img{
-  width: 86px; height: 86px; object-fit: cover;
+  width: 86px; height: 86px; object-fit: contain;
   border-radius: 50%; margin: 0 auto 8px;
   background: #fff; padding: 3px; border: 1px solid var(--borde);
 }

@@ -16,9 +16,20 @@
   }
   .menu-head{ display: none; }
   .menu-nav a{
-    font-size: 15px; font-weight: 700; color: #FFF8E7;
+    font-size: 15px; font-weight: 700; color: var(--crema); /* antes #FFF8E7 suelto */
     border: none; padding: 0; font-family: 'Nunito', sans-serif;
   }
   .menu-nav .btn-whatsapp-menu{ margin-top: 0; padding: 10px 14px !important; }
-  .logo{ flex: 0; }
+  /* ARREGLO - antes .logo{ flex: 0; } solo, ahora orden correcto */
+  .logo{ flex: 0; order: 1; justify-content: flex-start; }
+  .btn-carrito{ order: 3; }
+
+  /* NUEVO - para que en PC no se vea todo en 1 columna */
+  .grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .productos{
+    padding: 36px 20px 10px;
+  }
 }
