@@ -1,0 +1,10 @@
+/* PRODUCTOS = GRID matriz */
+.productos{padding:10px 16px 32px}
+.productos h2{font-size:30px;text-align:center;margin-bottom:18px}
+.grid{display:grid;gap:16px}
+.card{background:#FFFDF5;border:1px solid var(--kraft);border-radius:20px;padding:16px;text-align:center}
+.card img{border-radius:14px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.card h3{margin:12px 0 4px;font-size:21px}
+.card p{font-size:15px;opacity:.85}
+.precio{font-size:24px;font-weight:bold;color:var(--naranja-osc);margin:10px 0}
+.card .btn{font-size:17px;padding:14px}

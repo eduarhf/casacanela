@@ -1,0 +1,9 @@
+/* BASE = variables + reset. Como tu config */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --crema:#FFF6E8; --kraft:#E8D5B5; --cafe:#3E2410;
+  --naranja:#E67E22; --naranja-osc:#C96F1A; --marron:#8B4513;
+  --wsp:#25D366; --wsp-osc:#1DA851;
+}
+body{font-family:Georgia,serif;background:var(--crema);color:var(--cafe);line-height:1.5}
+img{max-width:100%;display:block}

@@ -1,0 +1,23 @@
+/* HERO = Mobile-First, 1 columna */
+.hero{padding:28px 16px 20px}
+.hero h1{font-size:44px;line-height:.95;color:var(--marron)}
+.hero p{font-size:19px;margin:14px 0 18px;max-width:34ch}
+.badges{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px;font-weight:bold;margin-top:14px}
+
+/* BTN = componente reutilizable */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:bold;font-size:19px;padding:16px 20px;border-radius:999px;min-height:56px;width:100%;cursor:pointer;border:none}
+.btn-naranja{background:var(--naranja);color:#fff}
+.btn-naranja:active{background:var(--naranja-osc);transform:scale(.98)}
+
+.hero-img{margin:20px 16px 80px}
+.hero-img img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
+
+/* CTA FIJO = FLEX + FIXED. Verde = acción WhatsApp */
+.cta-fijo{
+  position:fixed;left:12px;right:12px;bottom:12px;z-index:20;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--wsp);color:#fff;text-decoration:none;
+  font-weight:bold;font-size:18px;padding:16px;border-radius:999px;
+  box-shadow:0 8px 20px rgba(0,0,0,.30);
+}
+.cta-fijo:active{background:var(--wsp-osc);transform:scale(.98)}

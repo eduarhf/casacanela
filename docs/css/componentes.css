@@ -1,0 +1,24 @@
+/* BOTONES: 56px mínimo = dedo. Sin esto, no es mobile-first */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:16px 24px;border-radius:999px;border:none;font-family:var(--font-ui);font-weight:700;font-size:17px;cursor:pointer;text-decoration:none}
+.btn-principal{background:var(--cafe);color:var(--blanco);width:100%}
+.btn-naranja{background:var(--naranja);color:#fff;width:100%}
+.btn-naranja:active{transform:scale(.97)}
+.btn-wsp{background:var(--wsp);color:#fff;flex:1}
+
+/* CARDS: sombra suave, no borde duro. Se siente premium */
+.card{background:var(--blanco);border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);position:relative}
+.card-destacada{outline:2px solid var(--naranja)}
+.etiqueta{position:absolute;top:12px;left:12px;background:var(--naranja);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;z-index:2}
+.card-body{padding:16px}
+.precio{font-size:26px;font-weight:800;color:var(--naranja-osc)}
+.precio-antiguo{text-decoration:line-through;opacity:.5;margin-left:8px}
+
+/* BARRA PEDIDO: la cáscara del checkout futuro */
+.barra-pedido{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  background:rgba(255,255,255,.95);backdrop-filter:blur(10px);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom)); /* safe-area = no tapa botón de iPhone */
+  display:flex;gap:12px;align-items:center;
+  border-top:1px solid var(--kraft);
+  box-shadow:0 -4px 20px rgba(0,0,0,.08);
+}

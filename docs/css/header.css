@@ -1,0 +1,11 @@
+/* HEADER = FLEX: [logo] ... [nav] [carrito] */
+header{
+  position:sticky;top:0;z-index:10;background:var(--kraft);
+  padding:14px 16px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-size:24px;font-weight:bold;font-style:italic}
+nav{display:none}
+.btn-carrito{
+  background:#fff;border:2px solid var(--naranja);border-radius:999px;
+  padding:8px 14px;font-size:16px;font-weight:bold;cursor:pointer;
+}

@@ -3,82 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Canela | Mermelada de Damasco Casera en Santiago</title>
-    <meta name="description" content="Mermelada de damasco artesanal, del árbol de nuestra casa. Sin conservantes, lote pequeño. Pide por WhatsApp en Santiago.">
-    <style>
-        /* MOBILE FIRST - todo esto es para celular */
-        *{margin:0;padding:0;box-sizing:border-box}
-        :root{
-          --crema:#FFF6E8; --kraft:#E8D5B5; --cafe:#3E2410;
-          --naranja:#E67E22; --naranja-osc:#C96F1A; --marron:#8B4513;
-        }
-        body{font-family:Georgia,serif;background:var(--crema);color:var(--cafe);line-height:1.5;-webkit-text-size-adjust:100%}
-        img{max-width:100%;display:block}
-
-        /* Header pegado arriba */
-        header{position:sticky;top:0;z-index:10;background:var(--kraft);padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
-        .logo{font-size:24px;font-weight:bold;font-style:italic;white-space:nowrap}
-        .logo span{font-style:normal}
-        nav{display:none} /* en celular no mostramos menú, solo botón */
-
-        /* Hero - primero texto, después foto */
-        .hero{padding:28px 16px 20px}
-        .hero h1{font-size:44px;line-height:0.95;color:var(--marron)}
-        .hero p{font-size:19px;margin:14px 0 18px;max-width:34ch}
-        .badges{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px;font-weight:bold;margin-top:14px}
-        .btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--naranja);color:#fff;text-decoration:none;font-weight:bold;font-size:19px;padding:16px 20px;border-radius:999px;min-height:56px;width:100%;text-align:center}
-        .btn:active{background:var(--naranja-osc);transform:scale(.98)}
-        .hero-img{margin:20px 16px 0}
-        .hero-img img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
-
-        /* Productos - una tarjeta abajo de la otra */
-        .productos{padding:32px 16px}
-        .productos h2{font-size:30px;text-align:center;margin-bottom:18px}
-        .grid{display:grid;gap:16px}
-        .card{background:#FFFDF5;border:1px solid var(--kraft);border-radius:20px;padding:16px;text-align:center}
-        .card img{border-radius:14px;aspect-ratio:4/3;object-fit:cover;width:100%}
-        .card h3{margin:12px 0 4px;font-size:21px}
-        .card p{font-size:15px;opacity:.85}
-        .precio{font-size:24px;font-weight:bold;color:var(--naranja-osc);margin:10px 0}
-        .card .btn{font-size:17px;padding:14px}
-
-        /* Historia */
-        .historia{background:#F5E6C8;padding:32px 16px}
-        .historia h2{font-size:28px;margin-bottom:10px}
-        .historia p{font-size:16.5px}
-        .historia img{border-radius:18px;margin-top:16px;aspect-ratio:4/3;object-fit:cover}
-
-        footer{background:#4A2C12;color:var(--crema);text-align:center;padding:24px 16px 110px;font-size:14px}
-
-        /* Botón flotante WhatsApp - clave en mobile */
-        .cta-fijo{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;background:var(--naranja);color:#fff;text-decoration:none;text-align:center;font-weight:bold;font-size:18px;padding:16px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.25)}
-
-        /* DESKTOP - solo si la pantalla es grande, estiramos */
-        @media(min-width:768px){
-          header{padding:18px 5%}
-          nav{display:flex;gap:24px}
-          nav a{color:var(--cafe);text-decoration:none;font-weight:bold}
-          .hero{max-width:1100px;margin:0 auto;padding:60px 5%;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
-          .hero h1{font-size:72px}
-          .hero p{font-size:21px}
-          .btn{width:auto;display:inline-flex;padding:16px 32px}
-          .hero-img{margin:0;max-width:1100px;margin:0 auto;padding:0 5%}
-          .hero-img img{aspect-ratio:16/9}
-          .productos{max-width:1100px;margin:0 auto;padding:60px 5%}
-          .grid{grid-template-columns:repeat(3,1fr)}
-          .historia{padding:60px 5%}
-          .historia>div{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-          .historia img{margin:0}
-          .cta-fijo{display:none}
-          footer{padding-bottom:28px}
-        }
-    </style>
+    <title>Casa Canela | Mermelada de Damasco Casera</title>
+    <meta name="description" content="Mermelada de damasco artesanal, del árbol de nuestra casa.">
+    <!-- CSS POR MODULOS - orden importa: base primero, responsive al final -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/productos.css">
+    <link rel="stylesheet" href="css/historia.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
 <header>
     <div class="logo">🍑 Casa Canela</div>
-    <nav><a href="#productos">Productos</a><a href="#historia">Historia</a></nav>
+    <nav>
+        <a href="#productos">Productos</a>
+        <a href="#historia">Historia</a>
+    </nav>
+    <!-- CARRITO JS PURO: contador -->
+    <button id="btn-carrito" class="btn-carrito">🧺 <span id="contador">0</span></button>
 </header>
 
 <main>
@@ -86,46 +30,47 @@
         <div>
             <h1>Casa Canela</h1>
             <p>Mermelada de damasco casera, hecha con damascos del árbol de nuestra casa. Sin conservantes, lote pequeño, sabor de verdad.</p>
-            <a class="btn" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela,%20quiero%20pedir%20mermelada">Pedir por WhatsApp</a>
+            <a class="btn btn-naranja" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela">Pedir por WhatsApp</a>
             <div class="badges"><span>✔ Artesanal</span><span>✔ Sin conservantes</span><span>✔ Hecho en Chile</span></div>
         </div>
     </section>
 
-    <div class="hero-img">
-        <img src="frasco.jpg" alt="Mermelada de damasco casera Casa Canela en frasco de vidrio">
-    </div>
+    <div class="hero-img"><img src="frasco.jpg" alt="Mermelada de damasco casera"></div>
 
     <section class="productos" id="productos">
         <h2>Nuestros Productos</h2>
         <div class="grid">
-            <article class="card">
+            <!-- data-* = como pasar props sin framework. JS lee esto. -->
+            <article class="card" data-nombre="Mermelada de Damasco" data-precio="5500">
                 <img src="frasco.jpg" alt="Mermelada de damasco tradicional">
                 <h3>Mermelada de Damasco</h3><p>380g - damascos 100% naturales</p>
                 <div class="precio">$5.500 CLP</div>
-                <a class="btn" href="https://wa.me/569XXXXXXXX?text=Quiero%20la%20Mermelada%20de%20Damasco">Agregar al pedido</a>
+                <button class="btn btn-naranja btn-agregar">Agregar al pedido</button>
             </article>
-            <article class="card">
-                <img src="frasco.jpg" alt="Mermelada de damasco con jengibre">
+
+            <article class="card" data-nombre="Damasco con Jengibre" data-precio="5800">
+                <img src="frasco.jpg" alt="Mermelada con jengibre">
                 <h3>Damasco con Jengibre</h3><p>380g - toque de jengibre fresco</p>
                 <div class="precio">$5.800 CLP</div>
-                <a class="btn" href="https://wa.me/569XXXXXXXX?text=Quiero%20la%20de%20Jengibre">Agregar al pedido</a>
+                <button class="btn btn-naranja btn-agregar">Agregar al pedido</button>
             </article>
-            <article class="card">
+
+            <article class="card" data-nombre="Pack Dúo Regalo" data-precio="10000">
                 <img src="frasco.jpg" alt="Pack duo regalo">
                 <h3>Pack Dúo Regalo</h3><p>2 x 280g - ideal para regalar</p>
                 <div class="precio">$10.000 CLP</div>
-                <a class="btn" href="https://wa.me/569XXXXXXXX?text=Quiero%20el%20Pack%20Duo">Agregar al pedido</a>
+                <button class="btn btn-naranja btn-agregar">Agregar al pedido</button>
             </article>
         </div>
     </section>
 
     <section class="historia" id="historia">
-        <div>
+        <div class="historia-grid">
             <div>
                 <h2>Historia del árbol de la casa</h2>
-                <p>Hace más de 40 años nuestro damasco fue plantado en el patio. Cada verano nos regala frutos dulces y dorados, cosechados a mano. Casa Canela nace de esa cosecha.</p>
+                <p>Hace más de 40 años nuestro damasco fue plantado en el patio. Cada verano nos regala frutos dulces y dorados, cosechados a mano.</p>
             </div>
-            <img src="arbol.jpg" alt="Árbol de damasco cargado de fruta">
+            <img src="arbol.jpg" alt="Árbol de damasco">
         </div>
     </section>
 </main>
@@ -135,7 +80,10 @@
     <p>Santiago, Chile - Pedidos por WhatsApp</p>
 </footer>
 
-<a class="cta-fijo" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela,%20quiero%20pedir">Pedir por WhatsApp 🟢</a>
+<!-- CTA FLOTANTE: JS lo actualiza con el carrito -->
+<a id="cta-fijo" class="cta-fijo" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela">💬 Pedir por WhatsApp</a>
 
+<!-- JS PURO AL FINAL: el DOM ya existe cuando corre -->
+<script src="js/app.js"></script>
 </body>
 </html>
