@@ -1,15 +1,24 @@
-/* HERO.CSS */
+/* HERO.CSS - V5 con espacio para logo montado */
 .hero{
-  padding: 36px 18px 16px;
+  padding: 96px 18px 16px; /* ANTES 36px, ahora 96px para que el logo gigante no tape el título */
   text-align: center;
 }
 
 .hero h1{
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 44px;
+  font-size: 48px; /* ANTES 44px, un poquito más protagonista como en el mockup */
   line-height: 1.1;
   color: var(--marron);
-  margin-bottom: 12px;
+  margin-bottom: 6px; /* ANTES 12px, más pegado al subtítulo */
+}
+
+/* NUEVO - subtítulo estilo mockup "mermelada casera" */
+.hero .subtitulo{
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--marron-light);
+  margin-bottom: 14px;
 }
 
 .hero p{

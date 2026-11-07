@@ -1,17 +1,19 @@
-/* HEADER.CSS - V4 con logo real + hamburguesa izquierda */
-header{
-  background: var(--header); /* antes #2E1F10 suelto */
-  border-bottom: 2px solid #1E130A;
+/* HEADER.CSS - V5 logo gigante montado */
+.header-pro{
+  background: #2E1F10;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 10px 14px;
+  padding: 14px 14px 28px; /* más abajo para que quepa el logo */
   position: sticky;
   top: 0;
   z-index: 50;
   box-shadow: 0 4px 18px rgba(0,0,0,.18);
+  overflow: visible;
 }
+
+/* hamburguesa igual que antes */
 .btn-menu{
   background: rgba(255,248,231,.08);
   border: 1px solid rgba(255,255,255,.15);
@@ -24,7 +26,7 @@ header{
 }
 .btn-menu span{
   display: block; width: 20px; height: 2px;
-  background: var(--crema); /* antes #FFF8E7 suelto */
+  background: var(--crema);
   border-radius: 2px;
   transition: all .25s ease;
 }
@@ -33,21 +35,27 @@ header{
 .btn-menu.abierto span:nth-child(2){ opacity: 0; }
 .btn-menu.abierto span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
 
-.logo{
-  display: flex; align-items: center; gap: 8px;
-  text-decoration: none; order: 2; flex: 1; justify-content: center;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 22px; font-weight: 700; color: var(--crema);
-  white-space: nowrap;
+/* LOGO GIGANTE MONTADO */
+.logo-pro{
+  order: 2;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  /* lo bajamos para que quede montado */
+  margin-bottom: -78px;
 }
-.logo img{
-  width: 44px; height: 44px;
-  object-fit: contain; /* ANTES cover, te cortaba el logo */
+.logo-pro img{
+  width: 118px; height: 118px;
+  object-fit: contain;
   border-radius: 50%;
   background: #FFF8E7;
-  padding: 2px;
-  border: 1px solid rgba(255,255,255,.3);
+  padding: 6px;
+  border: 3px solid #C9A86A; /* dorado */
+  box-shadow: 0 0 0 4px rgba(255,248,231,.12), 0 12px 24px rgba(0,0,0,.35);
 }
+
+/* carrito igual */
 .btn-carrito{
   background: var(--crema); color: var(--header);
   border: none; border-radius: 999px;
@@ -60,7 +68,8 @@ header{
   width: 22px; height: 22px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center; font-size: 13px;
 }
-/* MENU casi pantalla completa */
+
+/* MENU casi pantalla completa - igual que antes */
 .menu-nav{
   display: flex; flex-direction: column; gap: 6px;
   position: fixed; top: 0; left: 0; bottom: 0;
