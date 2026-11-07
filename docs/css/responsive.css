@@ -1,58 +1,24 @@
-/* RESPONSIVE.CSS - siempre último */
-@media (min-width: 768px){
-  .hero h1{ font-size: 56px; }
-  .hero-img img{ height: 340px; }
-  .grid{ grid-template-columns: repeat(3, 1fr); }
-  .historia-grid{
-    flex-direction: row;
-    align-items: center;
-  }
-  .historia-grid > div{ flex: 1; }
-  .historia-grid img{ width: 45%; height: 260px; }
-}
-
-@media (max-width: 600px){
-  header nav{ display: none; }
-  .hero h1{ font-size: 36px; }
-}
-
-/* MENU HAMBURGUESA MOVIL - mismo café suavizado */
+/* RESPONSIVE.CSS - V4 */
 @media (max-width: 768px){
-  .btn-menu{ display: flex; align-items: center; justify-content: center; }
-
+  .logo{ font-size: 20px; }
+  .logo img{ width: 40px; height: 40px; }
+  .btn-carrito{ padding: 9px 12px; font-size: 14px; }
+  .menu-nav{ width: 92%; }
+}
+@media (min-width: 769px){
+  .btn-menu{ display: none; }
   .menu-nav{
-    display: none;
-    position: fixed;
-    top: 68px;
-    left: 12px;
-    right: 12px;
-    background: #FFF9E8; /* menú sí clarito para leer bien */
-    border: 1px solid var(--borde);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(90,59,34,.20);
-    padding: 22px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    z-index: 60;
+    position: static; transform: none;
+    width: auto; max-width: none; box-shadow: none;
+    background: transparent; padding: 0;
+    flex-direction: row; align-items: center; gap: 18px;
+    border-radius: 0; order: 2;
   }
-
-  .menu-nav.abierto{ display: flex; }
-
+  .menu-head{ display: none; }
   .menu-nav a{
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 28px;
-    font-weight: 500;
-    color: #3E2A1F; /* en el menú claro, texto oscuro */
-    padding: 6px 0;
+    font-size: 15px; font-weight: 700; color: #FFF8E7;
+    border: none; padding: 0; font-family: 'Nunito', sans-serif;
   }
-
-  .menu-nav .btn-whatsapp-menu{
-    font-family: 'Nunito', sans-serif !important;
-    font-size: 18px !important;
-    font-weight: 800 !important;
-    text-align: center;
-    margin-top: 10px;
-    color: #fff !important;
-  }
+  .menu-nav .btn-whatsapp-menu{ margin-top: 0; padding: 10px 14px !important; }
+  .logo{ flex: 0; }
 }

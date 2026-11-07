@@ -16,27 +16,29 @@
 <body>
 
 <header>
+    <button id="btn-menu" class="btn-menu" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+    </button>
+
     <a href="#" class="logo">
-    <span class="palitos" aria-hidden="true">
-      <span class="palito p1"></span>
-      <span class="palito p2"></span>
-      <span class="palito p3"></span>
-    </span>
-        Casa Canela
+        <img src="logo-casa-canela.png" alt="Casa Canela - natural foods">
+        <span>Casa Canela</span>
     </a>
 
-    <button id="btn-menu" class="btn-menu" aria-label="Abrir menú">☰</button>
+    <button id="btn-carrito" class="btn-carrito">🧺 <span id="contador">2</span></button>
 
     <nav id="menu" class="menu-nav">
+        <div class="menu-head">
+            <img src="logo-casa-canela.png" alt="Casa Canela">
+            <p>Casa Canela</p>
+            <span>natural foods</span>
+        </div>
         <a href="#productos">Productos</a>
         <a href="#historia">Historia</a>
         <a href="#pedidos">Pedidos</a>
         <a href="#contacto">Contacto</a>
         <a class="btn-whatsapp-menu" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela">Contactar por WhatsApp</a>
     </nav>
-
-    <!-- CARRITO JS PURO -->
-    <button id="btn-carrito" class="btn-carrito">🧺 <span id="contador">1</span></button>
 </header>
 
 <main>

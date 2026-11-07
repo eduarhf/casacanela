@@ -17,6 +17,9 @@
   --naranja: #E8833A;
   --naranja-osc: #D06F28;
   --sombra: 0 10px 30px rgba(62,42,31,.12);
+  /* NUEVO - solo 2 líneas para el header oscuro */
+  --header: #2E1F10;
+  --crema: #FFF8E7;
 }
 
 *{
@@ -29,7 +32,7 @@ body{
   background: var(--beige);
   color: var(--marron);
   font-family: 'Nunito', system-ui, sans-serif;
-  padding-bottom: 90px;
+  padding-bottom: 20px; /* ANTES 90px, ahora 20px porque el WhatsApp ya no es barra gigante */
 }
 
 footer{
