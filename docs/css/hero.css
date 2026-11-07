@@ -1,18 +1,19 @@
-/* HERO = Mobile-First, 1 columna */
+/* HERO V3 */
 .hero{padding:28px 16px 20px}
-.hero h1{font-size:44px;line-height:.95;color:var(--marron)}
-.hero p{font-size:19px;margin:14px 0 18px;max-width:34ch}
-.badges{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px;font-weight:bold;margin-top:14px}
+.hero h1{font-size:44px;line-height:.95;color:var(--cafe)}
+.hero p{font-size:19px;margin:14px 0 18px;max-width:34ch;color:var(--marron)}
+.eyebrow{font-size:12px;letter-spacing:2px;font-weight:bold;color:var(--canela);text-transform:uppercase;font-family:system-ui,sans-serif}
+.badges{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px;font-weight:bold;margin-top:14px;color:var(--cafe)}
 
-/* BTN = componente reutilizable */
+/* BOTONES V3 - ya no naranja, ahora canela */
 .btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:bold;font-size:19px;padding:16px 20px;border-radius:999px;min-height:56px;width:100%;cursor:pointer;border:none}
-.btn-naranja{background:var(--naranja);color:#fff}
-.btn-naranja:active{background:var(--naranja-osc);transform:scale(.98)}
+.btn-naranja{background:var(--canela);color:#fff}
+.btn-naranja:active{background:var(--canela-osc);transform:scale(.98)}
 
 .hero-img{margin:20px 16px 80px}
 .hero-img img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
 
-/* CTA FIJO = FLEX + FIXED. Verde = acción WhatsApp */
+/* CTA FIJO */
 .cta-fijo{
   position:fixed;left:12px;right:12px;bottom:12px;z-index:20;
   display:flex;align-items:center;justify-content:center;gap:8px;

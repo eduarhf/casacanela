@@ -1,4 +1,4 @@
-/* RESPONSIVE = solo IF (width >= 768px). Nada más aquí. */
+/* RESPONSIVE V3 - solo desktop */
 @media(min-width:768px){
   header{padding:18px 5%}
   nav{display:flex;gap:24px}

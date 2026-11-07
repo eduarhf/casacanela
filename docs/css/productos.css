@@ -1,10 +1,19 @@
-/* PRODUCTOS = GRID matriz */
+/* PRODUCTOS V3 - estilo card de la foto */
 .productos{padding:10px 16px 32px}
-.productos h2{font-size:30px;text-align:center;margin-bottom:18px}
+.productos h2{font-size:30px;text-align:center;margin-bottom:6px;color:var(--cafe)}
+.sub-seccion{text-align:center;color:var(--marron);margin-bottom:18px}
 .grid{display:grid;gap:16px}
-.card{background:#FFFDF5;border:1px solid var(--kraft);border-radius:20px;padding:16px;text-align:center}
+.card{background:#FFFDF5;border:1px solid var(--borde);border-radius:20px;padding:16px;text-align:center;position:relative}
+.card-destacada{outline:2px solid var(--canela)}
+.etiqueta{position:absolute;top:12px;left:12px;background:var(--canela);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1px}
 .card img{border-radius:14px;aspect-ratio:4/3;object-fit:cover;width:100%}
-.card h3{margin:12px 0 4px;font-size:21px}
-.card p{font-size:15px;opacity:.85}
-.precio{font-size:24px;font-weight:bold;color:var(--naranja-osc);margin:10px 0}
+.card h3{margin:12px 0 4px;font-size:21px;color:var(--cafe)}
+.card p{font-size:15px;opacity:.85;color:var(--marron)}
+.precio{font-size:24px;font-weight:bold;color:var(--canela-osc);margin:10px 0}
+.precio-antiguo{text-decoration:line-through;opacity:.5;font-size:16px;margin-left:6px}
 .card .btn{font-size:17px;padding:14px}
+
+/* SELECTOR DE TAMAÑO - como el 50g / 100g / 250g de la foto */
+.tallas{display:flex;gap:8px;margin:12px 0}
+.talla{flex:1;padding:12px;border:1.5px solid var(--borde);border-radius:12px;background:#fff;cursor:pointer;font-weight:700;color:var(--cafe);font-family:system-ui,sans-serif}
+.talla.activa{background:var(--canela);color:#fff;border-color:var(--canela)}

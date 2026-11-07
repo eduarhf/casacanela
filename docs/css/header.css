@@ -1,11 +1,13 @@
-/* HEADER = FLEX: [logo] ... [nav] [carrito] */
+/* HEADER V3 */
 header{
-  position:sticky;top:0;z-index:10;background:var(--kraft);
+  position:sticky;top:0;z-index:10;background:var(--crema);
   padding:14px 16px;display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--borde);
 }
-.logo{font-size:24px;font-weight:bold;font-style:italic}
+.logo{font-size:24px;font-weight:bold;font-style:italic;color:var(--cafe);line-height:1}
+.logo span{font-size:13px;display:block;font-style:normal;font-weight:normal;letter-spacing:2px;text-transform:uppercase;color:var(--canela)}
 nav{display:none}
 .btn-carrito{
-  background:#fff;border:2px solid var(--naranja);border-radius:999px;
-  padding:8px 14px;font-size:16px;font-weight:bold;cursor:pointer;
+  background:#fff;border:1.5px solid var(--canela);border-radius:999px;
+  padding:8px 14px;font-size:16px;font-weight:bold;cursor:pointer;color:var(--cafe);
 }

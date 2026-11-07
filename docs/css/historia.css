@@ -1,6 +1,6 @@
-/* HISTORIA + FOOTER */
-.historia{background:#F5E6C8;padding:32px 16px}
-.historia h2{font-size:28px;margin-bottom:10px}
-.historia p{font-size:16.5px}
+/* HISTORIA + FOOTER V3 */
+.historia{background:var(--kraft);padding:32px 16px}
+.historia h2{font-size:28px;margin-bottom:10px;color:var(--cafe)}
+.historia p{font-size:16.5px;color:var(--marron)}
 .historia img{border-radius:18px;margin-top:16px;aspect-ratio:4/3;object-fit:cover}
-footer{background:#4A2C12;color:var(--crema);text-align:center;padding:24px 16px 110px;font-size:14px}
+footer{background:#3B2A1A;color:var(--crema);text-align:center;padding:24px 16px 110px;font-size:14px}

@@ -63,4 +63,14 @@ document.querySelectorAll('nav a').forEach(link => {
   });
 });
 
+// Selector de tallas - V3
+document.querySelectorAll(".tallas").forEach(grupo => {
+  grupo.querySelectorAll(".talla").forEach(btn => {
+    btn.addEventListener("click", () => {
+      grupo.querySelectorAll(".talla").forEach(b => b.classList.remove("activa"));
+      btn.classList.add("activa");
+    });
+  });
+});
+
 console.log("Casa Canela lista 🍑 - JS puro cargado");
