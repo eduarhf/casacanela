@@ -1,16 +1,68 @@
-/* BASE V3 - Canela Premium */
-*{margin:0;padding:0;box-sizing:border-box}
+/* BASE.CSS - Casa Canela - variables + reset */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
 :root{
-  --crema:#FBF6EF;
-  --kraft:#EFE7D9;
-  --cafe:#3B2A1A;
-  --canela:#A97E50;
-  --canela-osc:#8C6A3F;
-  --marron:#6B4A2A;
-  --borde:#E3D9C6;
-  --blanco:#FFFFFF;
-  --wsp:#25D366;
-  --wsp-osc:#1DA851;
+  --canela: #A67C52;
+  --canela-osc: #8B6A43;
+  --cafe: #5C3D22;
+  --beige: #F5EFE6;
+  --beige-paper: #F9F6F0;
+  --marron: #3E2A1F;
+  --marron-light: #6B543E;
+  --borde: #E8DDD0;
+  --crema-card: #FFF9E8;
+  --verde-wa: #22D464;
+  --verde-wa-hover: #1BB857;
+  --blanco: #fff;
+  --naranja: #E8833A;
+  --naranja-osc: #D06F28;
+  --sombra: 0 10px 30px rgba(62,42,31,.12);
 }
-body{font-family:Georgia,serif;background:var(--crema);color:var(--cafe);line-height:1.5}
-img{max-width:100%;display:block}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: var(--beige);
+  color: var(--marron);
+  font-family: 'Nunito', system-ui, sans-serif;
+  padding-bottom: 90px;
+}
+
+footer{
+  text-align: center;
+  padding: 28px 16px;
+  color: var(--marron-light);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* BOTON BASE - lo usan todos */
+.btn{
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  padding: 15px 20px;
+  min-height: 52px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-naranja{
+  background: var(--naranja);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(232,131,58,.35);
+}
+
+.btn-naranja:active{
+  transform: scale(.98);
+  background: var(--naranja-osc);
+}

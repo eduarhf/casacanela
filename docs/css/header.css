@@ -1,13 +1,42 @@
-/* HEADER V3 */
+/* HEADER.CSS */
 header{
-  position:sticky;top:0;z-index:10;background:var(--crema);
-  padding:14px 16px;display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid var(--borde);
+  background: var(--beige-paper);
+  border-bottom: 2px solid var(--borde);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-.logo{font-size:24px;font-weight:bold;font-style:italic;color:var(--cafe);line-height:1}
-.logo span{font-size:13px;display:block;font-style:normal;font-weight:normal;letter-spacing:2px;text-transform:uppercase;color:var(--canela)}
-nav{display:none}
+
+.logo{
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--marron);
+}
+
+header nav{
+  display: flex;
+  gap: 16px;
+}
+
+header nav a{
+  color: var(--marron);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+}
+
 .btn-carrito{
-  background:#fff;border:1.5px solid var(--canela);border-radius:999px;
-  padding:8px 14px;font-size:16px;font-weight:bold;cursor:pointer;color:var(--cafe);
+  background: var(--marron);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
 }

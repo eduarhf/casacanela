@@ -1,19 +1,17 @@
-/* RESPONSIVE V3 - solo desktop */
-@media(min-width:768px){
-  header{padding:18px 5%}
-  nav{display:flex;gap:24px}
-  nav a{color:var(--cafe);text-decoration:none;font-weight:bold}
-  .hero{max-width:1100px;margin:0 auto;padding:60px 5%;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
-  .hero h1{font-size:72px}
-  .hero p{font-size:21px}
-  .btn{width:auto;display:inline-flex;padding:16px 32px}
-  .hero-img{margin:0;max-width:1100px;margin:0 auto;padding:0 5% 40px}
-  .hero-img img{aspect-ratio:16/9}
-  .productos{max-width:1100px;margin:0 auto;padding:20px 5% 60px}
-  .grid{grid-template-columns:repeat(3,1fr)}
-  .historia{padding:60px 5%}
-  .historia-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-  .historia img{margin:0}
-  .cta-fijo{display:none}
-  footer{padding-bottom:28px}
+/* RESPONSIVE.CSS - siempre último */
+@media (min-width: 768px){
+  .hero h1{ font-size: 56px; }
+  .hero-img img{ height: 340px; }
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+  .historia-grid{
+    flex-direction: row;
+    align-items: center;
+  }
+  .historia-grid > div{ flex: 1; }
+  .historia-grid img{ width: 45%; height: 260px; }
+}
+
+@media (max-width: 600px){
+  header nav{ display: none; }
+  .hero h1{ font-size: 36px; }
 }

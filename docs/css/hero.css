@@ -1,24 +1,51 @@
-/* HERO V3 */
-.hero{padding:28px 16px 20px}
-.hero h1{font-size:44px;line-height:.95;color:var(--cafe)}
-.hero p{font-size:19px;margin:14px 0 18px;max-width:34ch;color:var(--marron)}
-.eyebrow{font-size:12px;letter-spacing:2px;font-weight:bold;color:var(--canela);text-transform:uppercase;font-family:system-ui,sans-serif}
-.badges{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:14px;font-weight:bold;margin-top:14px;color:var(--cafe)}
-
-/* BOTONES V3 - ya no naranja, ahora canela */
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-weight:bold;font-size:19px;padding:16px 20px;border-radius:999px;min-height:56px;width:100%;cursor:pointer;border:none}
-.btn-naranja{background:var(--canela);color:#fff}
-.btn-naranja:active{background:var(--canela-osc);transform:scale(.98)}
-
-.hero-img{margin:20px 16px 80px}
-.hero-img img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px}
-
-/* CTA FIJO */
-.cta-fijo{
-  position:fixed;left:12px;right:12px;bottom:12px;z-index:20;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  background:var(--wsp);color:#fff;text-decoration:none;
-  font-weight:bold;font-size:18px;padding:16px;border-radius:999px;
-  box-shadow:0 8px 20px rgba(0,0,0,.30);
+/* HERO.CSS */
+.hero{
+  padding: 36px 18px 16px;
+  text-align: center;
 }
-.cta-fijo:active{background:var(--wsp-osc);transform:scale(.98)}
+
+.hero h1{
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 44px;
+  line-height: 1.1;
+  color: var(--marron);
+  margin-bottom: 12px;
+}
+
+.hero p{
+  font-size: 17px;
+  color: var(--marron-light);
+  line-height: 1.5;
+  max-width: 560px;
+  margin: 0 auto 16px;
+}
+
+.badges{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.badges span{
+  background: #fff;
+  border: 1px solid var(--borde);
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero-img{
+  padding: 0 12px;
+  margin-top: 12px;
+}
+
+.hero-img img{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}

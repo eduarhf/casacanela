@@ -1,6 +1,34 @@
-/* HISTORIA + FOOTER V3 */
-.historia{background:var(--kraft);padding:32px 16px}
-.historia h2{font-size:28px;margin-bottom:10px;color:var(--cafe)}
-.historia p{font-size:16.5px;color:var(--marron)}
-.historia img{border-radius:18px;margin-top:16px;aspect-ratio:4/3;object-fit:cover}
-footer{background:#3B2A1A;color:var(--crema);text-align:center;padding:24px 16px 110px;font-size:14px}
+/* HISTORIA.CSS */
+.historia{
+  padding: 30px 12px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.historia-grid{
+  background: var(--beige-paper);
+  border: 1px solid var(--borde);
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.historia h2{
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.historia p{
+  line-height: 1.6;
+  color: var(--marron-light);
+}
+
+.historia-grid img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 16px;
+}

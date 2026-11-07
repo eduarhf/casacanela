@@ -1,19 +1,107 @@
-/* PRODUCTOS V3 - estilo card de la foto */
-.productos{padding:10px 16px 32px}
-.productos h2{font-size:30px;text-align:center;margin-bottom:6px;color:var(--cafe)}
-.sub-seccion{text-align:center;color:var(--marron);margin-bottom:18px}
-.grid{display:grid;gap:16px}
-.card{background:#FFFDF5;border:1px solid var(--borde);border-radius:20px;padding:16px;text-align:center;position:relative}
-.card-destacada{outline:2px solid var(--canela)}
-.etiqueta{position:absolute;top:12px;left:12px;background:var(--canela);color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:1px}
-.card img{border-radius:14px;aspect-ratio:4/3;object-fit:cover;width:100%}
-.card h3{margin:12px 0 4px;font-size:21px;color:var(--cafe)}
-.card p{font-size:15px;opacity:.85;color:var(--marron)}
-.precio{font-size:24px;font-weight:bold;color:var(--canela-osc);margin:10px 0}
-.precio-antiguo{text-decoration:line-through;opacity:.5;font-size:16px;margin-left:6px}
-.card .btn{font-size:17px;padding:14px}
+/* PRODUCTOS.CSS - V4 elegante */
+.productos{
+  padding: 28px 12px 10px;
+}
 
-/* SELECTOR DE TAMAÑO - como el 50g / 100g / 250g de la foto */
-.tallas{display:flex;gap:8px;margin:12px 0}
-.talla{flex:1;padding:12px;border:1.5px solid var(--borde);border-radius:12px;background:#fff;cursor:pointer;font-weight:700;color:var(--cafe);font-family:system-ui,sans-serif}
-.talla.activa{background:var(--canela);color:#fff;border-color:var(--canela)}
+.productos h2{
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* CARD V4 */
+.card{
+  background: #FFFDF5;
+  border: 1px solid var(--borde);
+  border-radius: 24px;
+  padding: 24px 20px 22px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 20px rgba(59,42,26,.06);
+}
+
+.card img{
+  border-radius: 16px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card h3{
+  margin: 8px 0 0;
+  font-size: 22px;
+  color: var(--cafe);
+  line-height: 1.2;
+}
+
+.card p{
+  font-size: 15px;
+  color: var(--marron);
+  margin: 0;
+}
+
+.precio{
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--canela-osc);
+  margin: 2px 0 4px;
+}
+
+/* Botón dentro de la card - tu html tiene btn + btn-naranja + btn-agregar */
+.card .btn-agregar{
+  width: 100%;
+}
+
+/* TALLAS */
+.tallas{
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.talla{
+  flex: 1;
+  padding: 12px;
+  border: 1.5px solid var(--borde);
+  border-radius: 14px;
+  background: #FBF6EF;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--cafe);
+  font-size: 14px;
+}
+
+.talla.activa{
+  background: var(--canela);
+  color: #fff;
+  border-color: var(--canela);
+}
+
+/* CTA FIJO - tu <a id="cta-fijo"> */
+.cta-fijo{
+  position: fixed;
+  bottom: 16px;
+  left: 12px;
+  right: 12px;
+  background: var(--verde-wa);
+  color: #fff;
+  border-radius: 999px;
+  padding: 16px;
+  font-size: 19px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(34,212,100,.4);
+  z-index: 20;
+}
