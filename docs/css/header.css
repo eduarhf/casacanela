@@ -1,7 +1,7 @@
-/* HEADER.CSS - V2 con palitos de canela + hamburguesa */
+/* HEADER.CSS - V3 suavizado - café cálido, no negro */
 header{
-  background: var(--beige-paper);
-  border-bottom: 2px solid var(--borde);
+  background: #5A3B22; /* suavizado: antes #2E1F10 casi negro, ahora café canela medio */
+  border-bottom: 2px solid #4A301A;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,6 +10,7 @@ header{
   position: sticky;
   top: 0;
   z-index: 50;
+  box-shadow: 0 4px 14px rgba(90,59,34,.22);
 }
 
 /* LOGO - sin damasco, con palitos */
@@ -17,7 +18,7 @@ header{
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 26px;
   font-weight: 700;
-  color: var(--marron);
+  color: #FFF8E7; /* crema sobre café, ahora sí resalta sin ser tan duro */
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -25,7 +26,7 @@ header{
   white-space: nowrap;
 }
 
-/* PALITOS DE CANELA - CSS3 puro */
+/* PALITOS DE CANELA - CSS3 puro - un poco más claros para que se vean sobre el café */
 .palitos{
   position: relative;
   width: 32px;
@@ -39,8 +40,8 @@ header{
   width: 7px;
   height: 26px;
   border-radius: 10px;
-  background: linear-gradient(90deg, #8B5A2B, #C08A4A 45%, #7A4A1F);
-  box-shadow: inset -1px 0 2px rgba(0,0,0,.25), 0 2px 4px rgba(0,0,0,.15);
+  background: linear-gradient(90deg, #A67C52, #E2B77A 45%, #8B5A2B);
+  box-shadow: inset -1px 0 2px rgba(0,0,0,.25), 0 2px 4px rgba(0,0,0,.20);
 }
 
 .palito::after{
@@ -62,19 +63,19 @@ header{
 /* BOTON HAMBURGUESA */
 .btn-menu{
   display: none;
-  background: #fff;
-  border: 1.5px solid var(--borde);
+  background: #6B472A; /* mismo tono, un poco más claro que el header */
+  border: 1px solid rgba(255,248,231,.25);
   border-radius: 12px;
   width: 44px;
   height: 44px;
   font-size: 22px;
   cursor: pointer;
-  color: var(--marron);
+  color: #FFF8E7;
 }
 
 .btn-carrito{
-  background: var(--marron);
-  color: #fff;
+  background: #FFF8E7; /* crema, resalta sobre el café suavizado */
+  color: #5A3B22;
   border: none;
   border-radius: 999px;
   padding: 10px 16px;
@@ -92,7 +93,7 @@ header{
 }
 
 .menu-nav a{
-  color: var(--marron);
+  color: #FFF8E7;
   text-decoration: none;
   font-weight: 700;
   font-size: 15px;
