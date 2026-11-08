@@ -3,126 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Canela | Mermelada de Damasco Casera</title>
-    <meta name="description" content="Mermelada de damasco artesanal, del árbol de nuestra casa.">
-    <!-- CSS POR MODULOS - orden importa: base primero, responsive al final -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/productos.css">
-    <link rel="stylesheet" href="css/historia.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <title>Casa Canela - Mermeladas Artesanales</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍓</text></svg>">
+    <style>
+        :root{
+          --cream:#FFF8EE;
+          --cream2:#FDF0DC;
+          --beige:#F5E6CC;
+          --brown:#6B3F1D;
+          --brown2:#8B5A2B;
+          --brown-dark:#4A2C12;
+          --text:#3E2A18;
+          --muted:#7A6550;
+          --card:#FFFDF8;
+          --radius:16px;
+          --shadow:0 4px 20px rgba(107,63,29,.08);
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+          font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+          background:var(--cream);
+          color:var(--text);
+          max-width:430px;
+          margin:0 auto;
+          min-height:100vh;
+          padding-bottom:84px;
+        }
+        /* HEADER */
+        header{
+          position:sticky;top:0;z-index:10;
+          background:rgba(255,248,238,.95);
+          backdrop-filter:blur(10px);
+          display:flex;align-items:center;justify-content:space-between;
+          padding:14px 20px;
+          border-bottom:1px solid #F0E2C8;
+        }
+        .menu-btn{font-size:22px;background:none;border:none;cursor:pointer;color:var(--brown)}
+        .logo{font-family:Georgia,serif;font-size:22px;font-weight:700;color:var(--brown);letter-spacing:-.3px}
+        .logo small{display:block;font-size:10px;letter-spacing:2px;text-align:center;color:var(--brown2);font-family:Arial,sans-serif}
+        .cart-btn{position:relative;background:none;border:none;font-size:22px;cursor:pointer}
+        .cart-count{
+          position:absolute;top:-6px;right:-8px;
+          background:var(--brown);color:#fff;
+          font-size:11px;width:18px;height:18px;border-radius:50%;
+          display:grid;place-items:center;font-weight:700;
+        }
+        /* HERO - MISMO ARTE DEL MOCKUP */
+        .hero{
+          background:var(--cream2);
+          text-align:center;
+          padding:28px 20px 20px;
+        }
+        .hero-img{
+          width:180px;height:180px;object-fit:cover;
+          border-radius:20px;margin:0 auto 16px;
+          box-shadow:var(--shadow);
+          background:#fff;
+          display:grid;place-items:center;font-size:80px;
+        }
+        .hero h1{font-family:Georgia,serif;font-size:26px;line-height:1.15;color:var(--brown-dark)}
+        .hero p{font-size:13px;color:var(--muted);margin:8px 0 16px}
+        .btn-primary{
+          background:var(--brown);color:#fff;border:none;
+          padding:12px 26px;border-radius:10px;
+          font-size:14px;font-weight:600;cursor:pointer;
+        }
+        .btn-primary:active{transform:scale(.97)}
+        /* MAQUINARIA - SIN DISTRACTORES, SOLO LINEA */
+        .maquinaria{
+          margin:14px 20px 0;
+          background:#fff;border:1px solid #F0E2C8;
+          border-radius:999px;padding:8px 12px;
+          font-size:11px;text-align:center;color:var(--brown2);
+          white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+        }
+        .maquinaria b{color:var(--brown)}
+        /* BEST SELLERS */
+        .section{padding:22px 20px 0}
+        .section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+        .section-head h2{font-family:Georgia,serif;font-size:19px;color:var(--brown-dark)}
+        .section-head a{font-size:13px;color:var(--brown);text-decoration:none}
+        .card{
+          background:var(--card);border-radius:var(--radius);
+          box-shadow:var(--shadow);
+          display:flex;gap:14px;align-items:center;
+          padding:12px;margin-bottom:12px;
+        }
+        .card-img{
+          width:68px;height:68px;border-radius:12px;flex-shrink:0;
+          display:grid;place-items:center;font-size:36px;background:var(--cream2);
+        }
+        .card-info{flex:1}
+        .card-info h3{font-size:15px;line-height:1.2}
+        .card-info span{font-size:12px;color:var(--muted)}
+        .card-info b{display:block;margin-top:4px;color:var(--brown);font-size:14px}
+        .add-btn{
+          width:32px;height:32px;border-radius:50%;border:1px solid #E8D9BC;
+          background:#fff;font-size:18px;cursor:pointer;color:var(--brown);
+        }
+        .add-btn.added{background:var(--brown);color:#fff}
+        /* FRUTOS SECOS - MISMO ESTILO, SIN RUIDO */
+        .nuts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+        .nut{
+          background:var(--card);border-radius:14px;padding:10px;text-align:center;
+          box-shadow:var(--shadow);
+        }
+        .nut .emoji{font-size:28px}
+        .nut h4{font-size:12px;margin:6px 0 2px}
+        .nut p{font-size:11px;color:var(--muted)}
+        /* BOTTOM NAV */
+        nav{
+          position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+          width:100%;max-width:430px;
+          background:#FFFCF5;border-top:1px solid #F0E2C8;
+          display:flex;justify-content:space-around;padding:10px 0 16px;
+        }
+        nav button{background:none;border:none;font-size:11px;color:#9A8570;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer}
+        nav button.active{color:var(--brown);font-weight:700}
+        nav button i{font-size:20px;font-style:normal}
+        /* TOAST */
+        #toast{
+          position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);
+          background:var(--brown-dark);color:#fff;padding:10px 16px;border-radius:999px;
+          font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:20;
+        }
+        #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+        @media(min-width:431px){
+          body{border-left:1px solid #F0E2C8;border-right:1px solid #F0E2C8}
+        }
+    </style>
 </head>
 <body>
 
-<!-- FIX 1: era header-pro, ahora header para que calce con tu header.css -->
 <header>
-    <button id="btn-menu" class="btn-menu"><span></span><span></span><span></span></button>
-    <a href="#" class="logo"><img src="logo-casa-canela.png" alt="Casa Canela"></a>
-    <button id="btn-carrito" class="btn-carrito">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="#2E1F10"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        <span id="contador">2</span>
-    </button>
-
-    <nav id="menu" class="menu-nav">
-        <div class="menu-head">
-            <img src="logo-casa-canela.png" alt="Casa Canela">
-            <p>Casa Canela</p>
-            <span>natural foods</span>
-        </div>
-        <a href="#productos">Productos</a>
-        <a href="#historia">Historia</a>
-        <a href="#pedidos">Pedidos</a>
-        <a href="#contacto">Contacto</a>
-        <a class="btn-whatsapp-menu" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela">Contactar por WhatsApp</a>
-    </nav>
+    <button class="menu-btn" onclick="showToast('Menú pronto, bro')">☰</button>
+    <div class="logo">Casa Canela<small>ARTESANAL • CHILE</small></div>
+    <button class="cart-btn" onclick="showToast('Carrito: '+cart+' productos')">🛒<span class="cart-count" id="cartCount">2</span></button>
 </header>
 
-<main>
-    <section class="hero">
-        <h1>Casa Canela</h1>
-        <p class="subtitulo">mermelada casera</p>
-        <p>Mermelada de damasco casera, hecha con damascos del árbol de nuestra casa. Sin conservantes, lote pequeño, sabor de verdad.</p>
-        <div class="badges">
-            <span>✔ Artesanal</span>
-            <span>✔ Sin conservantes</span>
-            <span>✔ Hecho en Chile</span>
-        </div>
-    </section>
+<section class="hero">
+    <div class="hero-img">🍓</div>
+    <h1>Artisan Jams,<br>Made with Love</h1>
+    <p>Handmade in small batches • Local ingredients • No preservatives</p>
+    <button class="btn-primary" onclick="document.getElementById('sellers').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+</section>
 
-    <!-- FIX 3: tenías 2 hero-img duplicados, dejé solo 1 -->
-    <div class="hero-img">
-        <img src="frasco1.jpg" alt="Frascos Casa Canela">
+<div class="maquinaria">✦ <b>Maquinaria Máxima</b> • Hecho con maquinaria de precisión • Calidad artesanal • Producción controlada</div>
+
+<section class="section" id="sellers">
+    <div class="section-head"><h2>Best Sellers</h2><a href="#" onclick="return false">See all ›</a></div>
+
+    <div class="card">
+        <div class="card-img">🍓</div>
+        <div class="card-info"><h3>Strawberry Jam</h3><span>Sweet & classic • 250g</span><b>$8.50</b></div>
+        <button class="add-btn" data-name="Strawberry Jam">+</button>
     </div>
 
-    <section class="productos" id="productos">
-        <h2>Nuestros Productos</h2>
-        <div class="grid">
-            <article class="card" data-nombre="Mermelada de Damasco" data-precio="5500">
-                <img src="frasco.jpg" alt="Mermelada de damasco tradicional">
-                <h3>Mermelada de Damasco</h3><p>380g - damascos 100% naturales</p>
-                <div class="precio">$5.500 CLP</div>
-                <button class="btn btn-naranja btn-agregar">Agregar al pedido</button>
-                <div class="tallas">
-                    <button class="talla">50g</button>
-                    <button class="talla activa">100g</button>
-                    <button class="talla">250g</button>
-                </div>
-            </article>
-
-            <article class="card" data-nombre="Damasco con Jengibre" data-precio="5800">
-                <img src="frasco.jpg" alt="Mermelada con jengibre">
-                <h3>Damasco con Jengibre</h3><p>380g - toque de jengibre fresco</p>
-                <div class="precio">$5.800 CLP</div>
-                <button class="btn btn-naranja btn-agregar">Agregar al pedido</button>
-                <div class="tallas">
-                    <button class="talla">50g</button>
-                    <button class="talla activa">100g</button>
-                    <button class="talla">250g</button>
-                </div>
-            </article>
-
-            <article class="card" data-nombre="Pack Dúo Regalo" data-precio="10000">
-                <img src="frasco.jpg" alt="Pack duo regalo">
-                <h3>Pack Dúo Regalo</h3><p>2 x 280g - ideal para regalar</p>
-                <div class="precio">$10.000 CLP</div>
-                <button class="btn btn-naranja btn-agregar">Agregar al pedido</button>
-                <div class="tallas">
-                    <button class="talla">50g</button>
-                    <button class="talla activa">100g</button>
-                    <button class="talla">250g</button>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <section class="historia" id="historia">
-        <div class="historia-grid">
-            <div>
-                <h2>Historia del árbol de la casa</h2>
-                <p>Hace más de 40 años nuestro damasco fue plantado en el patio. Cada verano nos regala frutos dulces y dorados, cosechados a mano.</p>
-            </div>
-            <img src="arbol.jpg" alt="Árbol de damasco">
-        </div>
-    </section>
-</main>
-
-<footer>
-    <p>Casa Canela • Hecho a mano en Chile • @casacanelachile</p>
-    <p>Santiago, Chile - Pedidos por WhatsApp</p>
-</footer>
-
-<div class="wa-flotante">
-    <div class="wa-tooltip" id="wa-tooltip">
-        <span>Envíanos un mensaje de WhatsApp</span>
-        <button id="wa-cerrar" aria-label="Cerrar">✕</button>
+    <div class="card">
+        <div class="card-img">🍊</div>
+        <div class="card-info"><h3>Orange & Canela Jam</h3><span>Orange with cinnamon • 250g</span><b>$9.00</b></div>
+        <button class="add-btn" data-name="Orange & Canela">+</button>
     </div>
-    <a id="cta-fijo" class="wa-burbuja" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela">
-        <svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.9 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3z"/></svg>
-        <span id="wa-contador" class="wa-contador">1</span>
-    </a>
-</div>
 
-<script src="js/app.js"></script>
+    <div class="card">
+        <div class="card-img">🫐</div>
+        <div class="card-info"><h3>Raspberry Jam</h3><span>Tart & fruity • 250g</span><b>$8.50</b></div>
+        <button class="add-btn" data-name="Raspberry Jam">+</button>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-head"><h2>Frutos Secos Top Chile</h2><a href="#" onclick="return false">Ver todo ›</a></div>
+    <div class="nuts">
+        <div class="nut"><div class="emoji">🌰</div><h4>Almendras</h4><p>200g • $4.990</p></div>
+        <div class="nut"><div class="emoji">🥜</div><h4>Nueces</h4><p>200g • $5.290</p></div>
+        <div class="nut"><div class="emoji">🍫</div><h4>Avellanas</h4><p>200g • $5.990</p></div>
+    </div>
+</section>
+
+<nav>
+    <button class="active" onclick="setNav(this)"><i>🏠</i>Home</button>
+    <button onclick="setNav(this)"><i>🛍️</i>Shop</button>
+    <button onclick="setNav(this)"><i>🛒</i>Cart</button>
+    <button onclick="setNav(this)"><i>👤</i>Profile</button>
+</nav>
+
+<div id="toast"></div>
+
+<script>
+    let cart = 2;
+    const cartEl = document.getElementById('cartCount');
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=> toast.classList.remove('show'), 1800);
+    }
+
+    // Agregar al carrito - sin reload, puro JS
+    document.querySelectorAll('.add-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        cart++;
+        cartEl.textContent = cart;
+        btn.textContent = '✓';
+        btn.classList.add('added');
+        showToast(btn.dataset.name + ' agregado al carrito');
+        setTimeout(()=>{ btn.textContent='+'; btn.classList.remove('added'); }, 1200);
+      });
+    });
+
+    function setNav(el){
+      document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // Debug rápido en consola - para depurar pequeños detalles
+    console.log('%c Casa Canela - Maquinaria Máxima lista bro ', 'background:#6B3F1D;color:#fff;padding:6px 10px;border-radius:6px');
+    console.log('Cart inicial:', cart);
+</script>
 </body>
 </html>
