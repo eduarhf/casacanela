@@ -1,6 +1,6 @@
 /* HERO.CSS - V5 FIX, ya sin logo montado */
 .hero{
-  padding: 78px 18px 16px; /* antes 36px */
+  padding: 36px 18px 16px; /* ANTES 78px, ese era por el logo montado que ya sacamos */
   text-align: center;
 }
 
