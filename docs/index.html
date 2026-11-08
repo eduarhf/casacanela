@@ -3,269 +3,692 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Canela - Mermeladas Artesanales</title>
-    <link rel="icon" href="data:image/svg+xml,[STRIPPED]">
+
+    <title>Casa Canela | Mermeladas Artesanales</title>
+
+    <meta name="description"
+          content="Mermeladas artesanales hechas en Chile con ingredientes seleccionados, recetas tradicionales y despacho a todo el país.">
+
+    <meta property="og:title"
+          content="Casa Canela | Mermeladas Artesanales">
+
+    <meta property="og:description"
+          content="Sabores auténticos elaborados en pequeños lotes con ingredientes seleccionados.">
+
+    <meta property="og:image"
+          content="frasco.jpg">
+
     <style>
+
         :root{
-          --cream:#FFF8EE;
-          --cream2:#FDF0DC;
-          --beige:#F5E6CC;
-          --brown:#6B3F1D;
-          --brown2:#8B5A2B;
-          --brown-dark:#4A2C12;
-          --text:#3E2A18;
-          --muted:#7A6550;
-          --card:#FFFDF8;
-          --radius:16px;
-          --shadow:0 4px 20px rgba(107,63,29,.08);
-          --whatsapp:#25D366;
+            --cream:#FFF8EE;
+            --cream-soft:#FCF5EA;
+            --brown:#5A3418;
+            --brown-dark:#3E2410;
+            --gold:#B58B53;
+            --text:#3D3229;
+            --muted:#877567;
+            --card:#FFFDF9;
+            --border:#EFE3CF;
+            --shadow:0 10px 30px rgba(0,0,0,.06);
+            --whatsapp:#25D366;
         }
-        *{margin:0;padding:0;box-sizing:border-box}
-        img{max-width:100%;height:auto}
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
         body{
-          font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
-          background:var(--cream);
-          color:var(--text);
-          max-width:430px;
-          margin:0 auto;
-          min-height:100vh;
-          padding-bottom:90px;
+            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+            background:var(--cream);
+            color:var(--text);
+            max-width:430px;
+            margin:0 auto;
+            min-height:100vh;
+            line-height:1.5;
+            padding-bottom:100px;
         }
+
+        img{
+            display:block;
+            width:100%;
+        }
+
         header{
-          position:sticky;top:0;z-index:10;
-          background:rgba(255,248,238,.95);
-          backdrop-filter:blur(10px);
-          display:flex;align-items:center;justify-content:space-between;
-          padding:14px 20px;
-          border-bottom:1px solid #F0E2C8;
+            position:sticky;
+            top:0;
+            z-index:100;
+            background:rgba(255,248,238,.96);
+            backdrop-filter:blur(10px);
+            border-bottom:1px solid var(--border);
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:14px 20px;
+            box-shadow:0 1px 0 rgba(0,0,0,.04);
         }
-        .menu-btn{font-size:22px;background:none;border:none;cursor:pointer;color:var(--brown)}
-        .logo{font-family:Georgia,serif;font-size:22px;font-weight:700;color:var(--brown);letter-spacing:-.3px;text-align:center}
-        .logo small{display:block;font-size:10px;letter-spacing:2px;text-align:center;color:var(--brown2);font-family:Arial,sans-serif}
+
+        .menu-btn,
         .cart-btn{
-          position:relative;background:none;border:none;
-          cursor:pointer;padding:4px;
-          display:flex;align-items:center;justify-content:center;
+            background:none;
+            border:none;
+            cursor:pointer;
         }
-        .cart-btn svg{width:30px;height:30px;display:block}
-        .cart-btn:active{transform:scale(.92)}
+
+        .menu-btn{
+            font-size:22px;
+            color:var(--brown);
+        }
+
+        .logo{
+            text-align:center;
+            font-family:Georgia,serif;
+            color:var(--brown);
+            font-size:22px;
+            font-weight:700;
+        }
+
+        .logo small{
+            display:block;
+            font-size:10px;
+            letter-spacing:2px;
+            color:var(--gold);
+            margin-top:2px;
+        }
+
+        .cart-btn{
+            position:relative;
+        }
+
+        .cart-btn svg{
+            width:30px;
+            height:30px;
+        }
+
         .cart-count{
-          position:absolute;top:-4px;right:-6px;
-          background:var(--brown);color:#fff;
-          font-size:11px;font-weight:800;
-          min-width:20px;height:20px;border-radius:50%;
-          display:grid;place-items:center;
-          padding:0 4px;border:2px solid var(--cream);
+            position:absolute;
+            top:-5px;
+            right:-6px;
+            width:20px;
+            height:20px;
+            border-radius:50%;
+            background:var(--brown);
+            color:white;
+            font-size:11px;
+            font-weight:700;
+            display:grid;
+            place-items:center;
         }
 
-        /* BARRA ENVIO GRATIS */
         .shipping-bar{
-          background:var(--brown-dark);
-          color:#FFF8EE;
-          text-align:center;
-          padding:9px 16px;
-          font-size:12.5px;
-          letter-spacing:.2px;
-          display:flex;align-items:center;justify-content:center;gap:7px;
+            background:var(--brown-dark);
+            color:white;
+            text-align:center;
+            padding:10px;
+            font-size:12px;
+            letter-spacing:.3px;
         }
-        .shipping-bar b{color:#fff;font-weight:700}
-        .shipping-bar span{opacity:.85}
 
-        /* HERO FULL-BLEED */
-        .hero{position:relative;width:100%;height:360px;overflow:hidden;padding:0;background:var(--cream2)}
-        .hero-img{position:absolute;inset:0;width:100%;height:100%;border-radius:0;margin:0;overflow:hidden;display:block}
-        .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+        .hero{
+            position:relative;
+            height:420px;
+            overflow:hidden;
+        }
+
+        .hero img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
         .hero-content{
-          position:absolute;left:0;right:0;bottom:0;
-          padding:32px 20px 22px;
-          background:linear-gradient(to top, rgba(30,18,6,.72), rgba(30,18,6,.25) 55%, transparent);
-          color:#fff;text-align:left;
+            position:absolute;
+            left:0;
+            right:0;
+            bottom:0;
+            padding:32px 24px;
+            background:linear-gradient(
+                to top,
+                rgba(0,0,0,.88),
+                rgba(0,0,0,.5),
+                transparent
+            );
         }
-        .hero-content h1{font-family:Georgia,serif;font-size:30px;line-height:1.1;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
-        .hero-content p{font-size:13px;color:#FFF8EE;opacity:.92;margin:8px 0 14px}
+
+        .hero-kicker{
+            color:rgba(255,255,255,.8);
+            letter-spacing:2px;
+            font-size:11px;
+        }
+
+        .hero h1{
+            font-family:Georgia,serif;
+            color:white;
+            font-size:34px;
+            line-height:1.1;
+            margin-top:10px;
+        }
+
+        .hero p{
+            color:rgba(255,255,255,.9);
+            margin-top:14px;
+            margin-bottom:20px;
+            font-size:14px;
+        }
+
         .btn-primary{
-          background:#fff;color:var(--brown-dark);border:none;
-          padding:12px 26px;border-radius:999px;
-          font-size:14px;font-weight:700;cursor:pointer;
-          box-shadow:0 4px 14px rgba(0,0,0,.25);
+            background:white;
+            color:var(--brown-dark);
+            border:none;
+            border-radius:999px;
+            padding:14px 28px;
+            font-size:14px;
+            font-weight:700;
+            cursor:pointer;
         }
-        .btn-primary:active{transform:scale(.97)}
-        .section{padding:22px 20px 0}
-        .section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-        .section-head h2{font-family:Georgia,serif;font-size:19px;color:var(--brown-dark)}
-        .section-head a{font-size:13px;color:var(--brown);text-decoration:none}
 
-        /* CARDS PREMIER CON FOTO, NO EMOJI */
+        .section{
+            padding:40px 24px;
+        }
+
+        .section-title{
+            font-family:Georgia,serif;
+            font-size:26px;
+            color:var(--brown-dark);
+            margin-bottom:20px;
+        }
+
+        .benefits{
+            display:grid;
+            gap:12px;
+        }
+
+        .benefit{
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:18px;
+            padding:18px;
+            box-shadow:var(--shadow);
+        }
+
+        .benefit h4{
+            margin-bottom:8px;
+            color:var(--brown-dark);
+        }
+
+        .benefit p{
+            color:var(--muted);
+            font-size:14px;
+        }
+
         .card{
-          background:var(--card);border-radius:18px;
-          box-shadow:var(--shadow);
-          display:flex;gap:14px;align-items:center;
-          padding:12px;margin-bottom:12px;
-          border:1px solid #F5EAD6;
-          position:relative;overflow:hidden;
+            display:flex;
+            gap:14px;
+            align-items:center;
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:20px;
+            padding:12px;
+            margin-bottom:14px;
+            box-shadow:var(--shadow);
         }
-        .card-img{
-          width:78px;height:78px;border-radius:14px;flex-shrink:0;
-          overflow:hidden;background:var(--cream2);
-        }
-        .card-img img{width:100%;height:100%;object-fit:cover;display:block}
-        .card-info{flex:1}
-        .card-info h3{font-size:15px;line-height:1.2}
-        .card-info span{font-size:12px;color:var(--muted)}
-        .card-info b{display:block;margin-top:4px;color:var(--brown);font-size:15px}
-        .badge{
-          display:inline-block;font-size:9px;letter-spacing:1px;font-weight:800;
-          background:#FFF0D6;color:var(--brown);
-          padding:3px 7px;border-radius:999px;margin-bottom:5px;
-        }
-        .add-btn{
-          width:34px;height:34px;border-radius:50%;border:1px solid #E8D9BC;
-          background:#fff;font-size:20px;cursor:pointer;color:var(--brown);
-          flex-shrink:0;
-        }
-        .add-btn.added{background:var(--brown);color:#fff}
-        .nuts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding-bottom:10px}
-        .nut{background:var(--card);border-radius:14px;padding:10px;text-align:center;box-shadow:var(--shadow)}
-        .nut .emoji{font-size:28px}
-        .nut h4{font-size:12px;margin:6px 0 2px}
-        .nut p{font-size:11px;color:var(--muted)}
 
-        /* WHATSAPP */
-        .wa-wrap{position:fixed;bottom:16px;left:12px;right:12px;z-index:30;display:flex;align-items:center;gap:0}
-        .wa-box{
-          flex:1;background:#fff;color:var(--text);padding:14px 14px 14px 12px;
-          border-radius:999px;font-size:14px;font-weight:500;
-          box-shadow:0 6px 20px rgba(0,0,0,.15);
-          display:flex;align-items:center;gap:12px;white-space:nowrap;overflow:hidden;padding-right:28px;
+        .card img{
+            width:82px;
+            height:82px;
+            object-fit:cover;
+            border-radius:14px;
         }
-        .wa-box .wa-close{width:28px;height:28px;min-width:28px;border-radius:50%;background:#F0EDE9;border:none;display:grid;place-items:center;font-size:14px;cursor:pointer;color:#666}
-        .wa-box span{overflow:hidden;text-overflow:ellipsis}
+
+        .card-info{
+            flex:1;
+        }
+
+        .badge{
+            display:inline-block;
+            background:#FAEED8;
+            color:var(--brown);
+            padding:4px 8px;
+            border-radius:999px;
+            font-size:10px;
+            font-weight:700;
+            margin-bottom:4px;
+        }
+
+        .card-info h3{
+            font-size:16px;
+            margin-bottom:4px;
+        }
+
+        .card-info span{
+            color:var(--muted);
+            font-size:12px;
+            display:block;
+        }
+
+        .card-info b{
+            display:block;
+            margin-top:8px;
+            color:var(--brown-dark);
+        }
+
+        .add-btn{
+            width:36px;
+            height:36px;
+            border-radius:50%;
+            border:none;
+            background:var(--brown);
+            color:white;
+            font-size:20px;
+            cursor:pointer;
+        }
+
+        .story,
+        .testimonial,
+        .footer-cta{
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:20px;
+            padding:20px;
+            box-shadow:var(--shadow);
+        }
+
+        .testimonial{
+            margin-bottom:14px;
+        }
+
+        .testimonial p{
+            font-style:italic;
+        }
+
+        .testimonial strong{
+            display:block;
+            margin-top:10px;
+            color:var(--brown);
+        }
+
+        .footer-cta h3{
+            font-family:Georgia,serif;
+            color:var(--brown-dark);
+            margin-bottom:10px;
+        }
+
+        .footer-cta p{
+            color:var(--muted);
+        }
+
         .whatsapp-float{
-          width:58px;height:58px;min-width:58px;border-radius:50%;
-          background:var(--whatsapp);display:grid;place-items:center;
-          text-decoration:none;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.25);
-          margin-left:-28px;position:relative;z-index:2;
+            position:fixed;
+            right:20px;
+            bottom:20px;
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            background:var(--whatsapp);
+            text-decoration:none;
+            display:grid;
+            place-items:center;
+            box-shadow:0 12px 28px rgba(0,0,0,.20);
+            z-index:999;
         }
-        .whatsapp-float svg{width:34px;height:34px;display:block;overflow:visible}
-        .whatsapp-float:active{transform:scale(.94)}
+
+        .whatsapp-float svg{
+            width:32px;
+            height:32px;
+            fill:white;
+        }
+
         #toast{
-          position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);
-          background:var(--brown-dark);color:#fff;padding:10px 16px;border-radius:999px;
-          font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:20;white-space:nowrap;
+            position:fixed;
+            left:50%;
+            bottom:95px;
+            transform:translateX(-50%);
+            background:var(--brown-dark);
+            color:white;
+            padding:10px 18px;
+            border-radius:999px;
+            opacity:0;
+            pointer-events:none;
+            transition:.3s;
         }
-        #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+        #toast.show{
+            opacity:1;
+        }
+
         @media(min-width:431px){
-          body{border-left:1px solid #F0E2C8;border-right:1px solid #F0E2C8}
-          .wa-wrap{left:calc(50% - 203px);right:calc(50% - 203px)}
+            body{
+                border-left:1px solid var(--border);
+                border-right:1px solid var(--border);
+            }
         }
+
     </style>
 </head>
+
 <body>
 
 <header>
-    <button class="menu-btn" onclick="showToast('Menú pronto, bro')">☰</button>
-    <div class="logo">Casa Canela<small>ARTESANAL • CHILE</small></div>
-    <button class="cart-btn" onclick="showToast('Carrito: '+cart+' productos')" aria-label="Carrito">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#6B3F1D" stroke-width="2" stroke-linecap="round"
-             stroke-linejoin="round">
+
+    <button
+            class="menu-btn"
+            onclick="showToast('Próximamente nuevas secciones')">
+        ☰
+    </button>
+
+    <div class="logo">
+        Casa Canela
+        <small>ARTESANAL • CHILE</small>
+    </div>
+
+    <button
+            class="cart-btn"
+            onclick="showToast('Tienes ' + cart + ' productos seleccionados')">
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="#5A3418" stroke-width="2">
             <circle cx="9" cy="21" r="1"></circle>
             <circle cx="20" cy="21" r="1"></circle>
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
         </svg>
-        <span class="cart-count" id="cartCount">2</span>
+
+        <span id="cartCount" class="cart-count">0</span>
+
     </button>
+
 </header>
 
-<div class="shipping-bar">🚚 <span><b>Envío gratis</b> sobre $30.000 <span>• Despacho a todo Chile</span></span></div>
+<div class="shipping-bar">
+    🚚 Envío gratis sobre $30.000 • Despacho a todo Chile
+</div>
 
 <section class="hero">
-    <div class="hero-img"><img src="frasco.jpg" alt="Frascos Casa Canela"></div>
+
+    <img src="frasco.jpg" alt="Casa Canela">
+
     <div class="hero-content">
-        <h1>Artisan Jams,<br>Made with Love</h1>
-        <p>Handmade in small batches • Local ingredients • No preservatives</p>
-        <button class="btn-primary" onclick="document.getElementById('sellers').scrollIntoView({behavior:'smooth'})">
-            Shop Now
+
+<span class="hero-kicker">
+CASA CANELA · ELABORACIÓN ARTESANAL
+</span>
+
+        <h1>
+            Sabores auténticos
+            para momentos especiales
+        </h1>
+
+        <p>
+            Una colección de mermeladas artesanales elaboradas
+            con ingredientes seleccionados y recetas inspiradas
+            en la tradición.
+        </p>
+
+        <button
+                class="btn-primary"
+                onclick="document.getElementById('productos').scrollIntoView()">
+
+            Descubrir colección
+
         </button>
-    </div>
-</section>
 
-<section class="section" id="sellers">
-    <div class="section-head"><h2>Best Sellers</h2><a href="#" onclick="return false">See all ›</a></div>
-
-    <div class="card">
-        <div class="card-img"><img src="frasco1.jpg" alt="Mermelada de Frutilla"></div>
-        <div class="card-info"><span class="badge">★ BEST SELLER</span>
-            <h3>Mermelada de Frutilla</h3><span>Dulce & clásica • 250g</span><b>$8.990</b></div>
-        <button class="add-btn" data-name="Mermelada de Frutilla">+</button>
     </div>
 
-    <div class="card">
-        <div class="card-img"><img src="frasco1.jpg" alt="Mermelada Naranja & Canela"></div>
-        <div class="card-info"><h3>Naranja & Canela</h3><span>Naranja con canela • 250g</span><b>$9.490</b></div>
-        <button class="add-btn" data-name="Naranja & Canela">+</button>
-    </div>
-
-    <div class="card">
-        <div class="card-img"><img src="frasco1.jpg" alt="Mermelada de Frambuesa"></div>
-        <div class="card-info"><h3>Mermelada de Frambuesa</h3><span>Ácida & frutal • 250g</span><b>$8.990</b></div>
-        <button class="add-btn" data-name="Mermelada de Frambuesa">+</button>
-    </div>
 </section>
 
 <section class="section">
-    <div class="section-head"><h2>Frutos Secos Top Chile</h2><a href="#" onclick="return false">Ver todo ›</a></div>
-    <div class="nuts">
-        <div class="nut">
-            <div class="emoji">🌰</div>
-            <h4>Almendras</h4>
-            <p>200g • $4.990</p></div>
-        <div class="nut">
-            <div class="emoji">🥜</div>
-            <h4>Nueces</h4>
-            <p>200g • $5.290</p></div>
-        <div class="nut">
-            <div class="emoji">🍫</div>
-            <h4>Avellanas</h4>
-            <p>200g • $5.990</p></div>
+
+    <div class="benefits">
+
+        <div class="benefit">
+            <h4>Ingredientes seleccionados</h4>
+            <p>
+                Frutas elegidas cuidadosamente por su sabor,
+                aroma y calidad.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <h4>Elaboración artesanal</h4>
+            <p>
+                Producción en pequeños lotes con atención a
+                cada detalle.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <h4>Despacho a todo Chile</h4>
+            <p>
+                Recibe nuestros productos directamente en
+                tu hogar.
+            </p>
+        </div>
+
     </div>
+
 </section>
 
-<div class="wa-wrap" id="waWrap">
-    <div class="wa-box">
-        <button class="wa-close" onclick="document.getElementById('waWrap').style.display='none'">✕</button>
-        <span>Envíanos un mensaje de WhatsApp</span>
+<section id="productos" class="section">
+
+    <h2 class="section-title">
+        Nuestra selección
+    </h2>
+
+    <div class="card">
+
+        <img src="frasco1.jpg" alt="Mermelada Frutilla">
+
+        <div class="card-info">
+
+<span class="badge">
+RECETA FAVORITA
+</span>
+
+            <h3>Mermelada de Frutilla</h3>
+
+            <span>
+Nuestra receta más tradicional, preparada con
+fruta seleccionada y cocción lenta.
+</span>
+
+            <b>$8.990</b>
+
+        </div>
+
+        <button class="add-btn">+</button>
+
     </div>
-    <a class="whatsapp-float" href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela,%20quiero%20pedir"
-       target="_blank" aria-label="WhatsApp Casa Canela">
-        <svg viewBox="0 0 24 24" fill="#fff">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
-        </svg>
-    </a>
-</div>
+
+    <div class="card">
+
+        <img src="frasco1.jpg" alt="Mermelada Naranja">
+
+        <div class="card-info">
+
+            <h3>Naranja & Canela</h3>
+
+            <span>
+Notas cítricas equilibradas con el aroma cálido
+de la canela.
+</span>
+
+            <b>$9.490</b>
+
+        </div>
+
+        <button class="add-btn">+</button>
+
+    </div>
+
+    <div class="card">
+
+        <img src="frasco1.jpg" alt="Mermelada Frambuesa">
+
+        <div class="card-info">
+
+            <h3>Mermelada de Frambuesa</h3>
+
+            <span>
+Un sabor intenso y naturalmente frutal para
+los amantes de la fruta.
+</span>
+
+            <b>$8.990</b>
+
+        </div>
+
+        <button class="add-btn">+</button>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2 class="section-title">
+        La esencia de Casa Canela
+    </h2>
+
+    <div class="story">
+
+        <p>
+            En Casa Canela creemos que los mejores sabores
+            nacen cuando se respetan los ingredientes y los
+            tiempos de preparación.
+        </p>
+
+        <br>
+
+        <p>
+            Cada receta se elabora artesanalmente en pequeños
+            lotes para preservar la textura, el aroma y el
+            carácter natural de cada fruta.
+        </p>
+
+        <br>
+
+        <p>
+            Más que una mermelada, buscamos ofrecer una
+            experiencia auténtica inspirada en la tradición.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2 class="section-title">
+        Opiniones de nuestros clientes
+    </h2>
+
+    <div class="testimonial">
+
+        <p>
+            “Se percibe el cuidado y la calidad desde la
+            primera cucharada.”
+        </p>
+
+        <strong>
+            María · Santiago
+        </strong>
+
+    </div>
+
+    <div class="testimonial">
+
+        <p>
+            “La mermelada de naranja y canela se convirtió
+            rápidamente en nuestra favorita.”
+        </p>
+
+        <strong>
+            Felipe · Quilpué
+        </strong>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="footer-cta">
+
+        <h3>
+            ¿Listo para descubrir tu próxima favorita?
+        </h3>
+
+        <p>
+            Escríbenos por WhatsApp y estaremos encantados
+            de ayudarte a elegir la mermelada perfecta para
+            compartir, regalar o disfrutar en casa.
+        </p>
+
+    </div>
+
+</section>
+
+<a
+        class="whatsapp-float"
+        href="https://wa.me/569XXXXXXXX?text=Hola%20Casa%20Canela,%20me%20gustaría%20realizar%20un%20pedido."
+        target="_blank"
+        aria-label="WhatsApp">
+
+    <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+    </svg>
+
+</a>
 
 <div id="toast"></div>
 
 <script>
-    let cart = 2;
-    const cartEl = document.getElementById('cartCount');
-    const toast = document.getElementById('toast');
-    let toastTimer;
-    function showToast(msg){
-      toast.textContent = msg;
-      toast.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(()=> toast.classList.remove('show'), 1800);
+
+    let cart = 0;
+
+    const cartCount =
+    document.getElementById("cartCount");
+
+    const toast =
+    document.getElementById("toast");
+
+    function showToast(message){
+
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        },1800);
+
     }
-    document.querySelectorAll('.add-btn').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        cart++;
-        cartEl.textContent = cart;
-        btn.textContent = '✓';
-        btn.classList.add('added');
-        showToast(btn.dataset.name + ' agregado al carrito');
-        setTimeout(()=>{ btn.textContent='+'; btn.classList.remove('added'); }, 1200);
-      });
+
+    document.querySelectorAll(".add-btn")
+    .forEach(btn => {
+
+        btn.addEventListener("click",()=>{
+
+            cart++;
+
+            cartCount.textContent = cart;
+
+            btn.textContent = "✓";
+
+            showToast("Producto agregado");
+
+            setTimeout(()=>{
+                btn.textContent = "+";
+            },1000);
+
+        });
+
     });
+
 </script>
+
 </body>
 </html>
