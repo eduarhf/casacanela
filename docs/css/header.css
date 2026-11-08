@@ -1,19 +1,22 @@
-/* HEADER.CSS - V5 logo gigante montado */
-.header-pro{
+/* HEADER V6 - logo montado + carrito a la derecha */
+header{
   background: #2E1F10;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 14px 14px 28px; /* más abajo para que quepa el logo */
+  padding: 12px 14px;
   position: sticky;
   top: 0;
   z-index: 50;
   box-shadow: 0 4px 18px rgba(0,0,0,.18);
+  /* clave para que el logo flotante no se salga */
+  position: relative;
   overflow: visible;
+  min-height: 68px;
 }
 
-/* hamburguesa igual que antes */
+/* hamburguesa izquierda */
 .btn-menu{
   background: rgba(255,248,231,.08);
   border: 1px solid rgba(255,255,255,.15);
@@ -22,12 +25,12 @@
   cursor: pointer;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 5px;
-  padding: 0; order: 1;
+  padding: 0;
+  z-index: 2;
 }
 .btn-menu span{
   display: block; width: 20px; height: 2px;
-  background: var(--crema);
-  border-radius: 2px;
+  background: #FFF8E7; border-radius: 2px;
   transition: all .25s ease;
 }
 .btn-menu span:nth-child(2){ width: 14px; margin-left: -6px; }
@@ -35,17 +38,17 @@
 .btn-menu.abierto span:nth-child(2){ opacity: 0; }
 .btn-menu.abierto span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
 
-/* LOGO GIGANTE MONTADO */
-.logo-pro{
-  order: 2;
-  flex: 1;
+/* LOGO GIGANTE AL CENTRO, FLOTANDO */
+.logo{
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  z-index: 1;
   display: flex;
   justify-content: center;
-  position: relative;
-  /* lo bajamos para que quede montado */
-  margin-bottom: -78px;
 }
-.logo-pro img{
+.logo img{
   width: 118px; height: 118px;
   object-fit: contain;
   border-radius: 50%;
@@ -54,22 +57,31 @@
   border: 3px solid #C9A86A; /* dorado */
   box-shadow: 0 0 0 4px rgba(255,248,231,.12), 0 12px 24px rgba(0,0,0,.35);
 }
+.logo span{ display: none; } /* tu logo ya dice Casa Canela */
 
-/* carrito igual */
+/* CARRITO A LA DERECHA - siempre visible, por encima del logo */
 .btn-carrito{
-  background: var(--crema); color: var(--header);
+  background: #FFF8E7; color: #2E1F10;
   border: none; border-radius: 999px;
-  padding: 10px 14px; font-size: 15px; font-weight: 800;
+  padding: 10px 12px; font-size: 15px; font-weight: 800;
   cursor: pointer; display: flex; align-items: center; gap: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,.2); order: 3;
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+  z-index: 3; /* ANTES 2, ahora 3 para que el logo no lo tape */
+  margin-left: auto;
+  position: relative;
+  min-width: 52px; min-height: 44px;
+  justify-content: center;
+}
+.btn-carrito svg{
+  width: 22px; height: 22px; display: block;
 }
 .btn-carrito #contador{
-  background: var(--header); color: var(--crema);
+  background: #2E1F10; color: #FFF8E7;
   width: 22px; height: 22px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center; font-size: 13px;
 }
 
-/* MENU casi pantalla completa - igual que antes */
+/* MENU igual que antes */
 .menu-nav{
   display: flex; flex-direction: column; gap: 6px;
   position: fixed; top: 0; left: 0; bottom: 0;
