@@ -18,32 +18,33 @@
         html{scroll-behavior:smooth}
         body{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--cream);color:var(--text);max-width:430px;margin:0 auto;min-height:100vh;line-height:1.5;padding-bottom:76px}
         img{display:block;width:100%}
-        header{position:sticky;top:0;z-index:100;background:rgba(251,247,240,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
+        header{position:sticky;top:0;z-index:100;background:rgba(251,247,240,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
         .menu-btn,.cart-btn{background:none;border:none;cursor:pointer}
         .menu-btn{font-size:26px;color:var(--brown-dark)}
-        .logo{text-align:center;font-family:"Cormorant Garamond",Georgia,serif;color:var(--brown-dark);font-size:28px;font-weight:500;letter-spacing:.14em;line-height:1}
+        .logo{text-align:center;font-family:"Cormorant Garamond",Georgia,serif;color:var(--brown-dark);font-size:26px;font-weight:500;letter-spacing:.14em;line-height:1}
         .logo small{display:block;font-size:9px;letter-spacing:3px;color:var(--gold);margin-top:4px;font-family:"Inter",sans-serif}
         .cart-btn{position:relative}
-        .cart-btn svg{width:32px;height:32px}
+        .cart-btn svg{width:30px;height:30px}
         .cart-count{position:absolute;top:-6px;right:-6px;width:21px;height:21px;border-radius:50%;background:var(--brown);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center}
-        /* HERO SIN BOTON */
+        /* HERO PREMIUM - COMPACTO 360px */
         .hero{position:relative;padding:0 16px}
         .hero-photo{position:relative;border-radius:16px;overflow:hidden}
-        .hero-photo img{width:100%;height:520px;object-fit:cover;display:block}
-        .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(35,22,10,.78) 0%,rgba(35,22,10,.35) 28%,rgba(35,22,10,0) 55%)}
-        .hero-text{position:absolute;left:18px;right:18px;bottom:20px;z-index:2}
-        .hero-text h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:36px;line-height:1.05;font-weight:600;color:#fff;letter-spacing:.01em;text-shadow:0 2px 14px rgba(0,0,0,.5)}
-        .hero-text p{color:#FFF8EC;font-size:13px;margin-top:8px;line-height:1.4;text-shadow:0 1px 8px rgba(0,0,0,.5)}
-        .value-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);color:var(--brown-dark);padding:7px 12px;border-radius:999px;font-size:11.5px;font-weight:700;margin-top:10px}
-        .hero-hint{text-align:center;padding:8px 0 0px;font-size:12px;letter-spacing:1px;color:var(--muted)}
-        .section{padding:10px 16px 28px}
-        .section-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:32px;font-weight:500;color:var(--brown-dark);margin-bottom:4px}
-        .section-sub{font-size:13px;color:var(--muted);margin-bottom:16px}
-        .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+        .hero-photo img{width:100%;height:360px;object-fit:cover;object-position:center 32%;display:block}
+        .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(35,22,10,.85) 0%,rgba(35,22,10,.35) 42%,rgba(35,22,10,0) 65%)}
+        .hero-text{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;padding-right:68px}
+        .hero-text h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:32px;line-height:1.02;font-weight:600;color:#fff;letter-spacing:.01em;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+        .hero-text p{color:#FFF8EC;font-size:12px;margin-top:6px;line-height:1.35;text-shadow:0 1px 8px rgba(0,0,0,.5);max-width:230px}
+        .value-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);color:var(--brown-dark);padding:6px 11px;border-radius:999px;font-size:11px;font-weight:700;margin-top:8px}
+        .hero-hint{text-align:center;padding:8px 0 0;font-size:11px;letter-spacing:1.2px;color:var(--muted)}
+        /* SECTION PRODUCTOS - ESPACIO PREMIUM 8PT */
+        .section{padding:12px 16px 28px}
+        .section-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:30px;font-weight:500;color:var(--brown-dark);margin-bottom:2px}
+        .section-sub{font-size:13px;color:var(--muted);margin-bottom:12px}
+        .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
         .chips::-webkit-scrollbar{display:none}
         .chip{white-space:nowrap;border:1px solid var(--border);background:#fff;padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer;color:var(--brown-dark);font-family:inherit}
         .chip.active{background:var(--brown-dark);color:#fff;border-color:var(--brown-dark)}
-        .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+        .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
         .p-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
         .p-card img{width:100%;height:165px;object-fit:cover}
         .p-card-body{padding:12px}
@@ -121,8 +122,8 @@
         .cart-total{display:flex;justify-content:space-between;font-weight:700;color:var(--brown-dark);font-size:16px;margin-bottom:12px}
         .btn-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;text-decoration:none;padding:14px;border-radius:999px;font-weight:700;font-size:14px}
         .btn-clear{background:none;border:none;color:var(--muted);font-size:12px;margin-top:10px;cursor:pointer;width:100%;text-align:center}
-        .whatsapp-float{position:fixed;right:16px;bottom:92px;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;text-decoration:none;box-shadow:0 12px 28px rgba(0,0,0,.18);z-index:900}
-        .whatsapp-float svg{width:34px;height:34px}
+        .whatsapp-float{position:fixed;right:14px;bottom:96px;width:54px;height:54px;border-radius:50%;background:var(--wa);display:grid;place-items:center;text-decoration:none;box-shadow:0 12px 28px rgba(0,0,0,.18);z-index:900}
+        .whatsapp-float svg{width:30px;height:30px}
         .sticky-cart{position:fixed;left:0;right:0;bottom:0;z-index:950;background:#fff;border-top:1px solid var(--border);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none}
         .sticky-cart.show{display:block}
         .sticky-cart button{width:100%;max-width:398px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;background:var(--brown-dark);color:#fff;border:none;border-radius:999px;padding:14px 18px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
@@ -162,33 +163,27 @@
         <button class="chip" onclick="filterProducts('frutos',this)">Frutos Secos</button>
         <button class="chip" onclick="filterProducts('mix',this)">Mix</button>
     </div>
-
     <div class="grid" id="grid">
         <div class="p-card" data-cat="granola">
             <img src="granola-limpia.jpg" onerror="this.onerror=null;this.src='frasco.jpg';" alt="Granola Artesanal con damascos y almendras 450g">
             <div class="p-card-body"><span class="badge badge-brown">★ MÁS VENDIDA</span><h3>Granola Artesanal</h3><p>Con damascos y almendras. La clásica.</p><div class="p-card-foot"><div class="price-wrap"><b>$9.990</b><span>450g • $22.200 / kg</span></div><button class="add-btn" data-id="granola" data-name="Granola Artesanal 450g" data-price="9990" data-img="granola-limpia.jpg">+</button></div></div>
         </div>
-
         <div class="p-card" data-cat="mix">
             <img src="granola-limpia.jpg" onerror="this.onerror=null;this.src='frasco.jpg';" alt="Mix Premium con cranberries y castañas 500g">
             <div class="p-card-body"><span class="badge badge-pink">MIX PREMIUM</span><h3>Mix Premium</h3><p>Con cranberries y castañas. Dulce - ácido.</p><div class="p-card-foot"><div class="price-wrap"><b>$11.990</b><span>500g • $23.980 / kg</span></div><button class="add-btn" data-id="mix" data-name="Mix Premium 500g" data-price="11990" data-img="granola-limpia.jpg">+</button></div></div>
         </div>
-
         <div class="p-card" data-cat="frutos">
             <img src="granola-limpia.jpg" onerror="this.onerror=null;this.src='frasco.jpg';" alt="Almendras Naturales sin sal 400g">
             <div class="p-card-body"><span class="badge badge-green">SIN SAL</span><h3>Almendras Naturales</h3><p>Enteras, crocantes, proteína natural.</p><div class="p-card-foot"><div class="price-wrap"><b>$8.990</b><span>400g</span></div><button class="add-btn" data-id="almendras" data-name="Almendras Naturales 400g" data-price="8990" data-img="granola-limpia.jpg">+</button></div></div>
         </div>
-
         <div class="p-card" data-cat="frutos">
             <img src="granola-limpia.jpg" onerror="this.onerror=null;this.src='frasco.jpg';" alt="Castañas de Cajú cremosas 400g">
             <div class="p-card-body"><span class="badge badge-gold">CREMOSAS</span><h3>Castañas de Cajú</h3><p>Tostado suave, las favoritas.</p><div class="p-card-foot"><div class="price-wrap"><b>$9.490</b><span>400g</span></div><button class="add-btn" data-id="caju" data-name="Castañas de Cajú 400g" data-price="9490" data-img="granola-limpia.jpg">+</button></div></div>
         </div>
-
         <div class="p-card" data-cat="granola">
             <img src="granola-limpia.jpg" onerror="this.onerror=null;this.src='frasco.jpg';" alt="Granola Cacao y Nuez con cacao real 450g">
             <div class="p-card-body"><span class="badge badge-brown">NUEVO • CACAO REAL</span><h3>Granola Cacao &amp; Nuez</h3><p>Con cacao real y canela.</p><div class="p-card-foot"><div class="price-wrap"><b>$10.990</b><span>450g</span></div><button class="add-btn" data-id="cacao" data-name="Granola Cacao & Nuez 450g" data-price="10990" data-img="granola-limpia.jpg">+</button></div></div>
         </div>
-
         <div class="p-card" data-cat="mix">
             <img src="granola-limpia.jpg" onerror="this.onerror=null;this.src='frasco.jpg';" alt="Mix Energía con nueces y semillas 500g">
             <div class="p-card-body"><span class="badge badge-green">ENERGÍA</span><h3>Mix Energía</h3><p>Con nueces, pasas y semillas.</p><div class="p-card-foot"><div class="price-wrap"><b>$9.990</b><span>500g</span></div><button class="add-btn" data-id="energia" data-name="Mix Energía 500g" data-price="9990" data-img="granola-limpia.jpg">+</button></div></div>
