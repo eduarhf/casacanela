@@ -39,9 +39,9 @@ section{margin-top:16px}section:first-child{margin-top:0}section h2{font-family:
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;align-items:stretch}
 article.card{background:var(--crema-2);border-radius:14px;box-shadow:var(--sombra);border:1px solid #F1E9DB;text-align:center;padding:10px;display:flex;flex-direction:column;height:100%}
 article.card img{width:100%;height:112px;object-fit:cover;object-position:center;border-radius:10px;background:#F3EBDD;display:block}
-.badge,.badge-empty{height:20px;min-height:20px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;padding:0 7px;border-radius:999px;margin-top:8px;align-self:center;line-height:1}
+.badge,.badge-empty{height:20px !important;min-height:20px !important;max-height:20px !important;box-sizing:border-box;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;padding:0 7px;border-radius:999px;margin:8px auto 0 auto;align-self:center;line-height:1;overflow:hidden}
 .badge{background:var(--badge);color:var(--cafe-claro)}
-.badge-empty{background:transparent;color:transparent;visibility:hidden}
+.badge-empty{background:transparent;color:transparent;visibility:hidden;font-size:0 !important;line-height:0 !important}
 article.card h3{margin-top:8px;font-size:13px;font-weight:500;min-height:18px;line-height:1.25}
 .price{margin-top:4px;font-weight:700;font-size:14px;line-height:1.2}
 .price small{font-size:10px;color:var(--cafe-claro);font-weight:400}
@@ -149,15 +149,15 @@ function generarSEOTienda(){
   document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
 }
 let PRODUCTOS = [
-  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=19", "categoria": "Granola",
+  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=20", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=19", "categoria": "Granola",
+  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=20", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=19", "categoria": "Frutos Secos",
+  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=20", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=19", "categoria": "Frutos Secos",
+  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=20", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=19", "categoria": "Dúos y Packs",
+  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=20", "categoria": "Dúos y Packs",
     "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
 ];
 let SELECTED = {};
@@ -329,7 +329,7 @@ function pintarProductos(){
         return `
         <article class="card" data-id="${p.id}">
           <img src="${p.imagen}" alt="${p.nombre} Casa Canela Santiago" ${idx===0 && cat==='Granola' ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'}>
-          ${p.badge ? `<span class="badge">${p.badge}</span>` : `<span class="badge-empty">•</span>`}
+          ${p.badge ? `<span class="badge">${p.badge}</span>` : `<span class="badge-empty"></span>`}
           <h3>${p.nombre}</h3><p class="price">${fmt(v.precio)} <small>/ ${v.gramaje}</small></p><p class="desc">${p.descripcion}</p>
           <div class="variant-label">GRAMAJE</div>
           <div class="variant">
