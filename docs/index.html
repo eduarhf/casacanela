@@ -44,12 +44,13 @@ article.card img{width:100%;height:168px;object-fit:cover;object-position:center
 article.card h3{margin-top:12px;font-size:14px;font-weight:400;min-height:20px;line-height:1.3}
 .price{margin-top:6px;font-weight:600;font-size:15px}
 .price small{font-size:11px;color:var(--cafe-claro);font-weight:400}
-.desc{font-size:11px;color:var(--cafe-claro);margin-top:4px;line-height:1.4;min-height:32px}
-.variant{margin-top:10px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
-.variant button{font-size:11px;font-weight:600;padding:7px 10px;border-radius:999px;border:1px solid var(--borde);background:#fff;color:var(--cafe-claro)}
+.desc{font-size:11px;color:var(--cafe-claro);margin-top:4px;line-height:1.4;min-height:46px}
+.variant{margin-top:10px;display:flex;justify-content:center;gap:4px;flex-wrap:nowrap}
+.variant button{font-size:11px;font-weight:600;padding:6px 8px;border-radius:999px;border:1px solid var(--borde);background:#fff;color:var(--cafe-claro);white-space:nowrap;flex:0 0 auto;line-height:1}
 .variant button.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
 .variant-label{font-size:10px;color:var(--cafe-claro);margin-top:10px;letter-spacing:.08em}
-.add{margin-top:auto;padding-top:12px}.add button{width:100%;background:var(--btn);padding:11px;border-radius:10px;font-size:13px;font-weight:500}
+.add{margin-top:auto;padding-top:12px}.add button{width:100%;background:var(--cafe);color:#F9F3EB;padding:12px;border-radius:10px;font-size:13px;font-weight:600}
+.add button:active{transform:scale(.98)}
 .add button:disabled{opacity:.5;cursor:not-allowed}
 .reviews{margin-top:32px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:18px;text-align:center}.reviews b{font-family:'Cormorant Garamond',serif;font-size:22px}.reviews p{font-size:12px;color:var(--cafe-claro);margin-top:6px}.reviews a{display:inline-block;margin-top:10px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
 .omni-ig{margin-top:16px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:18px;text-align:center}.omni-ig p{font-size:13px;color:var(--cafe-claro)}.omni-ig a{display:inline-block;margin-top:12px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
@@ -65,7 +66,7 @@ aside.pusher{position:fixed;left:50%;transform:translate(-50%,120%);bottom:16px;
 aside.pusher.show{transform:translate(-50%,0)}
 aside.pusher img{width:56px;height:56px;object-fit:cover;border-radius:10px}
 .pusher-text{flex:1}.pusher-text b{font-family:'Cormorant Garamond',serif;font-size:18px;display:block}.pusher-text span{font-size:12px;color:var(--cafe-claro)}
-.pusher-btns{display:flex;flex-direction:column;gap:6px}.pusher .go{background:var(--btn);padding:9px 14px;border-radius:999px;font-size:12px;font-weight:600}.pusher .close{font-size:11px;color:var(--cafe-claro)}
+.pusher-btns{display:flex;flex-direction:column;gap:6px}.pusher .go{background:var(--cafe);color:#F9F3EB;padding:9px 14px;border-radius:999px;font-size:12px;font-weight:600}.pusher .close{font-size:11px;color:var(--cafe-claro)}
 .cart-overlay{position:fixed;inset:0;background:rgba(62,42,26,.4);z-index:50;opacity:0;pointer-events:none;transition:opacity .3s}
 .cart-overlay.open{opacity:1;pointer-events:auto}
 .cart-drawer{position:fixed;left:50%;transform:translate(-50%,100%);bottom:0;z-index:51;width:100%;max-width:480px;background:var(--crema-2);border-radius:20px 20px 0 0;padding:20px 20px 24px;transition:transform .4s cubic-bezier(.2,.9,.3,1.05);max-height:82vh;overflow-y:auto}
@@ -142,17 +143,16 @@ function generarSEOTienda(){
   const tienda = { "@context":"https://schema.org","@type":"Store","name":"Casa Canela","description":"Granola artesanal, frutos secos y dúos en Santiago, Chile.","url":CONFIG.domain+"/","telephone":CONFIG.telLink,"priceRange":"$","image":CONFIG.domain+"/granola-artesanal.jpg","address":{"@type":"PostalAddress","addressLocality":"Santiago","addressRegion":"Región Metropolitana","addressCountry":"CL"},"openingHours":"Mo-Sa 09:00-19:00","sameAs":[CONFIG.igUrl, CONFIG.waBase] };
   document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
 }
-// 👇 AQUÍ CAMBIAS TUS PRECIOS REALES POR GRAMAJE
 let PRODUCTOS = [
-  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=10", "categoria": "Granola",
+  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=11", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=10", "categoria": "Granola",
+  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=11", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=10", "categoria": "Frutos Secos",
+  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=11", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=10", "categoria": "Frutos Secos",
+  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=11", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=10", "categoria": "Dúos y Packs",
+  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=11", "categoria": "Dúos y Packs",
     "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
 ];
 let SELECTED = {};
@@ -180,12 +180,6 @@ function actualizarBarra(){
   document.getElementById('cartBarTotal').textContent = `${fmt(total)} →`;
   document.getElementById('cartBar').classList.toggle('empty', count===0);
 }
-function agregarAlCarrito(key){
-  const item = CART.find(i=>i.key===key);
-  if(item) item.qty++;
-  else CART.push({key, qty:1});
-  guardarCart(); actualizarBarra(); renderCarrito();
-}
 function cambiarQty(key, delta){
   const item = CART.find(i=>i.key===key); if(!item) return;
   item.qty += delta;
@@ -208,7 +202,6 @@ function renderCarrito(){
     foot.innerHTML = '';
     return;
   }
-  // Migrar carrito viejo sin precio
   CART.forEach(i=>{
     if(!i.precio){
       const {p,v} = parseKey(i.key || i.id);
