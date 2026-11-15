@@ -37,10 +37,10 @@
         .wrap{max-width:480px;margin:0 auto;padding:18px 20px 20px}
         .intro{text-align:center}.intro h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,6vw,32px);line-height:1.1}.intro p{font-size:12px;color:var(--cafe-claro);margin-top:6px}
         section{margin-top:28px}section h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;margin-bottom:16px}
-        .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-        article.card{background:var(--crema-2);border-radius:14px;box-shadow:var(--sombra);border:1px solid #F1E9DB;text-align:center;padding:18px 14px;display:flex;flex-direction:column}
-        article.card img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;border-radius:8px;background:#F3EBDD}
-        .badge{display:inline-block;background:var(--badge);color:var(--cafe-claro);font-size:10px;font-weight:600;padding:5px 9px;border-radius:999px;margin-top:14px;align-self:center}
+        .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:start}
+        article.card{background:var(--crema-2);border-radius:14px;box-shadow:var(--sombra);border:1px solid #F1E9DB;text-align:center;padding:14px;display:flex;flex-direction:column}
+        article.card img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;object-position:center;border-radius:8px;background:#F3EBDD;display:block}
+        .badge{display:inline-block;background:var(--badge);color:var(--cafe-claro);font-size:10px;font-weight:600;padding:5px 9px;border-radius:999px;margin-top:12px;align-self:center}
         article.card h3{margin-top:12px;font-size:14px;font-weight:400}.price{margin-top:6px;font-weight:500}.desc{font-size:11px;color:var(--cafe-claro);margin-top:4px;line-height:1.4}
         .add{margin-top:auto;padding-top:12px}.add button{width:100%;background:var(--btn);padding:11px;border-radius:10px;font-size:13px;font-weight:500}
         .add button:disabled{opacity:.5;cursor:not-allowed}
@@ -132,16 +132,13 @@
       const tienda = { "@context":"https://schema.org","@type":"Store","name":"Casa Canela","description":"Granola artesanal, frutos secos y dúos en Santiago, Chile.","url":CONFIG.domain+"/","telephone":CONFIG.telLink,"priceRange":"$","image":CONFIG.domain+"/granola-artesanal.jpg","address":{"@type":"PostalAddress","addressLocality":"Santiago","addressRegion":"Región Metropolitana","addressCountry":"CL"},"openingHours":"Mo-Sa 09:00-19:00","sameAs":[CONFIG.igUrl, CONFIG.waBase] };
       document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
     }
-
-    // PRODUCTOS DENTRO DEL HTML - YA NO USA fetch, FUNCIONA CON file://
     let PRODUCTOS = [
-      { "id": "granola-artesanal", "nombre": "Granola Artesanal", "precio": 4200, "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp", "categoria": "Granola" },
-      { "id": "granola-cacao", "nombre": "Granola Cacao", "precio": 6200, "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp", "categoria": "Granola" },
-      { "id": "almendras", "nombre": "Almendras", "precio": 4500, "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp", "categoria": "Frutos Secos" },
-      { "id": "nueces", "nombre": "Nueces", "precio": 5000, "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp", "categoria": "Frutos Secos" },
-      { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "precio": 10900, "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp", "categoria": "Dúos y Packs" }
+      { "id": "granola-artesanal", "nombre": "Granola Artesanal", "precio": 4200, "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=3", "categoria": "Granola" },
+      { "id": "granola-cacao", "nombre": "Granola Cacao", "precio": 6200, "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=3", "categoria": "Granola" },
+      { "id": "almendras", "nombre": "Almendras", "precio": 4500, "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=3", "categoria": "Frutos Secos" },
+      { "id": "nueces", "nombre": "Nueces", "precio": 5000, "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=3", "categoria": "Frutos Secos" },
+      { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "precio": 10900, "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=3", "categoria": "Dúos y Packs" }
     ];
-
     let CART = JSON.parse(localStorage.getItem('casa_canela_cart') || '[]');
     function guardarCart(){ localStorage.setItem('casa_canela_cart', JSON.stringify(CART)); }
     function totalItems(){ return CART.reduce((s,i)=>s+i.qty,0); }
@@ -227,8 +224,8 @@
         <section><h2>${cat}</h2><div class="grid">
           ${PRODUCTOS.filter(p=>p.categoria===cat).map((p, idx) => `
             <article class="card" data-id="${p.id}">
-              <img src="${p.imagen}" alt="${p.nombre} Casa Canela Santiago" width="600" height="600" ${idx===0 && cat==='Granola' ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'}>
-              ${p.badge ? `<span class="badge">${p.badge}</span>` : `<span style="margin-top:38px;display:block"></span>`}
+              <img src="${p.imagen}" alt="${p.nombre} Casa Canela Santiago" ${idx===0 && cat==='Granola' ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'}>
+              ${p.badge ? `<span class="badge">${p.badge}</span>` : `<span style="margin-top:12px;display:block"></span>`}
               <h3>${p.nombre}</h3><p class="price">${fmt(p.precio)}</p><p class="desc">${p.descripcion}</p>
               <div class="add"><button ${p.stock==='out' ? 'disabled' : ''} onclick="showPusher('${p.id}')">${p.stock==='out' ? 'Agotado' : 'Agregar +'}</button></div>
             </article>`).join('')}
