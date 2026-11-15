@@ -26,7 +26,7 @@ body{background:var(--crema);color:var(--cafe);font-family:'Inter',sans-serif;-w
 a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}img{max-width:100%;display:block}
 .omni-bar{background:var(--cafe);color:#F9F3EB;text-align:center;font-size:11px;letter-spacing:.1em;padding:7px 16px}
 .omni-bar a{text-decoration:underline;text-underline-offset:2px}
-header{position:static;background:var(--crema);border-bottom:1px solid var(--borde)}
+header{position:sticky;top:0;z-index:30;background:var(--crema);border-bottom:1px solid var(--borde)}
 nav{max-width:480px;margin:0 auto;height:64px;padding:0 16px;display:flex;align-items:center;justify-content:space-between}
 .icon-btn{width:32px;height:32px;display:grid;place-items:center;position:relative}
 .icon-btn svg{width:22px;height:22px;stroke:var(--cafe);stroke-width:1.5;fill:none;stroke-linecap:round}
@@ -56,8 +56,8 @@ article.card h3{margin-top:8px;font-size:13px;font-weight:500;min-height:18px;li
 .reviews{margin-top:24px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:16px;text-align:center}.reviews b{font-family:'Cormorant Garamond',serif;font-size:20px}.reviews p{font-size:12px;color:var(--cafe-claro);margin-top:6px}.reviews a{display:inline-block;margin-top:10px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
 .omni-ig{margin-top:12px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:16px;text-align:center}.omni-ig p{font-size:13px;color:var(--cafe-claro)}.omni-ig a{display:inline-block;margin-top:12px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
 .bottom-fade{position:fixed;left:0;right:0;bottom:0;height:110px;pointer-events:none;z-index:20;background:linear-gradient(to top, var(--crema) 0%, rgba(249,243,235,.92) 45%, rgba(249,243,235,0) 100%)}
-footer{position:fixed;left:12px;right:12px;bottom:16px;z-index:25;max-width:448px;margin:0 auto;display:flex;gap:8px;align-items:center;transition:transform .35s ease, opacity .3s}
-footer.dock-hide{transform:translateY(120%);opacity:0;pointer-events:none}
+footer{position:fixed;left:12px;right:12px;bottom:16px;z-index:25;max-width:448px;margin:0 auto;display:flex;gap:8px;align-items:center}
+footer.dock-hide{transform:none;opacity:1;pointer-events:auto}
 .cart-bar{flex:1;min-width:0;background:var(--btn);color:var(--cafe);padding:14px 14px;border-radius:999px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 12px 24px rgba(62,42,26,.12)}
 .cart-bar:active{transform:scale(.98)}
 .cart-bar.hidden{opacity:0;pointer-events:none}
@@ -149,15 +149,15 @@ function generarSEOTienda(){
   document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
 }
 let PRODUCTOS = [
-  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=20", "categoria": "Granola",
+  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=21", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=20", "categoria": "Granola",
+  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=21", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=20", "categoria": "Frutos Secos",
+  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=21", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=20", "categoria": "Frutos Secos",
+  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=21", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=20", "categoria": "Dúos y Packs",
+  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=21", "categoria": "Dúos y Packs",
     "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
 ];
 let SELECTED = {};
@@ -344,19 +344,7 @@ function generarSEOProductos(){
   const json = { "@context":"https://schema.org","@type":"ItemList","itemListElement": PRODUCTOS.flatMap((p)=> p.variantes.map((v)=>({ "@type":"ListItem","position": pos++,"item":{"@type":"Product","name":`${p.nombre} ${v.gramaje}`,"description":p.descripcion,"image":CONFIG.domain+"/"+p.imagen.replace("./","").split("?")[0],"sku":`${p.id}-${v.gramaje}`,"brand":{"@type":"Brand","name":"Casa Canela"},"offers":{"@type":"Offer","price":v.precio,"priceCurrency":"CLP","availability":p.stock==='out'?"https://schema.org/OutOfStock":"https://schema.org/InStock","url":CONFIG.domain+"/#"+p.id} } }))) };
   document.getElementById('seo-productos').textContent = JSON.stringify(json);
 }
-let lastScrollY = window.scrollY;
-window.addEventListener('scroll', () => {
-  const dock = document.getElementById('dock');
-  if(!dock) return;
-  const y = window.scrollY;
-  const atBottom = (window.innerHeight + y) >= (document.body.scrollHeight - 10);
-  if(y > lastScrollY && y > 120 && !atBottom){
-    dock.classList.add('dock-hide');
-  } else {
-    dock.classList.remove('dock-hide');
-  }
-  lastScrollY = y;
-}, {passive:true});
+// v21: dock siempre visible, sin esconder al bajar
 cargarTienda();
 </script>
 </body>
