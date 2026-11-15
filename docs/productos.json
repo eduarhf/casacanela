@@ -1,0 +1,52 @@
+[
+  {
+    "id": "granola-artesanal",
+    "nombre": "Granola Artesanal",
+    "precio": 4200,
+    "stock": "in",
+    "badge": "★ MÁS VENDIDA",
+    "descripcion": "Granola artesanal con avena, miel y frutos secos.",
+    "imagen": "https://www.casacanela.cl/granola-artesanal.jpg",
+    "categoria": "Granola"
+  },
+  {
+    "id": "granola-cacao",
+    "nombre": "Granola Cacao",
+    "precio": 6200,
+    "stock": "in",
+    "badge": "",
+    "descripcion": "Granola con cacao y chocolate.",
+    "imagen": "https://www.casacanela.cl/granola-cacao.jpg",
+    "categoria": "Granola"
+  },
+  {
+    "id": "almendras",
+    "nombre": "Almendras",
+    "precio": 4500,
+    "stock": "in",
+    "badge": "",
+    "descripcion": "Almendras tostadas premium.",
+    "imagen": "https://www.casacanela.cl/almendras.jpg",
+    "categoria": "Frutos Secos"
+  },
+  {
+    "id": "nueces",
+    "nombre": "Nueces",
+    "precio": 5000,
+    "stock": "in",
+    "badge": "",
+    "descripcion": "Nueces chilenas seleccionadas.",
+    "imagen": "https://www.casacanela.cl/nueces.jpg",
+    "categoria": "Frutos Secos"
+  },
+  {
+    "id": "duo-artesanal",
+    "nombre": "Dúo Artesanal — Pack de 2 Frascos",
+    "precio": 10900,
+    "stock": "in",
+    "badge": "",
+    "descripcion": "El regalo perfecto. Granola + Frutos Secos.",
+    "imagen": "https://www.casacanela.cl/duo.jpg",
+    "categoria": "Dúos y Packs"
+  }
+]
