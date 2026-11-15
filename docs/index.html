@@ -21,39 +21,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--crema:#F9F3EB;--crema-2:#FFFDF9;--cafe:#3E2A1A;--cafe-claro:#8A6D52;--borde:#EDE3D3;--btn:#EDE0CE;--btn-hover:#E5D5BC;--badge:#F1E6D2;--wa:#25D366;--sombra:0 12px 30px rgba(62,42,26,.07)}
+:root{--crema:#F9F3EB;--crema-2:#FFFDF9;--cafe:#3E2A1A;--cafe-claro:#8A6D52;--borde:#EDE3D3;--btn:#EDE0CE;--btn-hover:#E5D5BC;--badge:#F1E6D2;--wa:#25D366;--sombra:0 8px 20px rgba(62,42,26,.06)}
 body{background:var(--crema);color:var(--cafe);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:140px}
 a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}img{max-width:100%;display:block}
 .omni-bar{background:var(--cafe);color:#F9F3EB;text-align:center;font-size:11px;letter-spacing:.1em;padding:7px 16px}
 .omni-bar a{text-decoration:underline;text-underline-offset:2px}
 header{position:static;background:var(--crema);border-bottom:1px solid var(--borde)}
-nav{max-width:480px;margin:0 auto;height:72px;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+nav{max-width:480px;margin:0 auto;height:64px;padding:0 16px;display:flex;align-items:center;justify-content:space-between}
 .icon-btn{width:32px;height:32px;display:grid;place-items:center;position:relative}
 .icon-btn svg{width:22px;height:22px;stroke:var(--cafe);stroke-width:1.5;fill:none;stroke-linecap:round}
 .cart-count{position:absolute;top:0;right:0;background:var(--cafe);color:#fff;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:grid;place-items:center}
 .cart-count:empty{display:none}
-.logo{text-align:center;line-height:1}.logo b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;letter-spacing:.12em}.logo span{display:block;margin-top:4px;font-size:8px;letter-spacing:.42em;color:var(--cafe-claro)}
+.logo{text-align:center;line-height:1}.logo b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:26px;letter-spacing:.12em}.logo span{display:block;margin-top:3px;font-size:8px;letter-spacing:.42em;color:var(--cafe-claro)}
 .nav-right{display:flex;gap:8px;align-items:center;list-style:none}
-.wrap{max-width:480px;margin:0 auto;padding:16px 20px 20px}
-section{margin-top:20px}section:first-child{margin-top:0}section h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:36px;margin-bottom:16px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:stretch}
-article.card{background:var(--crema-2);border-radius:14px;box-shadow:var(--sombra);border:1px solid #F1E9DB;text-align:center;padding:14px;display:flex;flex-direction:column;height:100%}
-article.card img{width:100%;height:168px;object-fit:cover;object-position:center;border-radius:8px;background:#F3EBDD;display:block}
-.badge{height:26px;display:inline-flex;align-items:center;justify-content:center;background:var(--badge);color:var(--cafe-claro);font-size:10px;font-weight:600;padding:0 9px;border-radius:999px;margin-top:12px;align-self:center}
-.badge-empty{height:26px;margin-top:12px;display:block}
-article.card h3{margin-top:12px;font-size:14px;font-weight:400;min-height:20px;line-height:1.3}
-.price{margin-top:6px;font-weight:600;font-size:15px}
-.price small{font-size:11px;color:var(--cafe-claro);font-weight:400}
-.desc{font-size:11px;color:var(--cafe-claro);margin-top:4px;line-height:1.4;min-height:46px}
-.variant{margin-top:10px;display:flex;justify-content:center;gap:4px;flex-wrap:nowrap}
-.variant button{font-size:11px;font-weight:600;padding:6px 8px;border-radius:999px;border:1px solid var(--borde);background:#fff;color:var(--cafe-claro);white-space:nowrap;flex:0 0 auto;line-height:1}
+.wrap{max-width:480px;margin:0 auto;padding:12px 12px 16px}
+section{margin-top:16px}section:first-child{margin-top:0}section h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;margin-bottom:10px;padding:0 4px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;align-items:stretch}
+article.card{background:var(--crema-2);border-radius:14px;box-shadow:var(--sombra);border:1px solid #F1E9DB;text-align:center;padding:10px;display:flex;flex-direction:column;height:100%}
+article.card img{width:100%;height:112px;object-fit:cover;object-position:center;border-radius:10px;background:#F3EBDD;display:block}
+.badge{height:20px;display:inline-flex;align-items:center;justify-content:center;background:var(--badge);color:var(--cafe-claro);font-size:9px;font-weight:600;padding:0 7px;border-radius:999px;margin-top:8px;align-self:center}
+.badge-empty{height:20px;margin-top:8px;display:block}
+article.card h3{margin-top:8px;font-size:13px;font-weight:500;min-height:18px;line-height:1.25}
+.price{margin-top:4px;font-weight:700;font-size:14px;line-height:1.2}
+.price small{font-size:10px;color:var(--cafe-claro);font-weight:400}
+.desc{font-size:10.5px;color:var(--cafe-claro);margin-top:3px;line-height:1.35;min-height:28px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.variant{margin-top:8px;display:flex;justify-content:center;gap:4px;flex-wrap:nowrap}
+.variant button{font-size:10.5px;font-weight:600;padding:5px 7px;border-radius:999px;border:1px solid var(--borde);background:#fff;color:var(--cafe-claro);white-space:nowrap;flex:0 0 auto;line-height:1}
 .variant button.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
-.variant-label{font-size:10px;color:var(--cafe-claro);margin-top:10px;letter-spacing:.08em}
-.add{margin-top:auto;padding-top:12px}.add button{width:100%;background:var(--cafe);color:#F9F3EB;padding:12px;border-radius:10px;font-size:13px;font-weight:600}
+.variant-label{font-size:9px;color:var(--cafe-claro);margin-top:8px;letter-spacing:.08em}
+.add{margin-top:auto;padding-top:8px}.add button{width:100%;background:var(--cafe);color:#F9F3EB;padding:9px;border-radius:9px;font-size:12.5px;font-weight:600}
 .add button:active{transform:scale(.98)}
 .add button:disabled{opacity:.5;cursor:not-allowed}
-.reviews{margin-top:32px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:18px;text-align:center}.reviews b{font-family:'Cormorant Garamond',serif;font-size:22px}.reviews p{font-size:12px;color:var(--cafe-claro);margin-top:6px}.reviews a{display:inline-block;margin-top:10px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
-.omni-ig{margin-top:16px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:18px;text-align:center}.omni-ig p{font-size:13px;color:var(--cafe-claro)}.omni-ig a{display:inline-block;margin-top:12px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
+.reviews{margin-top:24px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:16px;text-align:center}.reviews b{font-family:'Cormorant Garamond',serif;font-size:20px}.reviews p{font-size:12px;color:var(--cafe-claro);margin-top:6px}.reviews a{display:inline-block;margin-top:10px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
+.omni-ig{margin-top:12px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:16px;text-align:center}.omni-ig p{font-size:13px;color:var(--cafe-claro)}.omni-ig a{display:inline-block;margin-top:12px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
 footer{position:fixed;left:12px;right:12px;bottom:16px;z-index:25;max-width:448px;margin:0 auto;display:flex;gap:8px;align-items:center;transition:transform .35s ease, opacity .3s}
 footer.dock-hide{transform:translateY(120%);opacity:0;pointer-events:none}
 .cart-bar{flex:1;min-width:0;background:var(--btn);color:var(--cafe);padding:14px 14px;border-radius:999px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 12px 24px rgba(62,42,26,.12)}
@@ -93,7 +93,7 @@ aside.pusher img{width:56px;height:56px;object-fit:cover;border-radius:10px}
 .wa{flex-shrink:0;width:50px;height:50px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px rgba(37,211,102,.35), 0 2px 6px rgba(0,0,0,.1);border:2px solid #fff}
 .wa svg{width:27px;height:27px;fill:#fff}
 .wa:active{transform:scale(.95)}
-@media(min-width:640px){ nav,.wrap{max-width:720px} .grid{grid-template-columns:repeat(3,1fr)} article.card img{height:190px} }
+@media(min-width:640px){ nav,.wrap{max-width:720px} .grid{grid-template-columns:repeat(3,1fr)} article.card img{height:140px} }
 </style>
 </head>
 <body>
@@ -144,15 +144,15 @@ function generarSEOTienda(){
   document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
 }
 let PRODUCTOS = [
-  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=11", "categoria": "Granola",
+  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=12", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=11", "categoria": "Granola",
+  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=12", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=11", "categoria": "Frutos Secos",
+  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=12", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=11", "categoria": "Frutos Secos",
+  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=12", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=11", "categoria": "Dúos y Packs",
+  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=12", "categoria": "Dúos y Packs",
     "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
 ];
 let SELECTED = {};
