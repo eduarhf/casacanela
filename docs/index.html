@@ -149,19 +149,47 @@ function generarSEOTienda(){
   document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
 }
 let PRODUCTOS = [
-  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=17", "categoria": "Granola",
+  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=18", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=17", "categoria": "Granola",
+  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=18", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=17", "categoria": "Frutos Secos",
+  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=18", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=17", "categoria": "Frutos Secos",
+  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=18", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=17", "categoria": "Dúos y Packs",
+  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=18", "categoria": "Dúos y Packs",
     "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
 ];
 let SELECTED = {};
 PRODUCTOS.forEach(p => SELECTED[p.id] = 0);
+function parseKey(key){
+  if(!key) return {p:null, v:null, idx:0};
+  const parts = String(key).split('::');
+  const id = parts[0];
+  const idx = parseInt(parts[1]) || 0;
+  const p = PRODUCTOS.find(x=>x.id===id);
+  const v = p ? p.variantes[idx] : null;
+  return {p, v, idx};
+}
+function normalizarKey(item){
+  if(item.key && parseKey(item.key).p && parseKey(item.key).v) return item.key;
+  if(item.id && PRODUCTOS.find(x=>x.id===item.id)){
+    const idx = typeof item.variantIndex !== 'undefined' ? item.variantIndex : 0;
+    return `${item.id}::${idx}`;
+  }
+  return null;
+}
+function limpiarCarrito(){
+  const antes = CART.length;
+  CART = CART.filter(item => {
+    if(!item || typeof item.qty !== 'number' || item.qty <= 0) return false;
+    const key = normalizarKey(item);
+    if(!key) return false;
+    item.key = key;
+    return true;
+  });
+  if(CART.length !== antes) guardarCart();
+}
 function getVariante(p){ return p.variantes[SELECTED[p.id] || 0]; }
 function getPrecioActual(item){
   const { v } = parseKey(item.key || item.id);
@@ -178,7 +206,10 @@ function cambiarVariante(id, idx){
   const v = getVariante(p);
   card.querySelector('.price').innerHTML = `${fmt(v.precio)} <small>/ ${v.gramaje}</small>`;
 }
-let CART = JSON.parse(localStorage.getItem('casa_canela_cart') || '[]');
+let CART = [];
+try { CART = JSON.parse(localStorage.getItem('casa_canela_cart') || '[]'); } catch(e){ CART = []; }
+if(!Array.isArray(CART)) CART = [];
+limpiarCarrito();
 function guardarCart(){ localStorage.setItem('casa_canela_cart', JSON.stringify(CART)); }
 function totalItems(){ return CART.reduce((s,i)=>s+i.qty,0); }
 function totalPrecio(){ return CART.reduce((s,i)=> s + (getPrecioActual(i)*i.qty), 0); }
@@ -196,15 +227,14 @@ function cambiarQty(key, delta){
   if(item.qty<=0) CART = CART.filter(i=>i.key!==key);
   guardarCart(); actualizarBarra(); renderCarrito();
 }
-function eliminarItem(key){ CART = CART.filter(i=>i.key!==key); guardarCart(); actualizarBarra(); renderCarrito(); }
-function vaciarCarrito(){ CART=[]; guardarCart(); actualizarBarra(); renderCarrito(); }
-function parseKey(key){
-  const [id, idx] = key.split('::');
-  const p = PRODUCTOS.find(x=>x.id===id);
-  const v = p ? p.variantes[parseInt(idx)||0] : null;
-  return {p, v, idx: parseInt(idx)||0};
+function eliminarItem(key){
+  const k = String(key);
+  CART = CART.filter(i=> String(i.key) !== k);
+  guardarCart(); actualizarBarra(); renderCarrito();
 }
+function vaciarCarrito(){ CART=[]; localStorage.removeItem('casa_canela_cart'); guardarCart(); actualizarBarra(); renderCarrito(); }
 function renderCarrito(){
+  limpiarCarrito();
   const box = document.getElementById('cartItems');
   const foot = document.getElementById('cartFooter');
   if(CART.length===0){
@@ -213,7 +243,7 @@ function renderCarrito(){
     return;
   }
   box.innerHTML = CART.map(i=>{
-    const {p, v} = parseKey(i.key || i.id);
+    const {p, v} = parseKey(i.key);
     if(!p || !v) return '';
     const nombre = p.nombre;
     const gramaje = v.gramaje;
