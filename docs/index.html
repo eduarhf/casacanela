@@ -22,7 +22,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--crema:#F9F3EB;--crema-2:#FFFDF9;--cafe:#3E2A1A;--cafe-claro:#8A6D52;--borde:#EDE3D3;--btn:#EDE0CE;--btn-hover:#E5D5BC;--badge:#F1E6D2;--wa:#25D366;--sombra:0 8px 20px rgba(62,42,26,.06)}
-body{background:var(--crema);color:var(--cafe);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:140px}
+body{background:var(--crema);color:var(--cafe);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:180px}
 a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}img{max-width:100%;display:block}
 .omni-bar{background:var(--cafe);color:#F9F3EB;text-align:center;font-size:11px;letter-spacing:.1em;padding:7px 16px}
 .omni-bar a{text-decoration:underline;text-underline-offset:2px}
@@ -39,8 +39,9 @@ section{margin-top:16px}section:first-child{margin-top:0}section h2{font-family:
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;align-items:stretch}
 article.card{background:var(--crema-2);border-radius:14px;box-shadow:var(--sombra);border:1px solid #F1E9DB;text-align:center;padding:10px;display:flex;flex-direction:column;height:100%}
 article.card img{width:100%;height:112px;object-fit:cover;object-position:center;border-radius:10px;background:#F3EBDD;display:block}
-.badge{height:20px;display:inline-flex;align-items:center;justify-content:center;background:var(--badge);color:var(--cafe-claro);font-size:9px;font-weight:600;padding:0 7px;border-radius:999px;margin-top:8px;align-self:center}
-.badge-empty{height:20px;margin-top:8px;display:block}
+.badge,.badge-empty{height:20px;min-height:20px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;padding:0 7px;border-radius:999px;margin-top:8px;align-self:center;line-height:1}
+.badge{background:var(--badge);color:var(--cafe-claro)}
+.badge-empty{background:transparent;color:transparent;visibility:hidden}
 article.card h3{margin-top:8px;font-size:13px;font-weight:500;min-height:18px;line-height:1.25}
 .price{margin-top:4px;font-weight:700;font-size:14px;line-height:1.2}
 .price small{font-size:10px;color:var(--cafe-claro);font-weight:400}
@@ -54,6 +55,7 @@ article.card h3{margin-top:8px;font-size:13px;font-weight:500;min-height:18px;li
 .add button:disabled{opacity:.5;cursor:not-allowed}
 .reviews{margin-top:24px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:16px;text-align:center}.reviews b{font-family:'Cormorant Garamond',serif;font-size:20px}.reviews p{font-size:12px;color:var(--cafe-claro);margin-top:6px}.reviews a{display:inline-block;margin-top:10px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
 .omni-ig{margin-top:12px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:16px;text-align:center}.omni-ig p{font-size:13px;color:var(--cafe-claro)}.omni-ig a{display:inline-block;margin-top:12px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
+.bottom-fade{position:fixed;left:0;right:0;bottom:0;height:110px;pointer-events:none;z-index:20;background:linear-gradient(to top, var(--crema) 0%, rgba(249,243,235,.92) 45%, rgba(249,243,235,0) 100%)}
 footer{position:fixed;left:12px;right:12px;bottom:16px;z-index:25;max-width:448px;margin:0 auto;display:flex;gap:8px;align-items:center;transition:transform .35s ease, opacity .3s}
 footer.dock-hide{transform:translateY(120%);opacity:0;pointer-events:none}
 .cart-bar{flex:1;min-width:0;background:var(--btn);color:var(--cafe);padding:14px 14px;border-radius:999px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 12px 24px rgba(62,42,26,.12)}
@@ -93,7 +95,8 @@ aside.pusher img{width:56px;height:56px;object-fit:cover;border-radius:10px}
 .wa{flex-shrink:0;width:50px;height:50px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px rgba(37,211,102,.35), 0 2px 6px rgba(0,0,0,.1);border:2px solid #fff}
 .wa svg{width:27px;height:27px;fill:#fff}
 .wa:active{transform:scale(.95)}
-@media(min-width:640px){ nav,.wrap{max-width:720px} .grid{grid-template-columns:repeat(3,1fr)} article.card img{height:140px} }
+@media(min-width:640px){ nav{max-width:1100px} .wrap{max-width:1100px;padding:20px 24px} .grid{grid-template-columns:repeat(3,1fr);gap:16px} article.card img{height:160px} section h2{font-size:32px} }
+@media(min-width:1024px){ .grid{grid-template-columns:repeat(4,1fr);gap:18px} article.card img{height:170px} .wrap{padding:24px 32px} }
 </style>
 </head>
 <body>
@@ -111,6 +114,8 @@ aside.pusher img{width:56px;height:56px;object-fit:cover;border-radius:10px}
   <section class="reviews"><b>★★★★★ 5.0 en Google</b><p>“La mejor granola de Santiago, llega al tiro y es demasiado rica.”<br>— Clienta de Casa Canela</p><a href="https://www.google.com/maps/search/Casa+Canela+Santiago" target="_blank" rel="noopener">Ver reseñas en Google →</a></section>
   <section class="omni-ig"><p>¿Nos viste en Instagram o en Google?<br>Es la misma tienda, mismo precio.</p><a data-ig-link href="#" target="_blank" rel="noopener">@casacanela.foods → Seguir</a></section>
 </main>
+
+<div class="bottom-fade"></div>
 
 <aside class="pusher" id="pusher"><img id="pusherImg" src="" alt="Producto"><div class="pusher-text"><b>¿La llevamos?</b><span id="pusherSub"></span></div><div class="pusher-btns"><button class="go" onclick="abrirCarrito()">Ver carrito →</button><button class="close" onclick="hidePusher()">Ahora no</button></div></aside>
 
@@ -133,6 +138,9 @@ const CONFIG = {
   get igUrl(){ return `https://instagram.com/${this.instagram}`; },
   get telLink(){ return `+${this.phone}`; }
 };
+if(CONFIG.phone.includes('X')){
+  console.warn('⚠️ Casa Canela: cambia data-phone="569XXXXXXXX" por tu número real en <html>. Si no, el WhatsApp no va a funcionar.');
+}
 function aplicarConfig(){
   document.querySelectorAll('[data-ig-link]').forEach(a => { a.href = CONFIG.igUrl; a.textContent = a.textContent.includes('Seguir') ? `@${CONFIG.instagram} → Seguir` : `@${CONFIG.instagram}`; });
   document.querySelectorAll('[data-home]').forEach(a => a.href = CONFIG.domain + '/');
@@ -144,15 +152,15 @@ function generarSEOTienda(){
   document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
 }
 let PRODUCTOS = [
-  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=12", "categoria": "Granola",
+  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=13", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=12", "categoria": "Granola",
+  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=13", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=12", "categoria": "Frutos Secos",
+  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=13", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=12", "categoria": "Frutos Secos",
+  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=13", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=12", "categoria": "Dúos y Packs",
+  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=13", "categoria": "Dúos y Packs",
     "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
 ];
 let SELECTED = {};
@@ -272,7 +280,7 @@ function pintarProductos(){
         return `
         <article class="card" data-id="${p.id}">
           <img src="${p.imagen}" alt="${p.nombre} Casa Canela Santiago" ${idx===0 && cat==='Granola' ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"'}>
-          ${p.badge ? `<span class="badge">${p.badge}</span>` : `<span class="badge-empty"></span>`}
+          ${p.badge ? `<span class="badge">${p.badge}</span>` : `<span class="badge-empty">•</span>`}
           <h3>${p.nombre}</h3><p class="price">${fmt(v.precio)} <small>/ ${v.gramaje}</small></p><p class="desc">${p.descripcion}</p>
           <div class="variant-label">GRAMAJE</div>
           <div class="variant">
