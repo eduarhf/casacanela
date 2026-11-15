@@ -6,7 +6,7 @@
     "stock": "in",
     "badge": "★ MÁS VENDIDA",
     "descripcion": "Granola artesanal con avena, miel y frutos secos.",
-    "imagen": "https://www.casacanela.cl/granola-artesanal.jpg",
+    "imagen": "./granola-artesanal.webp",
     "categoria": "Granola"
   },
   {
@@ -16,7 +16,7 @@
     "stock": "in",
     "badge": "",
     "descripcion": "Granola con cacao y chocolate.",
-    "imagen": "https://www.casacanela.cl/granola-cacao.jpg",
+    "imagen": "./granola-cacao.webp",
     "categoria": "Granola"
   },
   {
@@ -26,7 +26,7 @@
     "stock": "in",
     "badge": "",
     "descripcion": "Almendras tostadas premium.",
-    "imagen": "https://www.casacanela.cl/almendras.jpg",
+    "imagen": "./almendras.webp",
     "categoria": "Frutos Secos"
   },
   {
@@ -36,7 +36,7 @@
     "stock": "in",
     "badge": "",
     "descripcion": "Nueces chilenas seleccionadas.",
-    "imagen": "https://www.casacanela.cl/nueces.jpg",
+    "imagen": "./nueces.webp",
     "categoria": "Frutos Secos"
   },
   {
@@ -46,7 +46,7 @@
     "stock": "in",
     "badge": "",
     "descripcion": "El regalo perfecto. Granola + Frutos Secos.",
-    "imagen": "https://www.casacanela.cl/duo.jpg",
+    "imagen": "./duo.webp",
     "categoria": "Dúos y Packs"
   }
 ]

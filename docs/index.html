@@ -132,7 +132,16 @@
       const tienda = { "@context":"https://schema.org","@type":"Store","name":"Casa Canela","description":"Granola artesanal, frutos secos y dúos en Santiago, Chile.","url":CONFIG.domain+"/","telephone":CONFIG.telLink,"priceRange":"$","image":CONFIG.domain+"/granola-artesanal.jpg","address":{"@type":"PostalAddress","addressLocality":"Santiago","addressRegion":"Región Metropolitana","addressCountry":"CL"},"openingHours":"Mo-Sa 09:00-19:00","sameAs":[CONFIG.igUrl, CONFIG.waBase] };
       document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
     }
-    let PRODUCTOS = [];
+
+    // PRODUCTOS DENTRO DEL HTML - YA NO USA fetch, FUNCIONA CON file://
+    let PRODUCTOS = [
+      { "id": "granola-artesanal", "nombre": "Granola Artesanal", "precio": 4200, "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp", "categoria": "Granola" },
+      { "id": "granola-cacao", "nombre": "Granola Cacao", "precio": 6200, "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp", "categoria": "Granola" },
+      { "id": "almendras", "nombre": "Almendras", "precio": 4500, "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp", "categoria": "Frutos Secos" },
+      { "id": "nueces", "nombre": "Nueces", "precio": 5000, "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp", "categoria": "Frutos Secos" },
+      { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "precio": 10900, "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp", "categoria": "Dúos y Packs" }
+    ];
+
     let CART = JSON.parse(localStorage.getItem('casa_canela_cart') || '[]');
     function guardarCart(){ localStorage.setItem('casa_canela_cart', JSON.stringify(CART)); }
     function totalItems(){ return CART.reduce((s,i)=>s+i.qty,0); }
@@ -208,10 +217,8 @@
       setTimeout(()=>{ if(pusher.classList.contains('show')) hidePusher(); },5000);
     }
     function hidePusher(){ pusher.classList.remove('show'); cartBar.classList.remove('hidden'); }
-    async function cargarTienda(){
+    function cargarTienda(){
       aplicarConfig(); generarSEOTienda();
-      const res = await fetch('./productos.json?v=' + Date.now());
-      PRODUCTOS = await res.json();
       pintarProductos(); generarSEOProductos(); actualizarBarra(); renderCarrito();
     }
     function pintarProductos(){
