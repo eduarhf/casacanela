@@ -24,8 +24,8 @@ header p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--
 .chip.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:4px 16px 110px}
 .card{background:var(--blanco);border-radius:20px;overflow:hidden;border:1px solid var(--borde);display:flex;flex-direction:column}
-.card-img{aspect-ratio:1/1;background:#FAF6EF;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.card-img img{width:88%;height:88%;object-fit:cover;border-radius:14px;font-size:0;color:transparent}
+.card-img{aspect-ratio:1/1;background:#FFFFFF;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img img{width:90%;height:90%;object-fit:contain;border-radius:14px;font-size:0;color:transparent}
 .card-body{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
 .card-body h3{font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.1}
 .card-body span{font-size:12px;color:var(--cafe-claro)}
@@ -47,8 +47,8 @@ header p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--
 <script>
 const FALLBACK="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80";
 const PRODUCTOS=[
-{id:1,nombre:"Granola Clásica",cat:"Granola",detalle:"500g • Miel y avena",precio:6500,img:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80"},
-{id:2,nombre:"Granola Cacao",cat:"Granola",detalle:"500g • Chocolate 70%",precio:6900,img:"https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=600&q=80"},
+{id:1,nombre:"Granola Clásica",cat:"Granola",detalle:"500g • Miel y avena",precio:6500,img:"https://images.unsplash.com/photo-1517684601621-8f6e58c5f7e5?w=600&q=80"},
+{id:2,nombre:"Granola Cacao",cat:"Granola",detalle:"500g • Chocolate 70%",precio:6900,img:"https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80"},
 {id:3,nombre:"Almendras",cat:"Frutos Secos",detalle:"250g • Tostadas",precio:5900,img:"https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&q=80"},
 {id:4,nombre:"Nueces",cat:"Frutos Secos",detalle:"250g • Sin cáscara",precio:6200,img:"https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=600&q=80"},
 {id:5,nombre:"Mix Trail",cat:"Frutos Secos",detalle:"300g • Mix energético",precio:5800,img:"https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?w=600&q=80"},
