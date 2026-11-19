@@ -21,8 +21,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--crema:#F7F1E8;--crema-2:#FFFCF8;--cafe:#5A4A3A;--cafe-claro:#8A7A68;--borde:#EDE6D8;--btn:#EDE0CE;--btn-hover:#E5D5BC;--badge:#F1E6D2;--wa:#25D366;--sombra:0 8px 20px rgba(90,74,58,.07)}
-body{background:var(--crema);color:var(--cafe);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:180px}
+:root{--crema:#F7F1E8;--crema-2:#FFFCF8;--cafe:#5A4A3A;--cafe-claro:#8A7A68;--borde:#EDE6D8;--btn:#EDE0CE;--btn-hover:#E5D5BC;--badge:#F1E6D2;--wa:#25D366}
+body{background:var(--crema);color:var(--cafe);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:90px}
 a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}img{max-width:100%;display:block}
 .omni-bar{background:var(--cafe);color:#F7F1E8;text-align:center;font-size:11px;letter-spacing:.1em;padding:7px 16px}
 .omni-bar a{text-decoration:underline;text-underline-offset:2px}
@@ -66,18 +66,10 @@ article.card h3{font-family:'Inter',sans-serif;font-weight:500;font-size:14px;li
 .add button:disabled{opacity:.5;cursor:not-allowed}
 .reviews{margin-top:24px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:16px;text-align:center;margin-left:6px;margin-right:6px}.reviews b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:20px}.reviews p{font-size:12px;color:var(--cafe-claro);margin-top:6px}.reviews a{display:inline-block;margin-top:10px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
 .omni-ig{margin-top:12px;background:var(--crema-2);border:1px solid var(--borde);border-radius:14px;padding:16px;text-align:center;margin-left:6px;margin-right:6px}.omni-ig p{font-size:13px;color:var(--cafe-claro)}.omni-ig a{display:inline-block;margin-top:12px;background:var(--btn);padding:10px 16px;border-radius:999px;font-size:13px;font-weight:600}
-.bottom-fade{position:fixed;left:0;right:0;bottom:0;height:110px;pointer-events:none;z-index:20;background:linear-gradient(to top, var(--crema) 0%, rgba(247,241,232,.92) 45%, rgba(247,241,232,0) 100%)}
-footer{position:fixed;left:6px;right:6px;bottom:14px;z-index:25;max-width:468px;margin:0 auto;display:flex;gap:8px;align-items:center}
-footer.dock-hide{transform:none;opacity:1;pointer-events:auto}
-.cart-bar{flex:1;min-width:0;background:#8A7A68;color:#fff;padding:14px 16px;border-radius:999px;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 10px 22px rgba(138,122,104,.35), 0 2px 6px rgba(0,0,0,.08);border:1px solid rgba(255,255,255,.15)}
-.cart-bar:active{transform:scale(.98)}
-.cart-bar.hidden{opacity:0;pointer-events:none}
-.cart-bar.empty{opacity:.92}
-.cart-bar-left{display:flex;align-items:center;gap:8px}
-.cart-bar-icon{width:30px;height:30px;background:rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center;line-height:1;flex-shrink:0}
-.cart-bar-icon svg{width:16px;height:16px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
-#cartBarText{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#cartBarTotal{flex-shrink:0;font-weight:700;font-size:15px}
+footer{position:fixed;right:14px;bottom:14px;z-index:25}
+.wa{width:56px;height:56px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px rgba(37,211,102,.35), 0 2px 6px rgba(0,0,0,.1);border:2px solid #fff}
+.wa svg{width:28px;height:28px;fill:#fff}
+.wa:active{transform:scale(.95)}
 aside.pusher{position:fixed;left:50%;transform:translate(-50%,120%);bottom:16px;z-index:40;width:calc(100% - 16px);max-width:464px;background:var(--crema-2);border:1px solid var(--borde);border-radius:16px;box-shadow:0 16px 32px rgba(90,74,58,.15);padding:14px;display:flex;gap:12px;align-items:center;transition:transform .45s cubic-bezier(.2,.9,.3,1.1)}
 aside.pusher.show{transform:translate(-50%,0)}
 aside.pusher img{width:56px;height:56px;object-fit:cover;border-radius:10px}
@@ -106,9 +98,6 @@ aside.pusher img{width:56px;height:56px;object-fit:cover;border-radius:10px}
 .btn-wa{width:100%;background:var(--wa);color:#fff;font-size:14px;font-weight:700;padding:15px;border-radius:12px;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px}
 .btn-wa svg{width:18px;height:18px;fill:#fff}
 .btn-clear{width:100%;text-align:center;font-size:12px;color:var(--cafe-claro);margin-top:10px;text-decoration:underline}
-.wa{flex-shrink:0;width:52px;height:52px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px rgba(37,211,102,.35), 0 2px 6px rgba(0,0,0,.1);border:2px solid #fff}
-.wa svg{width:27px;height:27px;fill:#fff}
-.wa:active{transform:scale(.95)}
 @media(min-width:640px){ nav{max-width:1100px} .wrap{max-width:1100px;padding:20px 24px} .grid{grid-template-columns:repeat(3,1fr);gap:16px} .card-media img{height:200px} section h2{font-size:28px} }
 @media(min-width:1024px){ .grid{grid-template-columns:repeat(4,1fr);gap:18px} .card-media img{height:200px} .wrap{padding:24px 32px} }
 </style>
@@ -130,11 +119,9 @@ aside.pusher img{width:56px;height:56px;object-fit:cover;border-radius:10px}
   <section class="omni-ig"><p>¿Nos viste en Instagram o en Google?<br>Es la misma tienda, mismo precio.</p><a data-ig-link href="#" target="_blank" rel="noopener">@casacanela.foods → Seguir</a></section>
 </main>
 
-<div class="bottom-fade"></div>
-
 <aside class="pusher" id="pusher"><img id="pusherImg" src="" alt="Producto"><div class="pusher-text"><b>¿La llevamos?</b><span id="pusherSub"></span></div><div class="pusher-btns"><button class="go" onclick="abrirCarrito()">Ver carrito →</button><button class="close" onclick="hidePusher()">Ahora no</button></div></aside>
 
-<footer id="dock"><button class="cart-bar" id="cartBar" onclick="abrirCarrito()"><span class="cart-bar-left"><span class="cart-bar-icon"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6"/><circle cx="10" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg></span><span id="cartBarText">Ver carrito</span></span><span id="cartBarTotal">$0 →</span></button><a class="wa" data-wa-link href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></footer>
+<footer id="dock"><a class="wa" data-wa-link href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a></footer>
 
 <div class="cart-overlay" id="cartOverlay" onclick="cerrarCarrito()"></div>
 <div class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Tu carrito">
@@ -164,15 +151,15 @@ function generarSEOTienda(){
   document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
 }
 let PRODUCTOS = [
-  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=36", "categoria": "Granola",
+  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=38", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=36", "categoria": "Granola",
+  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=38", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=36", "categoria": "Frutos Secos",
+  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=38", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=36", "categoria": "Frutos Secos",
+  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=38", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=36", "categoria": "Dúos y Packs",
+  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=38", "categoria": "Dúos y Packs",
     "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
 ];
 let SELECTED = {};
@@ -245,11 +232,9 @@ function actualizarOmni(){
   }
 }
 function actualizarBarra(){
-  const count = totalItems(), total = totalPrecio();
-  document.getElementById('cartCount').textContent = count > 0 ? count : '';
-  document.getElementById('cartBarText').textContent = count === 0 ? 'Ver carrito' : `Ver carrito • ${count}`;
-  document.getElementById('cartBarTotal').textContent = `${fmt(total)} →`;
-  document.getElementById('cartBar').classList.toggle('empty', count===0);
+  const count = totalItems();
+  const countEl = document.getElementById('cartCount');
+  if(countEl) countEl.textContent = count > 0 ? count : '';
   actualizarOmni();
 }
 function cambiarQty(key, delta){
@@ -329,7 +314,7 @@ ${lineas}
   const url = `${CONFIG.waBase}?text=${encodeURIComponent(mensaje)}`;
   window.location.href = url;
 }
-const pusher=document.getElementById('pusher'), cartBar=document.getElementById('cartBar');
+const pusher=document.getElementById('pusher');
 let pusherTimer;
 function showPusher(id){
   const p = PRODUCTOS.find(x=>x.id===id); if(!p) return;
@@ -342,11 +327,11 @@ function showPusher(id){
   guardarCart(); actualizarBarra(); renderCarrito();
   document.getElementById('pusherImg').src=p.imagen;
   document.getElementById('pusherSub').textContent=`${p.nombre} ${v.gramaje} • ${fmt(v.precio)} • Carrito: ${totalItems()} productos • ${fmt(totalPrecio())}`;
-  pusher.classList.add('show'); cartBar.classList.add('hidden');
+  pusher.classList.add('show');
   clearTimeout(pusherTimer);
   pusherTimer = setTimeout(()=>{ if(pusher.classList.contains('show')) hidePusher(); },5000);
 }
-function hidePusher(){ pusher.classList.remove('show'); cartBar.classList.remove('hidden'); }
+function hidePusher(){ pusher.classList.remove('show'); }
 function cargarTienda(){
   aplicarConfig(); generarSEOTienda();
   pintarProductos(); generarSEOProductos(); actualizarBarra(); renderCarrito();
@@ -380,7 +365,7 @@ function generarSEOProductos(){
   const json = { "@context":"https://schema.org","@type":"ItemList","itemListElement": PRODUCTOS.flatMap((p)=> p.variantes.map((v)=>({ "@type":"ListItem","position": pos++,"item":{"@type":"Product","name":`${p.nombre} ${v.gramaje}`,"description":p.descripcion,"image":CONFIG.domain+"/"+p.imagen.replace("./","").split("?")[0],"sku":`${p.id}-${v.gramaje}`,"brand":{"@type":"Brand","name":"Casa Canela"},"offers":{"@type":"Offer","price":v.precio,"priceCurrency":"CLP","availability":p.stock==='out'?"https://schema.org/OutOfStock":"https://schema.org/InStock","url":CONFIG.domain+"/#"+p.id} } }))) };
   document.getElementById('seo-productos').textContent = JSON.stringify(json);
 }
-// v36: card completa estilo mockup - blanca, titulo finito 14px, precio solo $4.200, variantes en pill grupal, Agregar pill con aire
+// v38: SIN barra Ver carrito abajo - carrito solo en menu superior con numerito, solo WhatsApp flotante. Card v36 igual
 cargarTienda();
 </script>
 </body>
