@@ -43,24 +43,24 @@ nav{max-width:480px;margin:0 auto;height:64px;padding:0 12px;display:flex;align-
 .wrap{max-width:480px;margin:0 auto;padding:10px 6px 16px}
 section{margin-top:16px}section:first-child{margin-top:0}
 section h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;letter-spacing:.04em;margin-bottom:10px;padding:0 6px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;align-items:start}
 article.card{background:transparent;border:0;box-shadow:none;text-align:center;padding:0;display:flex;flex-direction:column;height:100%;overflow:visible}
-.card-box{background:var(--crema-2);border-radius:12px;box-shadow:var(--sombra);border:1px solid #F1E9DB;overflow:hidden;display:flex;flex-direction:column;flex:1}
-.card-media{position:relative;line-height:0;padding:0}
-.card-media img{width:100%;height:180px;object-fit:cover;object-position:center;background:#F3EBDD;display:block;border-radius:0}
+.card-box{background:#FFFFFF;border-radius:18px;box-shadow:0 10px 24px rgba(90,74,58,.08);border:0;overflow:hidden;display:flex;flex-direction:column;flex:1;padding:12px 12px 16px}
+.card-media{position:relative;line-height:0;padding:0;background:#FFFFFF;border-radius:12px;overflow:hidden}
+.card-media img{width:100%;height:170px;object-fit:cover;object-position:center;background:#FFFFFF;display:block;border-radius:12px}
 .badge{position:absolute;top:8px;left:8px;z-index:2;background:#F1E6D2;color:var(--cafe);font-size:9px;font-weight:700;padding:6px 9px;border-radius:999px;box-shadow:0 4px 10px rgba(90,74,58,.12);white-space:nowrap;line-height:1}
 .badge-empty{display:none}
-.card-body{padding:12px 6px 0 6px;display:flex;flex-direction:column;flex:1;text-align:center}
-article.card h3{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;min-height:22px;line-height:1.2;display:flex;align-items:center;justify-content:center;letter-spacing:-.01em}
-.price{margin-top:6px;font-weight:600;font-size:15px;line-height:1.2}
+.card-body{padding:12px 2px 0 2px;display:flex;flex-direction:column;flex:1;text-align:center;background:#FFFFFF;align-items:center}
+article.card h3{font-family:'Inter',sans-serif;font-weight:500;font-size:14px;line-height:1.25;min-height:36px;display:flex;align-items:center;justify-content:center;text-align:center;letter-spacing:0;color:#4A3F33}
+.price{margin-top:2px;font-weight:700;font-size:16px;line-height:1.2;color:#4A3F33}
 .price small{font-size:11px;color:var(--cafe-claro);font-weight:400}
 .desc{display:none}
-.variant{margin-top:12px;display:flex;justify-content:center;gap:4px;flex-wrap:nowrap}
-.variant button{font-size:11px;font-weight:600;padding:7px 4px;border-radius:10px;border:1px solid var(--borde);background:#fff;color:var(--cafe-claro);white-space:nowrap;flex:1;line-height:1;transition:all .15s}
-.variant button.active{background:#8A7A68;color:#fff;border-color:#8A7A68}
+.variant{margin-top:10px;display:flex;justify-content:center;gap:4px;flex-wrap:nowrap;background:#F7F1E8;padding:3px;border-radius:999px;width:100%}
+.variant button{font-size:11px;font-weight:600;padding:6px 0;border-radius:999px;border:0;background:transparent;color:var(--cafe-claro);white-space:nowrap;flex:1;line-height:1;transition:all .15s}
+.variant button.active{background:#FFFFFF;color:#4A3F33;box-shadow:0 2px 6px rgba(90,74,58,.10)}
 .variant-label{display:none}
-.add{margin-top:12px;padding:0 6px 8px 6px}
-.add button{width:100%;background:#8A7A68;color:#fff;padding:14px 6px;border-radius:10px;font-size:14px;font-weight:600;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 12px rgba(90,74,58,.12);transition:transform .12s, background .15s}
+.add{margin-top:12px;padding:0;background:#FFFFFF;width:100%;display:flex;justify-content:center}
+.add button{width:100%;background:#8A7A68;color:#fff;padding:11px 12px;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.01em;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:none;transition:transform .12s, background .15s}
 .add button:hover{background:#7A6A58}
 .add button:active{transform:scale(.98)}
 .add button:disabled{opacity:.5;cursor:not-allowed}
@@ -69,7 +69,7 @@ article.card h3{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;mi
 .bottom-fade{position:fixed;left:0;right:0;bottom:0;height:110px;pointer-events:none;z-index:20;background:linear-gradient(to top, var(--crema) 0%, rgba(247,241,232,.92) 45%, rgba(247,241,232,0) 100%)}
 footer{position:fixed;left:6px;right:6px;bottom:14px;z-index:25;max-width:468px;margin:0 auto;display:flex;gap:8px;align-items:center}
 footer.dock-hide{transform:none;opacity:1;pointer-events:auto}
-.cart-bar{flex:1;min-width:0;background:#8A7A68;color:#fff;padding:14px 16px;border-radius:14px;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 10px 22px rgba(138,122,104,.35), 0 2px 6px rgba(0,0,0,.08);border:1px solid rgba(255,255,255,.15)}
+.cart-bar{flex:1;min-width:0;background:#8A7A68;color:#fff;padding:14px 16px;border-radius:999px;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 10px 22px rgba(138,122,104,.35), 0 2px 6px rgba(0,0,0,.08);border:1px solid rgba(255,255,255,.15)}
 .cart-bar:active{transform:scale(.98)}
 .cart-bar.hidden{opacity:0;pointer-events:none}
 .cart-bar.empty{opacity:.92}
@@ -164,15 +164,15 @@ function generarSEOTienda(){
   document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
 }
 let PRODUCTOS = [
-  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=34", "categoria": "Granola",
+  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=36", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=34", "categoria": "Granola",
+  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=36", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=34", "categoria": "Frutos Secos",
+  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=36", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=34", "categoria": "Frutos Secos",
+  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=36", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=34", "categoria": "Dúos y Packs",
+  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=36", "categoria": "Dúos y Packs",
     "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
 ];
 let SELECTED = {};
@@ -219,7 +219,7 @@ function cambiarVariante(id, idx){
   if(!card) return;
   card.querySelectorAll('.variant button').forEach((b,i)=> b.classList.toggle('active', i===idx));
   const v = getVariante(p);
-  card.querySelector('.price').innerHTML = `${fmt(v.precio)} <small>/ ${v.gramaje}</small>`;
+  card.querySelector('.price').innerHTML = `${fmt(v.precio)}`;
 }
 let CART = [];
 try { CART = JSON.parse(localStorage.getItem('casa_canela_cart') || '[]'); } catch(e){ CART = []; }
@@ -365,7 +365,7 @@ function pintarProductos(){
               ${p.badge ? `<span class="badge">${p.badge}</span>` : ``}
             </div>
             <div class="card-body">
-              <h3>${p.nombre}</h3><p class="price">${fmt(v.precio)} <small>/ ${v.gramaje}</small></p>
+              <h3>${p.nombre}</h3><p class="price">${fmt(v.precio)}</p>
               <div class="variant">
                 ${p.variantes.map((vv, vi) => `<button class="${vi===SELECTED[p.id] ? 'active' : ''}" onclick="cambiarVariante('${p.id}', ${vi})">${vv.gramaje}</button>`).join('')}
               </div>
@@ -380,7 +380,7 @@ function generarSEOProductos(){
   const json = { "@context":"https://schema.org","@type":"ItemList","itemListElement": PRODUCTOS.flatMap((p)=> p.variantes.map((v)=>({ "@type":"ListItem","position": pos++,"item":{"@type":"Product","name":`${p.nombre} ${v.gramaje}`,"description":p.descripcion,"image":CONFIG.domain+"/"+p.imagen.replace("./","").split("?")[0],"sku":`${p.id}-${v.gramaje}`,"brand":{"@type":"Brand","name":"Casa Canela"},"offers":{"@type":"Offer","price":v.precio,"priceCurrency":"CLP","availability":p.stock==='out'?"https://schema.org/OutOfStock":"https://schema.org/InStock","url":CONFIG.domain+"/#"+p.id} } }))) };
   document.getElementById('seo-productos').textContent = JSON.stringify(json);
 }
-// v34: boton carrito con icono SVG de carrito real, no emoji. Todo lo demas igual v33, funcionalidad intacta
+// v36: card completa estilo mockup - blanca, titulo finito 14px, precio solo $4.200, variantes en pill grupal, Agregar pill con aire
 cargarTienda();
 </script>
 </body>
