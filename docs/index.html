@@ -161,15 +161,15 @@ function generarSEOTienda(){
   document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
 }
 let PRODUCTOS = [
-  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=30", "categoria": "Granola",
+  { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=31", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=30", "categoria": "Granola",
+  { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=31", "categoria": "Granola",
     "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=30", "categoria": "Frutos Secos",
+  { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=31", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=30", "categoria": "Frutos Secos",
+  { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=31", "categoria": "Frutos Secos",
     "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=30", "categoria": "Dúos y Packs",
+  { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=31", "categoria": "Dúos y Packs",
     "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
 ];
 let SELECTED = {};
@@ -227,7 +227,6 @@ function totalItems(){ return CART.reduce((s,i)=>s+i.qty,0); }
 function totalPrecio(){ return CART.reduce((s,i)=> s + (getPrecioActual(i)*i.qty), 0); }
 function fmt(n){ return '$' + n.toLocaleString('es-CL'); }
 function actualizarOmni(){
-  const el = document.getElementById('omniMsg');
   const shipText = document.getElementById('shipText');
   const shipFill = document.getElementById('shipFill');
   const total = totalPrecio();
@@ -235,13 +234,10 @@ function actualizarOmni(){
   const pct = Math.min(100, Math.round((total / 30000) * 100));
   if(shipFill){ shipFill.style.width = pct + '%'; shipFill.classList.toggle('full', total >= 30000); }
   if(total === 0){
-    if(el) el.textContent = 'ENVÍO GRATIS SOBRE $30.000';
     if(shipText) shipText.innerHTML = 'Te faltan <span>$30.000</span> para envío gratis';
   } else if(total < 30000){
-    if(el) el.textContent = `¡Te faltan ${fmt(falta)} para envío gratis!`;
     if(shipText) shipText.innerHTML = `Te faltan <span>${fmt(falta)}</span> para envío gratis • Llevas ${fmt(total)}`;
   } else {
-    if(el) el.textContent = '¡Tienes envío gratis! 🎉';
     if(shipText) shipText.innerHTML = `¡Tienes envío gratis! 🎉 • Llevas ${fmt(total)}`;
   }
 }
@@ -381,7 +377,7 @@ function generarSEOProductos(){
   const json = { "@context":"https://schema.org","@type":"ItemList","itemListElement": PRODUCTOS.flatMap((p)=> p.variantes.map((v)=>({ "@type":"ListItem","position": pos++,"item":{"@type":"Product","name":`${p.nombre} ${v.gramaje}`,"description":p.descripcion,"image":CONFIG.domain+"/"+p.imagen.replace("./","").split("?")[0],"sku":`${p.id}-${v.gramaje}`,"brand":{"@type":"Brand","name":"Casa Canela"},"offers":{"@type":"Offer","price":v.precio,"priceCurrency":"CLP","availability":p.stock==='out'?"https://schema.org/OutOfStock":"https://schema.org/InStock","url":CONFIG.domain+"/#"+p.id} } }))) };
   document.getElementById('seo-productos').textContent = JSON.stringify(json);
 }
-// v30: botones claritos #8A7A68, card 180px, + barrita progreso envio gratis siempre visible
+// v31: fix duplicado envio - arriba fijo, solo barrita dinamica. botones claritos, card 180px
 cargarTienda();
 </script>
 </body>
