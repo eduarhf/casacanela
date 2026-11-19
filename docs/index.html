@@ -6,14 +6,7 @@
 <title>Casa Canela Foods | Granola Artesanal Santiago</title>
 <meta name="description" content="Granola artesanal y frutos secos en Santiago. Compra fácil por WhatsApp. Casa Canela Foods.">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Store","name":"Casa Canela Foods","description":"Granola artesanal y frutos secos en Santiago, Chile.","url":"https://casacanelafoods.cl","telephone":"+56900000000","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Santiago","addressRegion":"Región Metropolitana","addressCountry":"CL"},"openingHours":"Mo-Sa 09:00-19:00","currenciesAccepted":"CLP"}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ItemList","itemListElement":[
-{"@type":"Product","name":"Granola Clásica Casa Canela Foods","brand":{"@type":"Brand","name":"Casa Canela Foods"},"category":"Granola","offers":{"@type":"Offer","priceCurrency":"CLP","price":"6500","availability":"https://schema.org/InStock"}},
-{"@type":"Product","name":"Almendras Casa Canela Foods","brand":{"@type":"Brand","name":"Casa Canela Foods"},"category":"Frutos Secos","offers":{"@type":"Offer","priceCurrency":"CLP","price":"5900","availability":"https://schema.org/InStock"}},
-{"@type":"Product","name":"Nueces Casa Canela Foods","brand":{"@type":"Brand","name":"Casa Canela Foods"},"category":"Frutos Secos","offers":{"@type":"Offer","priceCurrency":"CLP","price":"6200","availability":"https://schema.org/InStock"}}
-]}
+{"@context":"https://schema.org","@type":"Store","name":"Casa Canela Foods","url":"https://casacanelafoods.cl","telephone":"+56900000000","priceRange":"$$","address":{"@type":"PostalAddress","addressLocality":"Santiago","addressCountry":"CL"},"currenciesAccepted":"CLP"}
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -32,7 +25,7 @@ header p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:4px 16px 110px}
 .card{background:var(--blanco);border-radius:20px;overflow:hidden;border:1px solid var(--borde);display:flex;flex-direction:column}
 .card-img{aspect-ratio:1/1;background:#FAF6EF;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.card-img img{width:88%;height:88%;object-fit:cover;border-radius:14px}
+.card-img img{width:88%;height:88%;object-fit:cover;border-radius:14px;font-size:0;color:transparent}
 .card-body{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
 .card-body h3{font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.1}
 .card-body span{font-size:12px;color:var(--cafe-claro)}
@@ -52,8 +45,9 @@ header p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--
 <div class="cart-bar" id="cartBar"></div>
 <a class="wa" href="https://wa.me/56900000000?text=Hola%20Casa%20Canela%20Foods!" target="_blank">💬</a>
 <script>
+const FALLBACK="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80";
 const PRODUCTOS=[
-{id:1,nombre:"Granola Clásica",cat:"Granola",detalle:"500g • Miel y avena",precio:6500,img:"https://images.unsplash.com/photo-1517093156756-b9dff791f8e2?w=600&q=80"},
+{id:1,nombre:"Granola Clásica",cat:"Granola",detalle:"500g • Miel y avena",precio:6500,img:"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80"},
 {id:2,nombre:"Granola Cacao",cat:"Granola",detalle:"500g • Chocolate 70%",precio:6900,img:"https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?w=600&q=80"},
 {id:3,nombre:"Almendras",cat:"Frutos Secos",detalle:"250g • Tostadas",precio:5900,img:"https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=600&q=80"},
 {id:4,nombre:"Nueces",cat:"Frutos Secos",detalle:"250g • Sin cáscara",precio:6200,img:"https://images.unsplash.com/photo-1508061253366-f7da158b6d46?w=600&q=80"},
@@ -66,7 +60,7 @@ const chipsEl=document.getElementById('chips');const gridEl=document.getElementB
 function render(state){
 chipsEl.innerHTML=CATS.map(c=>`<button class="chip ${c===state.filtro?'active':''}" onclick="Store.setFiltro('${c}')">${c}</button>`).join('');
 const list=PRODUCTOS.filter(p=>state.filtro==="Todos"||p.cat===state.filtro);
-gridEl.innerHTML=list.map(p=>`<article class="card"><div class="card-img"><img src="${p.img}" alt="${p.nombre} Casa Canela Foods - ${p.detalle}"></div><div class="card-body"><h3>${p.nombre}</h3><span>${p.detalle}</span><div class="price">$${p.precio.toLocaleString('es-CL')} <small>• ${p.cat}</small></div><button class="btn" onclick="Store.add(${p.id})">Agregar +</button></div></article>`).join('');
+gridEl.innerHTML=list.map(p=>`<article class="card"><div class="card-img"><img src="${p.img}" alt="" onerror="this.onerror=null;this.src='${FALLBACK}'"></div><div class="card-body"><h3>${p.nombre}</h3><span>${p.detalle}</span><div class="price">$${p.precio.toLocaleString('es-CL')} <small>• ${p.cat}</small></div><button class="btn" onclick="Store.add(${p.id})">Agregar +</button></div></article>`).join('');
 const totalQty=Object.values(state.cart).reduce((a,b)=>a+b,0);
 const totalPrice=Object.entries(state.cart).reduce((acc,[id,qty])=>{const prod=PRODUCTOS.find(p=>p.id==id);return acc+prod.precio*qty},0);
 if(totalQty===0){cartBar.innerHTML='';cartBar.style.display='none'}else{cartBar.style.display='flex';cartBar.innerHTML=`<span>🛒 ${totalQty} productos</span><span>$${totalPrice.toLocaleString('es-CL')} • Pedir</span>`;cartBar.onclick=()=>{let msg="Hola Casa Canela Foods! Quiero pedir:%0A";Object.entries(state.cart).forEach(([id,qty])=>{const prod=PRODUCTOS.find(p=>p.id==id);msg+=`- ${prod.nombre} x${qty} - $${(prod.precio*qty).toLocaleString('es-CL')}%0A`});msg+=`Total: $${totalPrice.toLocaleString('es-CL')}`;window.open(`https://wa.me/56900000000?text=${msg}`,'_blank')}}}
