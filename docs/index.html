@@ -36,11 +36,8 @@
     .nav-right{display:flex;gap:8px;align-items:center;list-style:none}
     .wrap{max-width:480px;margin:0 auto;padding:12px 12px 16px}
     section{margin-top:16px}section:first-child{margin-top:0}
-    /* TÍTULOS CHICOS - COMO ANTES, NO GRANDES */
     section h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;margin-bottom:10px;padding:0 4px}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-items:start}
-
-    /* === v22.1 - Foto cubriendo, badge flotante, botón afuera, títulos chicos === */
     article.card{background:transparent;border:0;box-shadow:none;text-align:center;padding:0;display:flex;flex-direction:column;height:100%;overflow:visible}
     .card-box{background:var(--crema-2);border-radius:14px;box-shadow:var(--sombra);border:1px solid #F1E9DB;overflow:hidden;display:flex;flex-direction:column;flex:1}
     .card-media{position:relative;line-height:0}
@@ -48,7 +45,6 @@
     .badge{position:absolute;top:10px;left:10px;z-index:2;background:#F1E6D2;color:var(--cafe);font-size:9px;font-weight:700;padding:6px 9px;border-radius:999px;box-shadow:0 4px 10px rgba(62,42,26,.15);white-space:nowrap;line-height:1}
     .badge-empty{display:none}
     .card-body{padding:12px 10px 14px;display:flex;flex-direction:column;flex:1;text-align:center}
-    /* Nombre producto chico, como antes */
     article.card h3{font-family:'Inter',sans-serif;font-weight:500;font-size:13px;min-height:18px;line-height:1.25;display:flex;align-items:center;justify-content:center}
     .price{margin-top:4px;font-weight:700;font-size:14px;line-height:1.2}
     .price small{font-size:10px;color:var(--cafe-claro);font-weight:400}
@@ -57,7 +53,8 @@
     .variant button{font-size:10.5px;font-weight:600;padding:5px 7px;border-radius:999px;border:1px solid var(--borde);background:#fff;color:var(--cafe-claro);white-space:nowrap;flex:0 0 auto;line-height:1}
     .variant button.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
     .variant-label{font-size:9px;color:var(--cafe-claro);margin-top:8px;letter-spacing:.08em}
-    .add{margin-top:10px;padding-top:0}
+    /* MEJORA 1: Botón pegadito - 6px, no 10px, se ve como un solo bloque */
+    .add{margin-top:6px;padding-top:0}
     .add button{width:100%;background:var(--cafe);color:#F9F3EB;padding:13px 9px;border-radius:999px;font-size:13px;font-weight:600;box-shadow:0 8px 16px rgba(62,42,26,.18)}
     .add button:active{transform:scale(.98)}
     .add button:disabled{opacity:.5;cursor:not-allowed}
@@ -66,10 +63,11 @@
     .bottom-fade{position:fixed;left:0;right:0;bottom:0;height:110px;pointer-events:none;z-index:20;background:linear-gradient(to top, var(--crema) 0%, rgba(249,243,235,.92) 45%, rgba(249,243,235,0) 100%)}
     footer{position:fixed;left:12px;right:12px;bottom:16px;z-index:25;max-width:448px;margin:0 auto;display:flex;gap:8px;align-items:center}
     footer.dock-hide{transform:none;opacity:1;pointer-events:auto}
-    .cart-bar{flex:1;min-width:0;background:var(--btn);color:var(--cafe);padding:14px 14px;border-radius:999px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 12px 24px rgba(62,42,26,.12)}
+    /* MEJORA 2: Ver carrito café oscuro, destaca como acción principal */
+    .cart-bar{flex:1;min-width:0;background:var(--cafe);color:#F9F3EB;padding:14px 14px;border-radius:999px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 12px 24px rgba(62,42,26,.25)}
     .cart-bar:active{transform:scale(.98)}
     .cart-bar.hidden{opacity:0;pointer-events:none}
-    .cart-bar.empty{opacity:.6}
+    .cart-bar.empty{opacity:.85}
     #cartBarText{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     #cartBarTotal{flex-shrink:0;font-weight:700}
     aside.pusher{position:fixed;left:50%;transform:translate(-50%,120%);bottom:16px;z-index:40;width:calc(100% - 32px);max-width:448px;background:var(--crema-2);border:1px solid var(--borde);border-radius:16px;box-shadow:0 16px 32px rgba(62,42,26,.18);padding:14px;display:flex;gap:12px;align-items:center;transition:transform .45s cubic-bezier(.2,.9,.3,1.1)}
@@ -109,7 +107,7 @@
 </head>
 <body>
 
-<div class="omni-bar">ENVÍO GRATIS SOBRE $30.000 • <a data-ig-link href="#" target="_blank" rel="noopener">@casacanela.foods</a></div>
+<div class="omni-bar"><span id="omniMsg">ENVÍO GRATIS SOBRE $30.000</span> • <a data-ig-link href="#" target="_blank" rel="noopener">@casacanela.foods</a></div>
 
 <header><nav>
   <button class="icon-btn" aria-label="Menú"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
@@ -157,15 +155,15 @@
     document.getElementById('seo-tienda').textContent = JSON.stringify(tienda);
   }
   let PRODUCTOS = [
-    { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=22", "categoria": "Granola",
+    { "id": "granola-artesanal", "nombre": "Granola Artesanal", "stock": "in", "badge": "★ MÁS VENDIDA", "descripcion": "Granola artesanal con avena, miel y frutos secos.", "imagen": "./granola-artesanal.webp?v=23", "categoria": "Granola",
       "variantes": [ {"gramaje":"250g","precio":4200}, {"gramaje":"500g","precio":7900}, {"gramaje":"1kg","precio":14900} ] },
-    { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=22", "categoria": "Granola",
+    { "id": "granola-cacao", "nombre": "Granola Cacao", "stock": "in", "badge": "", "descripcion": "Granola con cacao y chocolate.", "imagen": "./granola-cacao.webp?v=23", "categoria": "Granola",
       "variantes": [ {"gramaje":"250g","precio":6200}, {"gramaje":"500g","precio":11500}, {"gramaje":"1kg","precio":21900} ] },
-    { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=22", "categoria": "Frutos Secos",
+    { "id": "almendras", "nombre": "Almendras", "stock": "in", "badge": "", "descripcion": "Almendras tostadas premium.", "imagen": "./almendras.webp?v=23", "categoria": "Frutos Secos",
       "variantes": [ {"gramaje":"250g","precio":4500}, {"gramaje":"500g","precio":8500}, {"gramaje":"1kg","precio":15900} ] },
-    { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=22", "categoria": "Frutos Secos",
+    { "id": "nueces", "nombre": "Nueces", "stock": "in", "badge": "", "descripcion": "Nueces chilenas seleccionadas.", "imagen": "./nueces.webp?v=23", "categoria": "Frutos Secos",
       "variantes": [ {"gramaje":"250g","precio":5000}, {"gramaje":"500g","precio":9500}, {"gramaje":"1kg","precio":17900} ] },
-    { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=22", "categoria": "Dúos y Packs",
+    { "id": "duo-artesanal", "nombre": "Dúo Artesanal — Pack de 2 Frascos", "stock": "in", "badge": "", "descripcion": "El regalo perfecto. Granola + Frutos Secos.", "imagen": "./duo.webp?v=23", "categoria": "Dúos y Packs",
       "variantes": [ {"gramaje":"2x250g","precio":10900}, {"gramaje":"2x500g","precio":19900} ] }
   ];
   let SELECTED = {};
@@ -222,12 +220,26 @@
   function totalItems(){ return CART.reduce((s,i)=>s+i.qty,0); }
   function totalPrecio(){ return CART.reduce((s,i)=> s + (getPrecioActual(i)*i.qty), 0); }
   function fmt(n){ return '$' + n.toLocaleString('es-CL'); }
+  /* MEJORA 3: Barra superior dinámica */
+  function actualizarOmni(){
+    const el = document.getElementById('omniMsg');
+    if(!el) return;
+    const total = totalPrecio();
+    if(total === 0){
+      el.textContent = 'ENVÍO GRATIS SOBRE $30.000';
+    } else if(total < 30000){
+      el.textContent = `¡Te faltan ${fmt(30000 - total)} para envío gratis!`;
+    } else {
+      el.textContent = '¡Tienes envío gratis! 🎉';
+    }
+  }
   function actualizarBarra(){
     const count = totalItems(), total = totalPrecio();
     document.getElementById('cartCount').textContent = count > 0 ? count : '';
     document.getElementById('cartBarText').textContent = count === 0 ? 'Ver carrito' : `Ver carrito • ${count}`;
     document.getElementById('cartBarTotal').textContent = `${fmt(total)} →`;
     document.getElementById('cartBar').classList.toggle('empty', count===0);
+    actualizarOmni();
   }
   function cambiarQty(key, delta){
     const item = CART.find(i=>i.key===key); if(!item) return;
@@ -358,7 +370,7 @@
     const json = { "@context":"https://schema.org","@type":"ItemList","itemListElement": PRODUCTOS.flatMap((p)=> p.variantes.map((v)=>({ "@type":"ListItem","position": pos++,"item":{"@type":"Product","name":`${p.nombre} ${v.gramaje}`,"description":p.descripcion,"image":CONFIG.domain+"/"+p.imagen.replace("./","").split("?")[0],"sku":`${p.id}-${v.gramaje}`,"brand":{"@type":"Brand","name":"Casa Canela"},"offers":{"@type":"Offer","price":v.precio,"priceCurrency":"CLP","availability":p.stock==='out'?"https://schema.org/OutOfStock":"https://schema.org/InStock","url":CONFIG.domain+"/#"+p.id} } }))) };
     document.getElementById('seo-productos').textContent = JSON.stringify(json);
   }
-  // v22.1: foto cubriendo, badge flotante, botón afuera, títulos chicos, menú igual
+  // v23: botón pegadito, ver carrito oscuro, barra superior dinámica
   cargarTienda();
 </script>
 </body>
