@@ -4,64 +4,107 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa Canela Foods | Granola Artesanal Santiago</title>
-<meta name="description" content="Granola artesanal y frutos secos en Santiago. Compra fácil por WhatsApp. Casa Canela Foods.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--beige:#F2EBE0;--blanco:#FFF;--cafe:#4A2C1A;--oro:#C9A227;--cafe-claro:#8B6F4E;--borde:#E8DDCC}
+:root{--beige:#FAF7F0;--blanco:#FFFFFF;--cafe:#6B4226;--cafe-suave:#9A7B5F;--oro:#D4AF37;--borde:#EFE6D8;--verde:#25D366}
 body{background:var(--beige);font-family:'Inter',sans-serif;color:var(--cafe)}
-header{background:var(--beige);padding:22px 16px 14px;text-align:center;position:sticky;top:0;z-index:20}
-header h1{font-family:'Cormorant Garamond',serif;font-size:34px;letter-spacing:4px;line-height:1}
-header p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cafe-claro);margin-top:6px}
-.mini-sub{text-align:center;font-size:13px;color:var(--cafe-claro);padding:0 16px 12px}
-.chips-wrap{position:sticky;top:78px;z-index:19;background:var(--beige);padding:8px 0 12px}
+header{background:rgba(250,247,240,.95);backdrop-filter:blur(10px);padding:14px 16px 10px;position:sticky;top:0;z-index:30;border-bottom:1px solid var(--borde)}
+.topbar{display:flex;align-items:center;justify-content:space-between}
+.logo-wrap{text-align:left}
+.logo-wrap h1{font-family:'Cormorant Garamond',serif;font-size:28px;letter-spacing:3px;line-height:1}
+.logo-wrap p{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cafe-suave);margin-top:3px}
+.cart-top{position:relative;background:var(--cafe);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cart-top b{position:absolute;top:-4px;right:-4px;background:var(--oro);color:#fff;font-size:11px;min-width:20px;height:20px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.mini-sub{text-align:center;font-size:13px;color:var(--cafe-suave);padding:10px 16px 6px}
+.chips-wrap{position:sticky;top:68px;z-index:20;background:var(--beige);padding:8px 0 12px}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex-shrink:0;border:1px solid var(--borde);background:var(--blanco);padding:9px 16px;border-radius:999px;font-size:13px;font-weight:600;color:var(--cafe);cursor:pointer;white-space:nowrap}
 .chip.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:4px 16px 110px}
-.card{background:var(--blanco);border-radius:20px;overflow:hidden;border:1px solid var(--borde);display:flex;flex-direction:column}
-.card-img{aspect-ratio:1/1;background:#FFFFFF;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:4px 16px 110px}
+.card{background:var(--blanco);border-radius:20px;overflow:hidden;border:1px solid var(--borde);display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(107,66,38,.06)}
+.card-img{aspect-ratio:1/1;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .card-img img{width:90%;height:90%;object-fit:contain;border-radius:14px}
-.card-body{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card-body{padding:12px 12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
 .card-body h3{font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.1;min-height:42px}
-.card-body span{font-size:12px;color:var(--cafe-claro);min-height:32px;line-height:1.3}
-.price{font-weight:700;font-size:15px;margin-top:auto;padding-top:6px}
-.price small{color:var(--oro);font-size:11px;display:block;margin-top:2px}
-.btn{margin-top:10px;background:var(--cafe);color:#fff;border:none;padding:11px;border-radius:999px;font-weight:700;font-size:13px;cursor:pointer}
-.wa{position:fixed;right:16px;bottom:24px;z-index:30;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,.2)}
-.cart-bar{position:fixed;left:16px;right:84px;bottom:24px;z-index:30;background:var(--cafe);color:#fff;padding:14px 16px;border-radius:999px;display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;box-shadow:0 8px 20px rgba(0,0,0,.2);cursor:pointer}
-.cart-bar:empty{display:none}
+.card-body span{font-size:12px;color:var(--cafe-suave);min-height:16px}
+.gramajes{display:flex;gap:6px;margin-top:2px}
+.gramaje{flex:1;border:1px solid var(--borde);background:#FAF7F0;padding:7px 0;border-radius:999px;font-size:11px;font-weight:700;color:var(--cafe);cursor:pointer}
+.gramaje.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
+.price{font-weight:700;font-size:16px;margin-top:auto;padding-top:4px}
+.price small{color:var(--oro);font-size:11px;display:block;margin-top:1px;font-weight:600}
+.btn{margin-top:8px;background:var(--cafe);color:#fff;border:none;padding:11px;border-radius:999px;font-weight:700;font-size:13px;cursor:pointer}
+.wa{position:fixed;right:16px;bottom:20px;z-index:30;background:var(--verde);width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(37,211,102,.45);text-decoration:none}
+.wa svg{width:30px;height:30px;fill:#fff}
+.cart-drawer{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:50;display:none;align-items:flex-end;justify-content:center}
+.cart-drawer.open{display:flex}
+.drawer{background:#fff;width:100%;max-width:480px;border-radius:20px 20px 0 0;padding:18px;max-height:80vh;overflow:auto}
+.drawer h3{font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:12px}
+.drawer-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--borde);font-size:14px}
+.drawer-total{display:flex;justify-content:space-between;font-weight:800;padding:14px 0;font-size:16px}
+.btn-wa{background:var(--verde);color:#fff;border:none;width:100%;padding:14px;border-radius:999px;font-weight:800;font-size:15px;cursor:pointer}
+.btn-cerrar{background:#eee;border:none;width:100%;padding:12px;border-radius:999px;margin-top:8px;font-weight:700;cursor:pointer}
+.empty{padding:20px 0;text-align:center;color:#999}
 </style>
 </head>
 <body>
-<header><h1>CASA CANELA</h1><p>Granola Artesanal • Santiago</p></header>
-<div class="mini-sub">Compra fácil, directo por WhatsApp</div>
+<header><div class="topbar"><div class="logo-wrap"><h1>CASA CANELA</h1><p>Granola Artesanal • Santiago</p></div><button class="cart-top" id="cartBtn">🛒<b id="cartCount">0</b></button></div></header>
+<div class="mini-sub">Compra fácil, directo por WhatsApp • Elige tu gramaje</div>
 <div class="chips-wrap"><div class="chips" id="chips"></div></div>
 <main class="grid" id="grid"></main>
-<div class="cart-bar" id="cartBar"></div>
-<a class="wa" href="https://wa.me/56900000000?text=Hola%20Casa%20Canela%20Foods!" target="_blank">💬</a>
+
+<a class="wa" href="https://wa.me/56900000000?text=Hola%20Casa%20Canela%20Foods!" target="_blank" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<div class="cart-drawer" id="drawer"><div class="drawer"><h3>Tu Carrito 🛒</h3><div id="drawerItems"></div><div class="drawer-total" id="drawerTotal"></div><button class="btn-wa" id="checkoutBtn">Pedir por WhatsApp</button><button class="btn-cerrar" onclick="document.getElementById('drawer').classList.remove('open')">Seguir comprando</button></div></div>
+
 <script>
 const FALLBACK="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80";
+const GRAMAJES=[{label:"250g",mult:0.55},{label:"500g",mult:1},{label:"1kg",mult:1.85}];
 const PRODUCTOS=[
-{id:1,nombre:"Granola Clásica",cat:"Granola",detalle:"500g • Miel y avena",precio:6500,img:"https://www.festivaldelaterre.org/wp-content/uploads/2026/06/194a2a08debd472efe6d8dceaaeff623.webp"},
-{id:2,nombre:"Granola Cacao",cat:"Granola",detalle:"500g • Chocolate 70%",precio:6900,img:"https://firebasestorage.googleapis.com/v0/b/foodie-85d31.firebasestorage.app/o/recipe-images%2Fderived%2Fhjemmelavet-chokolade-m-sli%2Fv1%2Fcard.webp?alt=media&token=55c01353-0034-48e1-ba31-a6fbeeccb715"},
-{id:3,nombre:"Almendras",cat:"Frutos Secos",detalle:"250g • Tostadas",precio:5900,img:"https://images.fineartamerica.com/images/artworkimages/medium/2/1-almond-nuts-in-bowl-and-on-white-background-romona-robbins-photography.jpg"},
-{id:4,nombre:"Nueces",cat:"Frutos Secos",detalle:"250g • Sin cáscara",precio:6200,img:"https://www.nutsfornuts.ro/wp-content/uploads/2020/06/vrac_3.png"},
-{id:5,nombre:"Mix Trail",cat:"Frutos Secos",detalle:"300g • Mix energético",precio:5800,img:"https://eatwithmia.com/wp-content/uploads/2025/10/7a63bf8210bb872762779f1f89670323.webp"},
-{id:6,nombre:"Granola Berry",cat:"Granola",detalle:"500g • Frutos rojos",precio:7200,img:"https://img.myloview.se/vaggdekor/homemade-granola-with-nuts-and-seeds-in-glass-jar-for-healthy-breakfast-isolated-on-white-background-400-228014381.jpg"}
+{id:1,nombre:"Granola Clásica",cat:"Granola",detalle:"Miel y avena",precio:6500,img:"https://www.festivaldelaterre.org/wp-content/uploads/2026/06/194a2a08debd472efe6d8dceaaeff623.webp"},
+{id:2,nombre:"Granola Cacao",cat:"Granola",detalle:"Chocolate 70%",precio:6900,img:"https://firebasestorage.googleapis.com/v0/b/foodie-85d31.firebasestorage.app/o/recipe-images%2Fderived%2Fhjemmelavet-chokolade-m-sli%2Fv1%2Fcard.webp?alt=media&token=55c01353-0034-48e1-ba31-a6fbeeccb715"},
+{id:3,nombre:"Almendras",cat:"Frutos Secos",detalle:"Tostadas",precio:5900,img:"https://images.fineartamerica.com/images/artworkimages/medium/2/1-almond-nuts-in-bowl-and-on-white-background-romona-robbins-photography.jpg"},
+{id:4,nombre:"Nueces",cat:"Frutos Secos",detalle:"Sin cáscara",precio:6200,img:"https://www.nutsfornuts.ro/wp-content/uploads/2020/06/vrac_3.png"},
+{id:5,nombre:"Mix Trail",cat:"Frutos Secos",detalle:"Mix energético",precio:5800,img:"https://eatwithmia.com/wp-content/uploads/2025/10/7a63bf8210bb872762779f1f89670323.webp"},
+{id:6,nombre:"Granola Berry",cat:"Granola",detalle:"Frutos rojos",precio:7200,img:"https://img.myloview.se/vaggdekor/homemade-granola-with-nuts-and-seeds-in-glass-jar-for-healthy-breakfast-isolated-on-white-background-400-228014381.jpg"}
 ];
 const CATS=["Todos","Granola","Frutos Secos"];
-const Store={state:{filtro:"Todos",cart:{}},listeners:[],setFiltro(f){this.state.filtro=f;this.notify()},add(id){this.state.cart[id]=(this.state.cart[id]||0)+1;this.notify()},subscribe(fn){this.listeners.push(fn)},notify(){this.listeners.forEach(fn=>fn(this.state))}};
-const chipsEl=document.getElementById('chips');const gridEl=document.getElementById('grid');const cartBar=document.getElementById('cartBar');
-function render(state){
-chipsEl.innerHTML=CATS.map(c=>`<button class="chip ${c===state.filtro?'active':''}" onclick="Store.setFiltro('${c}')">${c}</button>`).join('');
-const list=PRODUCTOS.filter(p=>state.filtro==="Todos"||p.cat===state.filtro);
-gridEl.innerHTML=list.map(p=>`<article class="card"><div class="card-img"><img src="${p.img}" alt="" onerror="this.onerror=null;this.src='${FALLBACK}'"></div><div class="card-body"><h3>${p.nombre}</h3><span>${p.detalle}</span><div class="price">$${p.precio.toLocaleString('es-CL')} <small>${p.cat}</small></div><button class="btn" onclick="Store.add(${p.id})">Agregar +</button></div></article>`).join('');
-const totalQty=Object.values(state.cart).reduce((a,b)=>a+b,0);
-const totalPrice=Object.entries(state.cart).reduce((acc,[id,qty])=>{const prod=PRODUCTOS.find(p=>p.id==id);return acc+prod.precio*qty},0);
-if(totalQty===0){cartBar.innerHTML='';cartBar.style.display='none'}else{cartBar.style.display='flex';cartBar.innerHTML=`<span>🛒 ${totalQty} productos</span><span>$${totalPrice.toLocaleString('es-CL')} • Pedir</span>`;cartBar.onclick=()=>{let msg="Hola Casa Canela Foods! Quiero pedir:%0A";Object.entries(state.cart).forEach(([id,qty])=>{const prod=PRODUCTOS.find(p=>p.id==id);msg+=`- ${prod.nombre} x${qty} - $${(prod.precio*qty).toLocaleString('es-CL')}%0A`});msg+=`Total: $${totalPrice.toLocaleString('es-CL')}`;window.open(`https://wa.me/56900000000?text=${msg}`,'_blank')}}}
-Store.subscribe(render);render(Store.state);
+let filtro="Todos";let selected={};let cart={};
+PRODUCTOS.forEach(p=>selected[p.id]=1);
+const chipsEl=document.getElementById('chips');const gridEl=document.getElementById('grid');
+function priceFor(p){return Math.round(p.precio*GRAMAJES[selected[p.id]].mult/100)*100}
+function render(){
+chipsEl.innerHTML=CATS.map(c=>`<button class="chip ${c===filtro?'active':''}" onclick="setFiltro('${c}')">${c}</button>`).join('');
+const list=PRODUCTOS.filter(p=>filtro==="Todos"||p.cat===filtro);
+gridEl.innerHTML=list.map(p=>`<article class="card"><div class="card-img"><img src="${p.img}" onerror="this.onerror=null;this.src='${FALLBACK}'"></div><div class="card-body"><h3>${p.nombre}</h3><span>${p.detalle}</span><div class="gramajes">${GRAMAJES.map((g,i)=>`<button class="gramaje ${selected[p.id]===i?'active':''}" onclick="setGramaje(${p.id},${i})">${g.label}</button>`).join('')}</div><div class="price">$${priceFor(p).toLocaleString('es-CL')} <small>${GRAMAJES[selected[p.id]].label} • ${p.cat}</small></div><button class="btn" onclick="add(${p.id})">Agregar +</button></div></article>`).join('');
+const totalQty=Object.values(cart).reduce((a,b)=>a+b,0);
+document.getElementById('cartCount').textContent=totalQty;
+}
+function setFiltro(c){filtro=c;render()}
+function setGramaje(id,i){selected[id]=i;render()}
+function add(id){const key=id+'-'+selected[id];cart[key]=(cart[key]||0)+1;render()}
+document.getElementById('cartBtn').onclick=()=>{
+const items=Object.entries(cart);
+const box=document.getElementById('drawerItems');
+if(items.length===0){box.innerHTML='<div class="empty">Tu carrito está vacío todavía</div>';document.getElementById('drawerTotal').innerHTML='';}
+else{
+let total=0;let html='';
+items.forEach(([key,qty])=>{const [id,gi]=key.split('-');const prod=PRODUCTOS.find(p=>p.id==id);const pr=Math.round(prod.precio*GRAMAJES[gi].mult/100)*100;total+=pr*qty;html+=`<div class="drawer-item"><span>${prod.nombre} • ${GRAMAJES[gi].label} x${qty}</span><b>$${(pr*qty).toLocaleString('es-CL')}</b></div>`});
+box.innerHTML=html;document.getElementById('drawerTotal').innerHTML=`<span>Total</span><span>$${total.toLocaleString('es-CL')}</span>`;
+}
+document.getElementById('drawer').classList.add('open');
+};
+document.getElementById('checkoutBtn').onclick=()=>{
+let msg="Hola Casa Canela Foods! Quiero pedir:%0A";let total=0;
+Object.entries(cart).forEach(([key,qty])=>{const [id,gi]=key.split('-');const prod=PRODUCTOS.find(p=>p.id==id);const pr=Math.round(prod.precio*GRAMAJES[gi].mult/100)*100;total+=pr*qty;msg+=`- ${prod.nombre} ${GRAMAJES[gi].label} x${qty} - $${(pr*qty).toLocaleString('es-CL')}%0A`});
+msg+=`Total: $${total.toLocaleString('es-CL')}`;
+window.open(`https://wa.me/56900000000?text=${msg}`,'_blank');
+};
+document.getElementById('drawer').addEventListener('click',e=>{if(e.target.id==='drawer')e.target.classList.remove('open')});
+render();
 </script>
 </body>
 </html>
