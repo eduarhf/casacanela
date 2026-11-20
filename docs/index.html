@@ -7,16 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--beige:#FAF7F0;--blanco:#FFFFFF;--canela:#C89B6A;--canela-dark:#B0814F;--cafe-text:#5C3A21;--cafe-suave:#A98A6D;--oro:#C9A227;--borde:#F0E7D8;--verde:#25D366}
+:root{--beige:#FAF7F0;--blanco:#FFF;--canela:#C89B6A;--canela-dark:#B0814F;--cafe-text:#5C3A21;--cafe-suave:#A98A6D;--oro:#C9A227;--borde:#F0E7D8;--verde:#25D366;--top:#5C3A21}
 body{background:var(--beige);font-family:'Inter',sans-serif;color:var(--cafe-text)}
-header{background:rgba(250,247,240,.96);padding:12px 16px 8px;position:sticky;top:0;z-index:30;border-bottom:1px solid var(--borde)}
-.topbar{display:flex;align-items:center;justify-content:space-between}
-.logo-wrap h1{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:3px;line-height:1}
-.logo-wrap p{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--cafe-suave);margin-top:3px}
-.cart-top{position:relative;background:var(--canela);color:#fff;border:none;width:42px;height:42px;border-radius:50%;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.cart-top b{position:absolute;top:-4px;right:-4px;background:var(--oro);color:#fff;font-size:11px;min-width:20px;height:20px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.sticky-top{position:sticky;top:0;z-index:40}
+.topbar-envio{background:var(--top);color:#fff;text-align:center;padding:9px 12px;font-size:13px;font-weight:600;line-height:1.35}
+.topbar-envio .barra{height:4px;background:rgba(255,255,255,.25);border-radius:999px;margin:6px auto 0;max-width:220px;overflow:hidden}
+.topbar-envio .fill{height:100%;background:#fff;border-radius:999px;transition:width .3s}
+header{background:rgba(250,247,240,.97);padding:10px 16px 10px;border-bottom:1px solid var(--borde)}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.icon-btn{background:none;border:none;font-size:21px;cursor:pointer;color:var(--cafe-text);width:36px;height:36px;display:flex;align-items:center;justify-content:center}
+.logo-wrap{text-align:center;flex:1}
+.logo-wrap h1{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:3px;line-height:1;font-weight:600}
+.logo-wrap p{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--cafe-suave);margin-top:3px}
+.header-right{display:flex;align-items:center;gap:2px}
+.cart-top{position:relative;background:transparent;border:none;width:38px;height:38px;font-size:22px;cursor:pointer}
+.cart-top b{position:absolute;top:-2px;right:-2px;background:var(--canela);color:#fff;font-size:11px;min-width:20px;height:20px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px}
 .mini-sub{text-align:center;font-size:12px;color:var(--cafe-suave);padding:8px 16px 4px}
-.chips-wrap{position:sticky;top:62px;z-index:20;background:var(--beige);padding:8px 0 10px}
+.chips-wrap{position:sticky;top:96px;z-index:20;background:var(--beige);padding:8px 0 10px}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex-shrink:0;border:1px solid var(--borde);background:var(--blanco);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:600;color:var(--cafe-text);cursor:pointer;white-space:nowrap}
@@ -39,24 +46,29 @@ header{background:rgba(250,247,240,.96);padding:12px 16px 8px;position:sticky;to
 .wa svg{width:29px;height:29px;fill:#fff}
 .cart-drawer{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:50;display:none;align-items:flex-end;justify-content:center}
 .cart-drawer.open{display:flex}
-.drawer{background:#fff;width:100%;max-width:480px;border-radius:20px 20px 0 0;padding:18px;max-height:80vh;overflow:auto}
+.drawer{background:#fff;width:100%;max-width:480px;border-radius:20px 20px 0 0;padding:18px;max-height:82vh;overflow:auto}
 .drawer h3{font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:12px}
 .drawer-item{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--borde);font-size:14px}
 .drawer-total{display:flex;justify-content:space-between;font-weight:800;padding:14px 0;font-size:16px}
+.envio-line{font-size:13px;color:var(--cafe-suave);padding:0 0 10px}
 .btn-wa{background:var(--verde);color:#fff;border:none;width:100%;padding:14px;border-radius:999px;font-weight:800;font-size:15px;cursor:pointer}
 .btn-cerrar{background:#eee;border:none;width:100%;padding:12px;border-radius:999px;margin-top:8px;font-weight:700;cursor:pointer}
 .empty{padding:20px 0;text-align:center;color:#999}
 </style>
 </head>
 <body>
-<header><div class="topbar"><div class="logo-wrap"><h1>CASA CANELA</h1><p>Granola Artesanal • Santiago</p></div><button class="cart-top" id="cartBtn">🛒<b id="cartCount">0</b></button></div></header>
+<div class="sticky-top">
+<div class="topbar-envio" id="envioBar"><span id="envioText">Envío gratis sobre $30.000 • @casacanela.foods</span><div class="barra"><div class="fill" id="envioFill" style="width:0%"></div></div></div>
+<header><div class="header-row"><button class="icon-btn">☰</button><div class="logo-wrap"><h1>CASA CANELA</h1><p>Artesanal • Chile</p></div><div class="header-right"><button class="icon-btn">🔍</button><button class="cart-top" id="cartBtn">🛒<b id="cartCount">0</b></button></div></div></header>
+</div>
 <div class="mini-sub">Compra fácil, directo por WhatsApp • Elige tu gramaje</div>
 <div class="chips-wrap"><div class="chips" id="chips"></div></div>
 <main class="grid" id="grid"></main>
 <a class="wa" href="https://wa.me/56900000000?text=Hola%20Casa%20Canela%20Foods!" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
-<div class="cart-drawer" id="drawer"><div class="drawer"><h3>Tu Carrito 🛒</h3><div id="drawerItems"></div><div class="drawer-total" id="drawerTotal"></div><button class="btn-wa" id="checkoutBtn">Pedir por WhatsApp</button><button class="btn-cerrar" onclick="document.getElementById('drawer').classList.remove('open')">Seguir comprando</button></div></div>
+<div class="cart-drawer" id="drawer"><div class="drawer"><h3>Tu Carrito 🛒</h3><div class="envio-line" id="drawerEnvio"></div><div id="drawerItems"></div><div class="drawer-total" id="drawerTotal"></div><button class="btn-wa" id="checkoutBtn">Pedir por WhatsApp</button><button class="btn-cerrar" onclick="document.getElementById('drawer').classList.remove('open')">Seguir comprando</button></div></div>
 <script>
 const FALLBACK="https://www.nutsfornuts.ro/wp-content/uploads/2020/06/vrac_3.png";
+const FREE_SHIPPING=30000;
 const GRAMAJES=[{label:"250g",mult:0.55},{label:"500g",mult:1},{label:"1kg",mult:1.85}];
 const PRODUCTOS=[
 {id:1,nombre:"Granola Clásica",cat:"Granola",detalle:"Miel y avena",precio:6500,img:"https://www.festivaldelaterre.org/wp-content/uploads/2026/06/194a2a08debd472efe6d8dceaaeff623.webp"},
@@ -71,26 +83,34 @@ let filtro="Todos";let selected={};let cart={};
 PRODUCTOS.forEach(p=>selected[p.id]=1);
 const chipsEl=document.getElementById('chips');const gridEl=document.getElementById('grid');
 function priceFor(p){return Math.round(p.precio*GRAMAJES[selected[p.id]].mult/100)*100}
+function cartTotals(){let qty=0,total=0;Object.entries(cart).forEach(([key,q])=>{const [id,gi]=key.split('-');const prod=PRODUCTOS.find(p=>p.id==id);const pr=Math.round(prod.precio*GRAMAJES[gi].mult/100)*100;qty+=q;total+=pr*q});return {qty,total}}
 function render(){
 chipsEl.innerHTML=CATS.map(c=>`<button class="chip ${c===filtro?'active':''}" onclick="setFiltro('${c}')">${c}</button>`).join('');
 const list=PRODUCTOS.filter(p=>filtro==="Todos"||p.cat===filtro);
 gridEl.innerHTML=list.map(p=>`<article class="card"><div class="card-img"><img src="${p.img}" onerror="this.onerror=null;this.src='${FALLBACK}'"></div><div class="card-body"><h3>${p.nombre}</h3><span>${p.detalle}</span><div class="gramajes">${GRAMAJES.map((g,i)=>`<button class="gramaje ${selected[p.id]===i?'active':''}" onclick="setGramaje(${p.id},${i})">${g.label}</button>`).join('')}</div><div class="price">$${priceFor(p).toLocaleString('es-CL')} <small>${GRAMAJES[selected[p.id]].label} • ${p.cat}</small></div><button class="btn" onclick="add(${p.id})">Agregar +</button></div></article>`).join('');
-const totalQty=Object.values(cart).reduce((a,b)=>a+b,0);
-document.getElementById('cartCount').textContent=totalQty;
+const {qty,total}=cartTotals();
+document.getElementById('cartCount').textContent=qty;
+const falta=Math.max(0,FREE_SHIPPING-total);
+const pct=Math.min(100,Math.round(total/FREE_SHIPPING*100));
+document.getElementById('envioFill').style.width=pct+'%';
+document.getElementById('envioText').textContent=falta>0?`¡Te faltan $${falta.toLocaleString('es-CL')} para envío gratis! • @casacanela.foods`:`¡Tienes envío gratis! 🎉 • @casacanela.foods`;
 }
 function setFiltro(c){filtro=c;render()}
 function setGramaje(id,i){selected[id]=i;render()}
 function add(id){const key=id+'-'+selected[id];cart[key]=(cart[key]||0)+1;render()}
-document.getElementById('cartBtn').onclick=()=>{
-const items=Object.entries(cart);const box=document.getElementById('drawerItems');
+function openCart(){
+const items=Object.entries(cart);const box=document.getElementById('drawerItems');const {total}=cartTotals();
+document.getElementById('drawerEnvio').textContent=total>=FREE_SHIPPING?'✅ Ya tienes envío gratis':`Te faltan $${Math.max(0,FREE_SHIPPING-total).toLocaleString('es-CL')} para envío gratis (sobre $30.000)`;
 if(items.length===0){box.innerHTML='<div class="empty">Tu carrito está vacío todavía</div>';document.getElementById('drawerTotal').innerHTML='';}
-else{let total=0;let html='';items.forEach(([key,qty])=>{const [id,gi]=key.split('-');const prod=PRODUCTOS.find(p=>p.id==id);const pr=Math.round(prod.precio*GRAMAJES[gi].mult/100)*100;total+=pr*qty;html+=`<div class="drawer-item"><span>${prod.nombre} • ${GRAMAJES[gi].label} x${qty}</span><b>$${(pr*qty).toLocaleString('es-CL')}</b></div>`});box.innerHTML=html;document.getElementById('drawerTotal').innerHTML=`<span>Total</span><span>$${total.toLocaleString('es-CL')}</span>`;}
+else{let html='';items.forEach(([key,qty])=>{const [id,gi]=key.split('-');const prod=PRODUCTOS.find(p=>p.id==id);const pr=Math.round(prod.precio*GRAMAJES[gi].mult/100)*100;html+=`<div class="drawer-item"><span>${prod.nombre} • ${GRAMAJES[gi].label} x${qty}</span><b>$${(pr*qty).toLocaleString('es-CL')}</b></div>`});box.innerHTML=html;document.getElementById('drawerTotal').innerHTML=`<span>Total</span><span>$${total.toLocaleString('es-CL')}</span>`;}
 document.getElementById('drawer').classList.add('open');
-};
+}
+document.getElementById('cartBtn').onclick=openCart;
 document.getElementById('checkoutBtn').onclick=()=>{
 let msg="Hola Casa Canela Foods! Quiero pedir:%0A";let total=0;
 Object.entries(cart).forEach(([key,qty])=>{const [id,gi]=key.split('-');const prod=PRODUCTOS.find(p=>p.id==id);const pr=Math.round(prod.precio*GRAMAJES[gi].mult/100)*100;total+=pr*qty;msg+=`- ${prod.nombre} ${GRAMAJES[gi].label} x${qty} - $${(pr*qty).toLocaleString('es-CL')}%0A`});
-msg+=`Total: $${total.toLocaleString('es-CL')}`;window.open(`https://wa.me/56900000000?text=${msg}`,'_blank');
+msg+=`Total: $${total.toLocaleString('es-CL')}`;msg+= total>=FREE_SHIPPING?`%0AEnvío: GRATIS 🎉`:`%0AEnvío: A coordinar`;
+window.open(`https://wa.me/56900000000?text=${msg}`,'_blank');
 };
 document.getElementById('drawer').addEventListener('click',e=>{if(e.target.id==='drawer')e.target.classList.remove('open')});
 render();
