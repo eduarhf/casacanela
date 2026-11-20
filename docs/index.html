@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* V63: Stepper nuevo - blanco, borde cafe, sin bug de altura */
+/* V64: Stepper con GRID - centro siempre exacto, sin pegarse */
 :root{--fondo:#FAF7F0;--card:#FFFFFF;--cafe:#6E4E33;--cafe-dark:#4A3320;--cafe-suave:#7A6550;--gris:#6B5846;--canela:#C89B6A;--borde:#EBDDCB;--borde-oscuro:#D9C6AC;--crema:#F3EBDD;--wa:#25D366;--radio:16px;--sombra:0 6px 18px rgba(110,78,51,.07)}
 *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--fondo);color:var(--cafe);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:calc(110px + env(safe-area-inset-bottom))}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit;min-height:44px}button:focus-visible,a:focus-visible{outline:2px solid var(--cafe);outline-offset:2px;border-radius:8px}img{max-width:100%;display:block}
 .sticky-top{position:sticky;top:0;z-index:30;background:var(--fondo)}
@@ -28,17 +28,17 @@
 .card-body{padding:9px 10px 10px;display:flex;flex-direction:column;flex:1}.card-body h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;line-height:1.1;color:var(--cafe-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card-body .detalle{font-size:12px;color:var(--gris);font-weight:500;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .gramajes{display:flex;gap:4px;margin-top:8px}.gramaje{flex:1;border:1.5px solid var(--borde-oscuro);background:#fff;padding:0;border-radius:999px;font-size:11.5px;font-weight:800;color:var(--cafe-dark);cursor:pointer;min-height:32px}.gramaje.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
 .price{font-weight:800;font-size:18px;margin-top:8px;line-height:1;color:var(--cafe-dark)}.price small{color:var(--gris);font-size:11.5px;display:block;margin-top:3px;font-weight:600}
-/* V63: FIX BUG - botones con min-height 0, stepper blanco */
+/* V64: FIX CENTRADO - Grid 32px 1fr 32px */
 .control-row{display:flex;gap:6px;margin-top:8px;align-items:center}
-.stepper{flex:1;min-width:0;height:40px;border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:0 4px;background:#fff;border:1.5px solid var(--cafe);overflow:hidden}
+.stepper{flex:1;min-width:0;height:42px;border-radius:999px;display:grid;grid-template-columns:32px 1fr 32px;align-items:center;padding:0 5px;background:#fff;border:1.5px solid var(--cafe);overflow:hidden}
 .stepper.filled{background:var(--crema)}
-.stepper button{min-height:0 !important;height:32px;width:32px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;font-size:19px;font-weight:800;line-height:1;padding:0}
+.stepper button{min-height:0 !important;height:32px;width:32px;border-radius:50%;display:grid;place-items:center;font-size:19px;font-weight:800;line-height:1;padding:0}
 .stepper button.plus{background:var(--cafe);color:#fff}
 .stepper button.minus{background:var(--cafe);color:#fff}
 .stepper button:disabled{opacity:.3;cursor:default}
-.stepper .mid{flex:1;min-width:0;text-align:center;font-size:13.5px;font-weight:800;color:var(--cafe-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 2px}
+.stepper .mid{text-align:center;font-size:13.5px;font-weight:800;color:var(--cafe-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1}
 .stepper.filled .mid{font-size:16px}
-.qty-cart{min-height:0 !important;width:40px;height:40px;flex-shrink:0;border-radius:50%;background:#fff;border:2px solid var(--cafe);display:grid;place-items:center;padding:0}.qty-cart svg{width:20px;height:20px;stroke:var(--cafe);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}.qty-cart:active{background:var(--cafe)}.qty-cart:active svg{stroke:#fff}
+.qty-cart{min-height:0 !important;width:42px;height:42px;flex-shrink:0;border-radius:50%;background:#fff;border:2px solid var(--cafe);display:grid;place-items:center;padding:0}.qty-cart svg{width:20px;height:20px;stroke:var(--cafe);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}.qty-cart:active{background:var(--cafe)}.qty-cart:active svg{stroke:#fff}
 .info-box{margin-top:20px;background:#fff;border:1px solid var(--borde);border-radius:var(--radio);padding:18px;text-align:center;margin-left:4px;margin-right:4px}.info-box b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:21px;color:var(--cafe-dark)}.info-box p{font-size:13px;line-height:1.5;color:var(--gris);margin-top:6px}.info-box a{display:inline-flex;min-height:44px;align-items:center;margin-top:10px;background:#F2EBE0;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;color:var(--cafe-dark)}
 .wa-float{position:fixed;right:10px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:25}.wa-btn{width:46px;height:46px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px rgba(37,211,102,.35);border:2px solid #fff;transition:transform .25s,opacity .25s}.wa-btn svg{width:23px;height:23px;fill:#fff}.wa-float.hide{opacity:0;pointer-events:none;transform:scale(.7)}
 .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:var(--cafe-dark);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:60;white-space:nowrap}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -63,16 +63,16 @@
 <div class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Tu carrito"><div class="cart-head"><b>Tu carrito</b><button id="btnCloseCart" aria-label="Cerrar">×</button></div><div id="cartItems"></div><div id="cartFooter"></div></div>
 
 <script>
-/* CASA CANELA v63 - Stepper blanco sin bug / Codigo v62 */
+/* CASA CANELA v64 - Stepper Grid centrado / Codigo v63 */
 const CONFIG = { phone:"56935820289", instagram:"casacanela.foods", domain:"https://www.casacanela.cl", envioGratisDesde:30000 };
 const waBase = "https://wa.me/" + CONFIG.phone;
 const igUrl = "https://instagram.com/" + CONFIG.instagram;
 const PRODUCTOS = [
-  { id:"granola-artesanal", nombre:"Granola Clásica", badge:"MÁS VENDIDO", descripcion:"Miel y avena", imagen:"./granola-artesanal.webp?v=63", categoria:"Granola", variantes:[{gramaje:"250g",precio:4200},{gramaje:"500g",precio:6500},{gramaje:"1kg",precio:14900}] },
-  { id:"granola-cacao", nombre:"Granola Cacao", badge:"", descripcion:"Chocolate 70%", imagen:"./granola-cacao.webp?v=63", categoria:"Granola", variantes:[{gramaje:"250g",precio:6200},{gramaje:"500g",precio:6900},{gramaje:"1kg",precio:21900}] },
-  { id:"almendras", nombre:"Almendras", badge:"", descripcion:"Tostadas", imagen:"./almendras.webp?v=63", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:4500},{gramaje:"500g",precio:8500},{gramaje:"1kg",precio:15900}] },
-  { id:"nueces", nombre:"Nueces", badge:"", descripcion:"Sin cáscara", imagen:"./nueces.webp?v=63", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:5000},{gramaje:"500g",precio:9500},{gramaje:"1kg",precio:17900}] },
-  { id:"duo-artesanal", nombre:"Dúo Artesanal", badge:"", descripcion:"Pack de 2 Frascos", imagen:"./duo.webp?v=63", categoria:"Dúos y Packs", variantes:[{gramaje:"2x250g",precio:10900},{gramaje:"2x500g",precio:19900}] }
+  { id:"granola-artesanal", nombre:"Granola Clásica", badge:"MÁS VENDIDO", descripcion:"Miel y avena", imagen:"./granola-artesanal.webp?v=64", categoria:"Granola", variantes:[{gramaje:"250g",precio:4200},{gramaje:"500g",precio:6500},{gramaje:"1kg",precio:14900}] },
+  { id:"granola-cacao", nombre:"Granola Cacao", badge:"", descripcion:"Chocolate 70%", imagen:"./granola-cacao.webp?v=64", categoria:"Granola", variantes:[{gramaje:"250g",precio:6200},{gramaje:"500g",precio:6900},{gramaje:"1kg",precio:21900}] },
+  { id:"almendras", nombre:"Almendras", badge:"", descripcion:"Tostadas", imagen:"./almendras.webp?v=64", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:4500},{gramaje:"500g",precio:8500},{gramaje:"1kg",precio:15900}] },
+  { id:"nueces", nombre:"Nueces", badge:"", descripcion:"Sin cáscara", imagen:"./nueces.webp?v=64", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:5000},{gramaje:"500g",precio:9500},{gramaje:"1kg",precio:17900}] },
+  { id:"duo-artesanal", nombre:"Dúo Artesanal", badge:"", descripcion:"Pack de 2 Frascos", imagen:"./duo.webp?v=64", categoria:"Dúos y Packs", variantes:[{gramaje:"2x250g",precio:10900},{gramaje:"2x500g",precio:19900}] }
 ];
 const $ = s => document.querySelector(s);
 const fmt = n => "$" + n.toLocaleString("es-CL");
