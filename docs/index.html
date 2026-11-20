@@ -25,24 +25,21 @@
 .chips{background:var(--fondo);padding:9px 6px 9px;display:flex;gap:6px;flex-wrap:nowrap;overflow:hidden}.chip{flex:1 1 0;min-width:0;min-height:36px;padding:0 6px;border-radius:999px;background:#fff;border:1.5px solid var(--borde-oscuro);font-size:12.5px;font-weight:700;color:var(--cafe-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chip.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
 .wrap{max-width:520px;margin:0 auto;padding:8px 2px 14px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;align-items:start}.card{background:transparent;text-align:left;display:flex;flex-direction:column;height:100%}.card-box{background:var(--card);border-radius:var(--radio);border:1px solid var(--borde);box-shadow:var(--sombra);overflow:hidden;display:flex;flex-direction:column;flex:1}.card-media{position:relative;line-height:0;background:#fff}.card-media img{width:100%;height:118px;object-fit:cover;object-position:center;background:#fff}.badge{position:absolute;top:8px;left:8px;background:#fff;color:var(--cafe-dark);font-size:9.5px;font-weight:800;letter-spacing:.4px;padding:5px 8px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
 .card-body{padding:9px 10px 10px;display:flex;flex-direction:column;flex:1}
-/* FIX 1: Sin truncado A... - titulo a 2 lineas, nunca cortado */
 .card-body h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;line-height:1.12;color:var(--cafe-dark);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:40px;word-break:break-word}
 .card-body .detalle{font-size:12px;color:var(--gris);font-weight:500;margin-top:2px;line-height:1.3}
 .gramajes{display:flex;gap:4px;margin-top:8px}.gramaje{flex:1;min-width:0;border:1.5px solid var(--borde-oscuro);background:#fff;padding:0 2px;border-radius:999px;font-size:11.5px;font-weight:800;color:var(--cafe-dark);cursor:pointer;min-height:32px;white-space:nowrap}.gramaje.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
 .price{font-weight:800;font-size:18px;margin-top:8px;line-height:1;color:var(--cafe-dark)}.price small{display:block;margin-top:4px;font-size:11.5px;line-height:1.35;font-weight:600;color:var(--gris)}
-.control-row{display:flex;gap:6px;margin-top:8px;align-items:center}
-.stepper{flex:1;min-width:0;height:42px;border-radius:999px;display:grid;grid-template-columns:32px 1fr 32px;align-items:center;padding:0 5px;background:#fff;border:1.5px solid var(--cafe);overflow:hidden}
-.stepper.filled{background:var(--crema)}
-.stepper button{min-height:0 !important;height:32px;width:32px;border-radius:50%;display:grid;place-items:center;font-size:19px;font-weight:800;line-height:1;padding:0}
-.stepper button.plus{background:var(--cafe);color:#fff}
-.stepper button.minus{background:var(--cafe);color:#fff}
-.stepper button:disabled{opacity:.3;cursor:default}
-.stepper .mid{text-align:center;font-size:13.5px;font-weight:800;color:var(--cafe-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1}
-.stepper.filled .mid{font-size:16px}
-.qty-cart{min-height:0 !important;width:42px;height:42px;flex-shrink:0;border-radius:50%;background:#fff;border:2px solid var(--cafe);display:grid;place-items:center;padding:0}.qty-cart svg{width:20px;height:20px;stroke:var(--cafe);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}.qty-cart:active{background:var(--cafe)}.qty-cart:active svg{stroke:#fff}
+/* 2. Control 100% ancho tarjeta */
+.control-row{width:100%;margin-top:8px}
+/* 3. Boton Agregar solido cafe, 100% */
+.btn-add{width:100%;height:42px;min-height:42px;background:var(--cafe);color:#fff;border-radius:999px;font-size:13.5px;font-weight:800;display:grid;place-items:center;padding:0}
+.btn-add:active{background:var(--cafe-dark);transform:scale(.98)}
+/* 4. Qty control 100% - span solo numero */
+.qty-control{width:100%;height:42px;border-radius:999px;display:grid;grid-template-columns:32px 1fr 32px;align-items:center;padding:0 5px;background:var(--crema);border:1.5px solid var(--cafe);overflow:hidden}
+.qty-control button{min-height:0 !important;height:32px;width:32px;border-radius:50%;display:grid;place-items:center;font-size:19px;font-weight:800;line-height:1;padding:0;background:var(--cafe);color:#fff}
+.qty-control span{text-align:center;font-size:16px;font-weight:800;color:var(--cafe-dark);line-height:1;white-space:nowrap}
 .info-box{margin-top:20px;background:#fff;border:1px solid var(--borde);border-radius:var(--radio);padding:18px;text-align:center;margin-left:4px;margin-right:4px}.info-box b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:21px;color:var(--cafe-dark)}.info-box p{font-size:13px;line-height:1.5;color:var(--gris);margin-top:6px}.info-box a{display:inline-flex;min-height:44px;align-items:center;margin-top:10px;background:#F2EBE0;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;color:var(--cafe-dark)}
 .wa-float{position:fixed;right:10px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:25;transition:opacity .25s,transform .25s}.wa-btn{width:46px;height:46px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px rgba(37,211,102,.35);border:2px solid #fff}.wa-btn svg{width:23px;height:23px;fill:#fff}.wa-float.hide{opacity:0;pointer-events:none;transform:scale(.7)}
-/* FIX 4: Dock inferior */
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:45;background:#fff;border-top:1px solid var(--borde);padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(74,51,32,.12);transform:translateY(120%);transition:transform .35s}.dock.show{transform:translateY(0)}.dock-btn{width:100%;max-width:520px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--cafe);color:#fff;border-radius:999px;padding:0 16px;min-height:52px;font-size:14px;font-weight:800}.dock-btn span:last-child{font-weight:800;white-space:nowrap}
 .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:var(--cafe-dark);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:60;white-space:nowrap}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .pusher{position:fixed;left:50%;transform:translate(-50%,120%);bottom:calc(88px + env(safe-area-inset-bottom));z-index:40;width:calc(100% - 16px);max-width:464px;background:#fff;border:1px solid var(--borde);border-radius:16px;box-shadow:0 16px 32px rgba(74,59,42,.12);padding:14px;display:flex;gap:12px;align-items:center;transition:transform .45s}.pusher.show{transform:translate(-50%,0)}.pusher img{width:56px;height:56px;object-fit:cover;border-radius:10px}.pusher-text{flex:1}.pusher-text b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:19px;display:block;color:var(--cafe-dark)}.pusher-text span{font-size:12px;color:var(--gris)}.pusher-actions{display:flex;flex-direction:column;gap:6px}.pusher-go{background:var(--cafe);color:#fff;padding:0 14px;border-radius:10px;font-size:12px;font-weight:700;min-height:38px}.pusher-close{font-size:11px;color:var(--gris)}
@@ -67,23 +64,22 @@
 <div class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Tu carrito"><div class="cart-head"><b>Tu carrito</b><button id="btnCloseCart" aria-label="Cerrar">×</button></div><div id="cartItems"></div><div id="cartFooter"></div></div>
 
 <script>
-/* CASA CANELA v65 - Sin truncado / 500g por defecto / Beneficio bajo precio / Dock inferior */
+/* CASA CANELA v66 - Sin bolsa al lado / Control 100% / btn-add + qty-control / 500g por defecto */
 const CONFIG = { phone:"56935820289", instagram:"casacanela.foods", domain:"https://www.casacanela.cl", envioGratisDesde:30000 };
 const waBase = "https://wa.me/" + CONFIG.phone;
 const igUrl = "https://instagram.com/" + CONFIG.instagram;
 const PRODUCTOS = [
-  { id:"granola-artesanal", nombre:"Granola Clásica", badge:"MÁS VENDIDO", descripcion:"Miel y avena", imagen:"./granola-artesanal.webp?v=65", categoria:"Granola", variantes:[{gramaje:"250g",precio:4200},{gramaje:"500g",precio:6500},{gramaje:"1kg",precio:14900}] },
-  { id:"granola-cacao", nombre:"Granola Cacao", badge:"", descripcion:"Chocolate 70%", imagen:"./granola-cacao.webp?v=65", categoria:"Granola", variantes:[{gramaje:"250g",precio:6200},{gramaje:"500g",precio:6900},{gramaje:"1kg",precio:21900}] },
-  { id:"almendras", nombre:"Almendras", badge:"", descripcion:"Tostadas", imagen:"./almendras.webp?v=65", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:4500},{gramaje:"500g",precio:8500},{gramaje:"1kg",precio:15900}] },
-  { id:"nueces", nombre:"Nueces", badge:"", descripcion:"Sin cáscara", imagen:"./nueces.webp?v=65", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:5000},{gramaje:"500g",precio:9500},{gramaje:"1kg",precio:17900}] },
-  { id:"duo-artesanal", nombre:"Dúo Artesanal", badge:"", descripcion:"Pack de 2 Frascos", imagen:"./duo.webp?v=65", categoria:"Dúos y Packs", variantes:[{gramaje:"2x250g",precio:10900},{gramaje:"2x500g",precio:19900}] }
+  { id:"granola-artesanal", nombre:"Granola Clásica", badge:"MÁS VENDIDO", descripcion:"Miel y avena", imagen:"./granola-artesanal.webp?v=66", categoria:"Granola", variantes:[{gramaje:"250g",precio:4200},{gramaje:"500g",precio:6500},{gramaje:"1kg",precio:14900}] },
+  { id:"granola-cacao", nombre:"Granola Cacao", badge:"", descripcion:"Chocolate 70%", imagen:"./granola-cacao.webp?v=66", categoria:"Granola", variantes:[{gramaje:"250g",precio:6200},{gramaje:"500g",precio:6900},{gramaje:"1kg",precio:21900}] },
+  { id:"almendras", nombre:"Almendras", badge:"", descripcion:"Tostadas", imagen:"./almendras.webp?v=66", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:4500},{gramaje:"500g",precio:8500},{gramaje:"1kg",precio:15900}] },
+  { id:"nueces", nombre:"Nueces", badge:"", descripcion:"Sin cáscara", imagen:"./nueces.webp?v=66", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:5000},{gramaje:"500g",precio:9500},{gramaje:"1kg",precio:17900}] },
+  { id:"duo-artesanal", nombre:"Dúo Artesanal", badge:"", descripcion:"Pack de 2 Frascos", imagen:"./duo.webp?v=66", categoria:"Dúos y Packs", variantes:[{gramaje:"2x250g",precio:10900},{gramaje:"2x500g",precio:19900}] }
 ];
 const $ = s => document.querySelector(s);
 const fmt = n => "$" + n.toLocaleString("es-CL");
 const findProducto = id => PRODUCTOS.find(p => p.id === id);
 const parseKey = key => { const [id, idxStr] = String(key).split("::"); const p = findProducto(id); const idx = parseInt(idxStr)||0; return { p, v: p ? p.variantes[idx] : null, idx }; };
 function showToast(t){ const el=$("#toast"); el.textContent=t; el.classList.add("show"); clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove("show"),1400); }
-/* FIX 3: Beneficio por formato, sin repetir gramaje ni categoria */
 function getBeneficio(v){
   if(v.gramaje==="500g") return "Formato favorito • Mejor rendimiento";
   if(v.gramaje==="1kg") return "Mejor valor • Rinde más";
@@ -93,7 +89,7 @@ function getBeneficio(v){
 }
 
 const Store = (() => {
-  /* FIX 2: Preseleccion 500g si existe, si no primer formato */
+  /* 5. 500g por defecto si existe, si no primer formato */
   const defaultSelected = Object.fromEntries(PRODUCTOS.map(p=>{
     const idx500 = p.variantes.findIndex(v=>v.gramaje==="500g");
     return [p.id, idx500>=0 ? idx500 : 0];
@@ -148,9 +144,14 @@ const View = (() => {
       const v = p.variantes[selected[p.id]||0];
       const qty = Store.qtyEnCard(p.id);
       const variantesHtml = p.variantes.map((vv,vi)=>`<button class="gramaje ${vi===selected[p.id] ? "active" : ""}" data-variante="${vi}" data-id="${p.id}">${vv.gramaje}</button>`).join("");
-      const mid = qty===0 ? `Agregar` : qty;
-      const stepperCls = qty===0 ? `stepper` : `stepper filled`;
-      html += `<article class="card" data-id="${p.id}"><div class="card-box"><div class="card-media"><img src="${p.imagen}" alt="${p.nombre} Casa Canela Santiago" loading="lazy">${p.badge ? `<span class="badge">${p.badge}</span>` : ""}</div><div class="card-body"><h3>${p.nombre}</h3><span class="detalle">${p.descripcion}</span><div class="gramajes">${variantesHtml}</div><div class="price">${fmt(v.precio)}<small>${getBeneficio(v)}</small></div><div class="control-row"><div class="${stepperCls}"><button class="minus" data-qty-card="${p.id}" data-delta="-1" ${qty===0 ? "disabled" : ""} aria-label="Quitar">−</button><span class="mid">${mid}</span><button class="plus" data-qty-card="${p.id}" data-delta="1" aria-label="Agregar">+</button></div><button class="qty-cart" data-open-cart aria-label="Ver carrito"><svg viewBox="0 0 24 24"><path d="M6 7h12l1 13H5L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg></button></div></div></div></article>`;
+      /* 3 y 4. Control 100%: btn-add si 0, qty-control si >0, span solo numero */
+      let controlHtml = "";
+      if(qty===0){
+        controlHtml = `<button class="btn-add" data-add="${p.id}">Agregar</button>`;
+      } else {
+        controlHtml = `<div class="qty-control"><button data-qty-card="${p.id}" data-delta="-1" aria-label="Quitar">−</button><span>${qty}</span><button data-qty-card="${p.id}" data-delta="1" aria-label="Agregar">+</button></div>`;
+      }
+      html += `<article class="card" data-id="${p.id}"><div class="card-box"><div class="card-media"><img src="${p.imagen}" alt="${p.nombre} Casa Canela Santiago" loading="lazy">${p.badge ? `<span class="badge">${p.badge}</span>` : ""}</div><div class="card-body"><h3>${p.nombre}</h3><span class="detalle">${p.descripcion}</span><div class="gramajes">${variantesHtml}</div><div class="price">${fmt(v.precio)}<small>${getBeneficio(v)}</small></div><div class="control-row">${controlHtml}</div></div></div></article>`;
     });
     html += `</div>`;
     $("#tienda").innerHTML = html;
@@ -165,7 +166,6 @@ const View = (() => {
     countEl.classList.remove("pop"); void countEl.offsetWidth; if(count>0) countEl.classList.add("pop");
     $("#shipFill").style.width = pct + "%";
     $("#shipText").innerHTML = total===0 ? `Envío gratis sobre $30.000 • @casacanela.foods` : total<CONFIG.envioGratisDesde ? `Te faltan ${fmt(falta)} para envío gratis • @casacanela.foods` : `¡Tienes envío gratis! 🎉 • @casacanela.foods`;
-    /* FIX 4: Dock */
     const dock = $("#dock");
     const hasItems = count>0;
     dock.classList.toggle("show", hasItems);
@@ -215,9 +215,9 @@ const Controller = (() => {
   function init(){
     Store.subscribe(()=>View.render());
     document.addEventListener("click", e=>{
-      const oc = e.target.closest("[data-open-cart]"); if(oc){ abrirCarrito(); return; }
       const vb = e.target.closest("[data-variante]"); if(vb){ Store.setVariante(vb.dataset.id, parseInt(vb.dataset.variante)); return; }
-      const qb = e.target.closest("[data-qty-card]"); if(qb){ const id = qb.dataset.qtyCard; const wasZero = Store.qtyEnCard(id)===0; Store.changeQtyCard(id, parseInt(qb.dataset.delta)); if(wasZero && parseInt(qb.dataset.delta)>0){ View.pintarPusher(id); const p=findProducto(id); showToast(p.nombre+" agregado ✓"); } return; }
+      const ab = e.target.closest("[data-add]"); if(ab){ Store.add(ab.dataset.add); View.pintarPusher(ab.dataset.add); const p=findProducto(ab.dataset.add); showToast(p.nombre+" agregado ✓"); return; }
+      const qb = e.target.closest("[data-qty-card]"); if(qb){ Store.changeQtyCard(qb.dataset.qtyCard, parseInt(qb.dataset.delta)); return; }
       const cb = e.target.closest("[data-cart-qty]"); if(cb){ Store.changeQty(cb.dataset.cartQty, parseInt(cb.dataset.delta)); return; }
       const rb = e.target.closest("[data-remove]"); if(rb){ Store.remove(rb.dataset.remove); return; }
       const chip = e.target.closest(".chip"); if(chip){ document.querySelectorAll(".chip").forEach(b=>b.classList.toggle("active", b===chip)); Store.setCategoria(chip.dataset.categoria); return; }
