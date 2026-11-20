@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://www.casacanela.cl/granola-artesanal.webp">
 <meta property="og:url" content="https://www.casacanela.cl/">
 <meta name="twitter:card" content="summary_large_image">
-<!-- SEO ESTATICO v67/v68: JSON-LD escrito directo en HTML, sin JavaScript - INTACTO -->
+<!-- SEO ESTATICO: JSON-LD escrito directo en HTML, sin JavaScript - INTACTO -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,44 +59,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--fondo:#FAF7F0;--card:#FFFFFF;--cafe:#6E4E33;--cafe-dark:#4A3320;--cafe-suave:#7A6550;--gris:#6B5846;--canela:#C89B6A;--borde:#EBDDCB;--borde-oscuro:#D9C6AC;--crema:#F3EBDD;--wa:#25D366;--radio:16px;--sombra:0 6px 18px rgba(110,78,51,.07)}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--fondo);color:var(--cafe);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:calc(110px + env(safe-area-inset-bottom));transition:padding-bottom .25s}body.has-dock{padding-bottom:calc(180px + env(safe-area-inset-bottom))}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit;min-height:44px}button:focus-visible,a:focus-visible{outline:2px solid var(--cafe);outline-offset:2px;border-radius:8px}img{max-width:100%;display:block}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--fondo);color:var(--cafe);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:calc(110px + env(safe-area-inset-bottom));transition:padding-bottom .25s;overflow-x:hidden}body.has-dock{padding-bottom:calc(180px + env(safe-area-inset-bottom))}a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit;min-height:44px}button:focus-visible,a:focus-visible{outline:2px solid var(--cafe);outline-offset:2px;border-radius:8px}img{max-width:100%;display:block}
 .sticky-top{position:sticky;top:0;z-index:30;background:var(--fondo)}
 .omni-bar{background:var(--cafe);color:#fff;text-align:center;font-size:11px;letter-spacing:.3px;padding:6px 12px 7px;padding-top:calc(6px + env(safe-area-inset-top));line-height:1.35;font-weight:600}.omni-bar a{color:#E8DCC2;text-decoration:underline;text-underline-offset:2px}.omni-bar .barra{height:3px;background:rgba(255,255,255,.25);border-radius:999px;margin:5px auto 0;max-width:160px;overflow:hidden}.omni-bar .fill{height:100%;background:#fff;border-radius:999px;transition:width .4s;width:0%}
 .site-header{background:rgba(250,247,240,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--borde)}
-/* 1. Header limpio: solo logo centrado */
-.nav{max-width:520px;margin:0 auto;height:60px;padding:0 10px;display:flex;align-items:center;justify-content:center}
-.logo{text-align:center;line-height:1;margin:0}.logo a{display:block}.logo strong{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;letter-spacing:2.6px;padding-left:2.6px;color:var(--cafe-dark)}.logo small{display:block;margin-top:2px;font-size:9px;letter-spacing:3.6px;padding-left:3.6px;color:var(--cafe-suave);font-weight:600}
+/* v70: Header con carrito, logo centrado de verdad */
+.nav{max-width:520px;margin:0 auto;height:60px;padding:0 10px;display:flex;align-items:center;justify-content:space-between}
+.nav-spacer{width:44px;height:44px;flex-shrink:0}
+.icon-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;position:relative;background:transparent;flex-shrink:0}.icon-btn:active{background:#F0E7D8}.icon-btn svg{width:24px;height:24px;stroke:var(--cafe-dark);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.cart-count{position:absolute;top:2px;right:2px;background:var(--cafe);color:#fff;font-size:10px;font-weight:800;min-width:18px;height:18px;padding:0 4px;border-radius:999px;display:grid;place-items:center}.cart-count:empty{display:none}.cart-count.pop{animation:pop .3s}@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+.logo{text-align:center;line-height:1;margin:0;flex:1}.logo a{display:block}.logo strong{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:23px;letter-spacing:2.6px;padding-left:2.6px;color:var(--cafe-dark)}.logo small{display:block;margin-top:2px;font-size:9px;letter-spacing:3.6px;padding-left:3.6px;color:var(--cafe-suave);font-weight:600}
 .chips{background:var(--fondo);padding:9px 6px 9px;display:flex;gap:6px;flex-wrap:nowrap;overflow:hidden}.chip{flex:1 1 0;min-width:0;min-height:36px;padding:0 6px;border-radius:999px;background:#fff;border:1.5px solid var(--borde-oscuro);font-size:12.5px;font-weight:700;color:var(--cafe-dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chip.active{background:var(--cafe);color:#fff;border-color:var(--cafe)}
-.wrap{max-width:520px;margin:0 auto;padding:8px 2px 14px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;align-items:start}.card{background:transparent;text-align:left;display:flex;flex-direction:column;height:100%}.card-box{background:var(--card);border-radius:var(--radio);border:1px solid var(--borde);box-shadow:var(--sombra);overflow:hidden;display:flex;flex-direction:column;flex:1}.card-media{position:relative;line-height:0;background:#fff}.card-media img{width:100%;height:118px;object-fit:cover;object-position:center;background:#fff}.badge{position:absolute;top:8px;left:8px;background:#fff;color:var(--cafe-dark);font-size:9.5px;font-weight:800;letter-spacing:.4px;padding:5px 8px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.card-body{padding:9px 10px 10px;display:flex;flex-direction:column;flex:1}
+.wrap{max-width:520px;margin:0 auto;padding:8px 2px 14px;min-width:0}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;align-items:start}
+.card{background:transparent;text-align:left;display:flex;flex-direction:column;height:100%;min-width:0}.card-box{background:var(--card);border-radius:var(--radio);border:1px solid var(--borde);box-shadow:var(--sombra);overflow:hidden;display:flex;flex-direction:column;flex:1;min-width:0}.card-media{position:relative;line-height:0;background:#fff}.card-media img{width:100%;height:118px;object-fit:cover;object-position:center;background:#fff}.badge{position:absolute;top:8px;left:8px;background:#fff;color:var(--cafe-dark);font-size:9.5px;font-weight:800;letter-spacing:.4px;padding:5px 8px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.card-body{padding:9px 10px 10px;display:flex;flex-direction:column;flex:1;min-width:0}
 .card-body h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:18px;line-height:1.12;color:var(--cafe-dark);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:40px;word-break:break-word}
 .card-body .detalle{font-size:12px;color:var(--gris);font-weight:500;margin-top:2px;line-height:1.3}
-/* 2. Variantes tipo Tabs subrayados, cero bordes de boton */
-.gramajes{display:flex;gap:0;margin-top:8px;border-bottom:1px solid var(--borde)}
-.gramaje{flex:1;min-width:0;background:transparent;border:0;border-radius:0;padding:6px 4px;font-size:12px;font-weight:600;color:var(--cafe-suave);cursor:pointer;min-height:32px;white-space:nowrap}
+.gramajes{display:flex;gap:0;margin-top:8px;border-bottom:1px solid var(--borde);min-width:0}
+.gramaje{flex:1 1 0;min-width:0;background:transparent;border:0;border-radius:0;padding:6px 2px;font-size:12px;font-weight:600;color:var(--cafe-suave);cursor:pointer;min-height:32px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:center}
 .gramaje.active{background:transparent;color:var(--cafe-dark);font-weight:800;border-bottom:2px solid var(--cafe);margin-bottom:-1px}
-.price{font-weight:800;font-size:18px;margin-top:8px;line-height:1;color:var(--cafe-dark)}
-/* 3. Texto debajo del precio en 1 sola linea */
-.price small{display:block;margin-top:4px;font-size:11.5px;line-height:1.35;font-weight:600;color:var(--gris);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.control-row{width:100%;margin-top:8px}
+.price{font-weight:800;font-size:18px;margin-top:8px;line-height:1;color:var(--cafe-dark);min-width:0}
+.price small{display:block;margin-top:4px;font-size:11.5px;line-height:1.35;font-weight:600;color:var(--gris);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.control-row{width:100%;margin-top:8px;min-width:0}
 .btn-add{width:100%;height:42px;min-height:42px;background:var(--cafe);color:#fff;border-radius:999px;font-size:13.5px;font-weight:800;display:grid;place-items:center;padding:0}
 .btn-add:active{background:var(--cafe-dark);transform:scale(.98)}
-.qty-control{width:100%;height:42px;border-radius:999px;display:grid;grid-template-columns:32px 1fr 32px;align-items:center;padding:0 5px;background:var(--crema);border:1.5px solid var(--cafe);overflow:hidden}
+.qty-control{width:100%;height:42px;border-radius:999px;display:grid;grid-template-columns:32px minmax(0,1fr) 32px;align-items:center;padding:0 5px;background:var(--crema);border:1.5px solid var(--cafe);overflow:hidden}
 .qty-control button{min-height:0 !important;height:32px;width:32px;border-radius:50%;display:grid;place-items:center;font-size:19px;font-weight:800;line-height:1;padding:0;background:var(--cafe);color:#fff}
-.qty-control span{text-align:center;font-size:16px;font-weight:800;color:var(--cafe-dark);line-height:1;white-space:nowrap}
+.qty-control span{text-align:center;font-size:16px;font-weight:800;color:var(--cafe-dark);line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .info-box{margin-top:20px;background:#fff;border:1px solid var(--borde);border-radius:var(--radio);padding:18px;text-align:center;margin-left:4px;margin-right:4px}.info-box b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:21px;color:var(--cafe-dark)}.info-box p{font-size:13px;line-height:1.5;color:var(--gris);margin-top:6px}.info-box a{display:inline-flex;min-height:44px;align-items:center;margin-top:10px;background:#F2EBE0;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;color:var(--cafe-dark)}
 .wa-float{position:fixed;right:10px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:25;transition:opacity .25s,transform .25s}.wa-btn{width:46px;height:46px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 24px rgba(37,211,102,.35);border:2px solid #fff}.wa-btn svg{width:23px;height:23px;fill:#fff}.wa-float.hide{opacity:0;pointer-events:none;transform:scale(.7)}
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:45;background:#fff;border-top:1px solid var(--borde);padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(74,51,32,.12);transform:translateY(120%);transition:transform .35s}.dock.show{transform:translateY(0)}.dock-btn{width:100%;max-width:520px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--cafe);color:#fff;border-radius:999px;padding:0 16px;min-height:52px;font-size:14px;font-weight:800}.dock-btn span:last-child{font-weight:800;white-space:nowrap}
 .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:var(--cafe-dark);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:60;white-space:nowrap}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .pusher{position:fixed;left:50%;transform:translate(-50%,120%);bottom:calc(88px + env(safe-area-inset-bottom));z-index:40;width:calc(100% - 16px);max-width:464px;background:#fff;border:1px solid var(--borde);border-radius:16px;box-shadow:0 16px 32px rgba(74,59,42,.12);padding:14px;display:flex;gap:12px;align-items:center;transition:transform .45s}.pusher.show{transform:translate(-50%,0)}.pusher img{width:56px;height:56px;object-fit:cover;border-radius:10px}.pusher-text{flex:1}.pusher-text b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:19px;display:block;color:var(--cafe-dark)}.pusher-text span{font-size:12px;color:var(--gris)}.pusher-actions{display:flex;flex-direction:column;gap:6px}.pusher-go{background:var(--cafe);color:#fff;padding:0 14px;border-radius:10px;font-size:12px;font-weight:700;min-height:38px}.pusher-close{font-size:11px;color:var(--gris)}
 .cart-overlay{position:fixed;inset:0;background:rgba(74,51,32,.45);z-index:50;opacity:0;pointer-events:none;transition:opacity .3s}.cart-overlay.open{opacity:1;pointer-events:auto}.cart-drawer{position:fixed;left:50%;transform:translate(-50%,100%);bottom:0;z-index:51;width:100%;max-width:520px;background:#fff;border-radius:20px 20px 0 0;padding:20px 20px calc(24px + env(safe-area-inset-bottom));transition:transform .4s;max-height:86vh;overflow-y:auto}.cart-drawer.open{transform:translate(-50%,0)}.cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.cart-head b{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--cafe-dark)}.cart-item{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--borde)}.cart-item img{width:56px;height:56px;object-fit:cover;border-radius:10px}.cart-item-info{flex:1;text-align:left}.cart-item-info b{font-size:13px;font-weight:600;display:block;color:var(--cafe-dark)}.cart-item-info span{font-size:12px;color:var(--gris)}.qty{display:flex;align-items:center;gap:8px;margin-top:8px}.qty button{min-height:0;height:36px;width:36px;border-radius:50%;background:#F2EBE0;font-size:18px;font-weight:700;color:var(--cafe-dark);display:grid;place-items:center;padding:0}.qty span{font-size:13px;font-weight:700;min-width:14px;text-align:center;color:var(--cafe-dark)}.cart-item-total{font-size:13px;font-weight:800;text-align:right;color:var(--cafe-dark)}.cart-remove{font-size:12px;color:var(--gris);text-decoration:underline}.cart-empty{text-align:center;padding:30px 0;color:var(--gris);font-size:13px;line-height:1.5}.cart-summary{margin-top:16px}.cart-row{display:flex;justify-content:space-between;font-size:13px;color:var(--gris);padding:4px 0}.cart-row.total{font-size:16px;font-weight:800;color:var(--cafe-dark);border-top:1px solid var(--borde);padding-top:12px;margin-top:8px}.cart-free{font-size:11px;color:var(--gris);text-align:center;margin-top:8px}.btn-wa{width:100%;background:var(--wa);color:#fff;font-size:15px;font-weight:800;min-height:52px;border-radius:12px;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:8px}.btn-wa svg{width:18px;height:18px;fill:#fff}.btn-clear{width:100%;text-align:center;font-size:12px;color:var(--gris);margin-top:10px;text-decoration:underline}
-@media(min-width:640px){.nav,.wrap{max-width:1100px}.wrap{padding:20px 12px}.grid{grid-template-columns:repeat(3,1fr);gap:10px}.card-media img{height:170px}.chips{max-width:1100px;margin:0 auto}.chip{font-size:13px}}@media(min-width:1024px){.grid{grid-template-columns:repeat(4,1fr);gap:12px}.wrap{padding:24px 20px}}
+@media(min-width:640px){.nav,.wrap{max-width:1100px}.wrap{padding:20px 12px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.card-media img{height:170px}.chips{max-width:1100px;margin:0 auto}.chip{font-size:13px}}@media(min-width:1024px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.wrap{padding:24px 20px}}
 </style>
 </head>
 <body>
 <div class="sticky-top">
 <div class="omni-bar"><span id="shipText">Envío gratis sobre $30.000 • @casacanela.foods</span><div class="barra"><div class="fill" id="shipFill"></div></div></div>
-<header class="site-header"><nav class="nav"><h1 class="logo"><a href="https://www.casacanela.cl/"><strong>CASA CANELA</strong><small>ARTESANAL • CHILE</small></a></h1></nav></header>
+<header class="site-header"><nav class="nav"><span class="nav-spacer" aria-hidden="true"></span><h1 class="logo"><a href="https://www.casacanela.cl/"><strong>CASA CANELA</strong><small>ARTESANAL • CHILE</small></a></h1><button class="icon-btn" id="btnCart" aria-label="Ver carrito"><svg viewBox="0 0 24 24"><path d="M6 7h12l1 13H5L6 7Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><span class="cart-count" id="cartCount"></span></button></nav></header>
 <div class="chips" id="chips"><button class="chip active" data-categoria="Todos">Todos</button><button class="chip" data-categoria="Granola">Granola</button><button class="chip" data-categoria="Frutos Secos">Frutos</button><button class="chip" data-categoria="Dúos y Packs">Dúos</button></div>
 </div>
 <main class="wrap"><div id="tienda"></div><section class="info-box"><b>★★★★★ 5.0 en Google</b><p>“La mejor granola de Santiago, llega al tiro y es demasiado rica.”<br>— Clienta de Casa Canela</p><a href="https://www.google.com/maps/search/Casa+Canela+Santiago" target="_blank" rel="noopener">Ver reseñas en Google →</a></section><section class="info-box"><p>¿Nos viste en Instagram o en Google?<br>Es la misma tienda, mismo precio.</p><a id="igLinkBottom" href="#" target="_blank" rel="noopener">@casacanela.foods → Seguir</a></section></main>
@@ -108,16 +111,16 @@
 <div class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Tu carrito"><div class="cart-head"><b>Tu carrito</b><button id="btnCloseCart" aria-label="Cerrar">×</button></div><div id="cartItems"></div><div id="cartFooter"></div></div>
 
 <script>
-/* CASA CANELA v68 - Header limpio / Tabs subrayados / Beneficio 1 linea / SEO head intacto */
+/* CASA CANELA v70 - Header con carrito + contador / Logo centrado / Dock / Fix grid v69 */
 const CONFIG = { phone:"56935820289", instagram:"casacanela.foods", domain:"https://www.casacanela.cl", envioGratisDesde:30000 };
 const waBase = "https://wa.me/" + CONFIG.phone;
 const igUrl = "https://instagram.com/" + CONFIG.instagram;
 const PRODUCTOS = [
-  { id:"granola-artesanal", nombre:"Granola Clásica", badge:"MÁS VENDIDO", descripcion:"Miel y avena", imagen:"./granola-artesanal.webp?v=68", categoria:"Granola", variantes:[{gramaje:"250g",precio:4200},{gramaje:"500g",precio:6500},{gramaje:"1kg",precio:14900}] },
-  { id:"granola-cacao", nombre:"Granola Cacao", badge:"", descripcion:"Chocolate 70%", imagen:"./granola-cacao.webp?v=68", categoria:"Granola", variantes:[{gramaje:"250g",precio:6200},{gramaje:"500g",precio:6900},{gramaje:"1kg",precio:21900}] },
-  { id:"almendras", nombre:"Almendras", badge:"", descripcion:"Tostadas", imagen:"./almendras.webp?v=68", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:4500},{gramaje:"500g",precio:8500},{gramaje:"1kg",precio:15900}] },
-  { id:"nueces", nombre:"Nueces", badge:"", descripcion:"Sin cáscara", imagen:"./nueces.webp?v=68", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:5000},{gramaje:"500g",precio:9500},{gramaje:"1kg",precio:17900}] },
-  { id:"duo-artesanal", nombre:"Dúo Artesanal", badge:"", descripcion:"Pack de 2 Frascos", imagen:"./duo.webp?v=68", categoria:"Dúos y Packs", variantes:[{gramaje:"2x250g",precio:10900},{gramaje:"2x500g",precio:19900}] }
+  { id:"granola-artesanal", nombre:"Granola Clásica", badge:"MÁS VENDIDO", descripcion:"Miel y avena", imagen:"./granola-artesanal.webp?v=70", categoria:"Granola", variantes:[{gramaje:"250g",precio:4200},{gramaje:"500g",precio:6500},{gramaje:"1kg",precio:14900}] },
+  { id:"granola-cacao", nombre:"Granola Cacao", badge:"", descripcion:"Chocolate 70%", imagen:"./granola-cacao.webp?v=70", categoria:"Granola", variantes:[{gramaje:"250g",precio:6200},{gramaje:"500g",precio:6900},{gramaje:"1kg",precio:21900}] },
+  { id:"almendras", nombre:"Almendras", badge:"", descripcion:"Tostadas", imagen:"./almendras.webp?v=70", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:4500},{gramaje:"500g",precio:8500},{gramaje:"1kg",precio:15900}] },
+  { id:"nueces", nombre:"Nueces", badge:"", descripcion:"Sin cáscara", imagen:"./nueces.webp?v=70", categoria:"Frutos Secos", variantes:[{gramaje:"250g",precio:5000},{gramaje:"500g",precio:9500},{gramaje:"1kg",precio:17900}] },
+  { id:"duo-artesanal", nombre:"Dúo Artesanal", badge:"", descripcion:"Pack de 2 Frascos", imagen:"./duo.webp?v=70", categoria:"Dúos y Packs", variantes:[{gramaje:"2x250g",precio:10900},{gramaje:"2x500g",precio:19900}] }
 ];
 const $ = s => document.querySelector(s);
 const fmt = n => "$" + n.toLocaleString("es-CL");
@@ -131,7 +134,6 @@ function getBeneficio(v){
   if(v.gramaje==="2x500g") return "Pack familiar • Mejor precio";
   return "Ideal para probar • Frescura diaria";
 }
-
 const Store = (() => {
   const defaultSelected = Object.fromEntries(PRODUCTOS.map(p=>{
     const idx500 = p.variantes.findIndex(v=>v.gramaje==="500g");
@@ -177,7 +179,6 @@ const Store = (() => {
     getVariante(p){ return p.variantes[state.selected[p.id]||0]; }
   };
 })();
-
 const View = (() => {
   function pintarProductos(){
     const { categoria, selected } = Store.getState();
@@ -202,10 +203,12 @@ const View = (() => {
     const total = Store.totalPrecio();
     const falta = CONFIG.envioGratisDesde - total;
     const pct = Math.min(100, Math.round(total/CONFIG.envioGratisDesde*100));
+    const countEl = $("#cartCount");
+    const count = Store.totalItems();
+    if(countEl){ countEl.textContent = count>0 ? count : ""; countEl.classList.remove("pop"); void countEl.offsetWidth; if(count>0) countEl.classList.add("pop"); }
     $("#shipFill").style.width = pct + "%";
     $("#shipText").innerHTML = total===0 ? `Envío gratis sobre $30.000 • @casacanela.foods` : total<CONFIG.envioGratisDesde ? `Te faltan ${fmt(falta)} para envío gratis • @casacanela.foods` : `¡Tienes envío gratis! 🎉 • @casacanela.foods`;
     const dock = $("#dock");
-    const count = Store.totalItems();
     const hasItems = count>0;
     dock.classList.toggle("show", hasItems);
     document.body.classList.toggle("has-dock", hasItems);
@@ -239,7 +242,6 @@ const View = (() => {
   function render(){ pintarProductos(); pintarBarra(); pintarCarrito(); }
   return { render, pintarProductos, pintarBarra, pintarCarrito, pintarPusher };
 })();
-
 const Controller = (() => {
   function abrirCarrito(){ $("#pusher").classList.remove("show"); View.pintarCarrito(); $("#cartOverlay").classList.add("open"); $("#cartDrawer").classList.add("open"); }
   function cerrarCarrito(){ $("#cartOverlay").classList.remove("open"); $("#cartDrawer").classList.remove("open"); }
@@ -261,6 +263,7 @@ const Controller = (() => {
       const rb = e.target.closest("[data-remove]"); if(rb){ Store.remove(rb.dataset.remove); return; }
       const chip = e.target.closest(".chip"); if(chip){ document.querySelectorAll(".chip").forEach(b=>b.classList.toggle("active", b===chip)); Store.setCategoria(chip.dataset.categoria); return; }
     });
+    $("#btnCart").addEventListener("click", abrirCarrito);
     $("#dockBtn").addEventListener("click", abrirCarrito);
     $("#btnCloseCart").addEventListener("click", cerrarCarrito);
     $("#cartOverlay").addEventListener("click", cerrarCarrito);
